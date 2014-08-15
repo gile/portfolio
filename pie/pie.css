@@ -1,0 +1,185 @@
+
+/* global CSS settings for this map type */
+.PIE_MAP {
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.PIE_MAP .widget_frame {
+    border-bottom: 1px solid #939598;
+    border-right: 1px solid #939598;
+    border-left: 1px solid #939598;
+    cursor: pointer;
+}
+
+.PIE_MAP .canvas {
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+/************************  [GE]  ******************************/
+.PIE_MAP .title {
+    text-align: center;
+    font-size: 10px;
+    color: #939598;
+    opacity: 0.6;
+}
+
+.PIE_MAP .background {
+  fill: white;
+  pointer-events: all;
+}
+
+.PIE_MAP #states {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.PIE_MAP .country {
+    stroke: white;
+
+ /* Dark Grey */
+    /**/
+    fill: #aaa;
+    /**/
+
+ /* Grey */
+    /**
+ fill: #939598;
+
+/**/
+
+/* Yellow */
+    /**
+fill:  #f4af02;
+/**/
+
+/* Blue */
+/**
+fill:   #0063d1;
+/**/
+
+/* Green */
+/**
+fill: #87b716;
+/**/
+
+/* Red */
+/**
+fill: #e54438;
+/**/
+
+/* Brown */
+/**/
+/** fill: #6B4513;
+/**
+  fill:  #6F4E37;
+    /**/
+
+  stroke-width: 0.5;
+  opacity: 1;
+}
+
+.PIE_MAP .highlight {
+    fill: #f4af02;
+    stroke-width: 1;
+    opacity: 0.8;
+}
+
+.PIE_MAP .hide {
+  display: none;
+}
+
+.PIE_MAP .infoDisplay {
+    background-color: #ffffff;
+    border: 1px solid gray;
+    font: 10px;
+    height: 300px;
+    text-shadow: none;
+    width: 450px;
+}
+
+.PIE_MAP .big_pie_chart_container {
+    pointer-events: none;
+}
+
+.PIE_MAP .big_pie_chart_container .value_container {
+    width: 100px;
+    height: 100px;
+}
+
+/* center labels */
+.PIE_MAP .big_pie_chart_container .label{
+    fill: grey;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+/* center values */
+.PIE_MAP .big_pie_chart_container .total{
+    width: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    /*fill: #8B4513;*/
+    fill: #494949;
+    letter-spacing: 0.05em; /* Kerning */
+}
+
+.PIE_MAP .big_pie_chart_container .total.small {
+    font-size: 10px;
+}
+
+
+/* PERCENTAGE LABELS AROUND BIG PIE */
+.PIE_MAP .big_pie_chart_container .value_rect {
+    stroke: black;
+    fill: white;
+}
+
+.PIE_MAP .big_pie_chart_container .percent_label {
+    font-variant:small-caps;
+}
+
+/* side label percentage -my brands-*/
+.PIE_MAP .big_pie_chart_container .value{
+    font-size: 12px;
+    font-weight: bold;
+    fill: #679700;
+}​
+
+/* side label percentage -other brands- (not sure why this is needed - but it is */
+.PIE_MAP .big_pie_chart_container .my_label {
+     fill: #f00;
+ }
+
+/* side label percentage -other brands- */
+.PIE_MAP .big_pie_chart_container .value.others_label {
+    fill: #555;
+}
+
+.PIE_MAP .tooltip_text {
+
+}
+
+.PIE_MAP .tooltip_plate {
+   position: fixed;
+   text-overflow: ellipsis;
+   opacity: 0.85;
+   z-index: 9999;
+   pointer-events: none;
+   background-color: #679700; /*#D2691E;*/
+   /**/
+   color: #FFFAFC;
+   border-color: #FFFAFC;
+   /*/
+    color: #679700;
+    border-color: #679700;
+   /**/
+   border: 2px solid;
+   text-align: center;
+   padding: 5px;
+   padding-top: 5px;
+   padding-bottom: 7px;
+
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}

@@ -1,0 +1,222 @@
+/* global CSS settings for this map type */
+.CHORO {
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.CHORO .container {
+    /*margin-left: 20px;
+    margin-top: 20px;*/
+}
+
+.CHORO .background {
+    fill: white;
+}
+
+
+/************************************************************/
+/*********************  LEGEND   ****************************/
+/************************************************************/
+.CHORO .legend_background {
+    fill: white;
+}
+
+.CHORO .legend_bar {
+    stroke-width: 0.5;
+}
+
+.CHORO.axis {
+    shape-rendering: crispEdges;
+}
+
+.CHORO .axis line, .CHORO .axis path {
+    fill: none;
+    stroke: #000;
+}
+
+.CHORO .axis text {
+    font-size: 8pt;
+}
+
+/* the legend vertical line */
+.CHORO .domain {
+    stroke-width: 0.2;
+    stroke: #666;
+}
+
+/* the legend ticks */
+.CHORO .tick {
+    stroke-width: 0.3;
+    stroke: #666;
+}
+
+.CHORO .legend_text {
+    font-size: 7pt;
+}
+
+/************************************************************/
+/*********************  MAP   ****************************/
+/************************************************************/
+.CHORO .states_container {
+    display: none;
+}
+
+.CHORO .states_background {
+    fill: grey;
+}
+
+.CHORO .state {
+    stroke: grey;
+}
+
+.CHORO .highlight {
+    stroke: #444;
+    stroke-width: 2.5;
+}
+
+/************************************************************/
+/*********************  CHART   ****************************/
+/************************************************************/
+.CHORO .chart_container_background {
+
+}
+
+.CHORO .chart_background {
+    fill: white;
+}
+
+/*****************  BARS  *****************/
+.CHORO .bar_name {
+    font-size: 6pt;
+}
+
+.CHORO .bar_name.wide {
+    font-size: 7pt;
+}
+
+.CHORO .barLabel {
+    font-size: 7pt;
+}
+
+.CHORO .barLabel.wide {
+    font-size: 8pt;
+}
+
+/*****************  MARKER  *****************/
+.CHORO .gap_marker {
+    stroke-width: 1;
+}
+
+.CHORO .gap_marker.wide {
+    stroke-width: 2;
+}
+
+.CHORO .gapLabel {
+    font-size: 7pt;
+ }
+
+.CHORO .gapLabel.wide {
+    font-size: 8pt;
+}
+
+/*****************  TITLE  *****************/
+.CHORO .chart_title {
+    font-size: 11pt;
+}
+
+/*****************  STATE NAME  *****************/
+.CHORO .state_label {
+    font-size: 8pt;
+    letter-spacing:1.5px;
+}
+
+/*****************  Axis  *****************/
+.CHORO #x_axis_chart {
+    stroke-width: 0.5;
+    stroke: #666;
+}
+
+.CHORO #y_axis_chart {
+    stroke-width: 0.5;
+    stroke: #666;
+}
+
+/************************************************************/
+/*********************  BUTTONS   ****************************/
+/************************************************************/
+.CHORO .map_button_container {
+    position: relative;
+    z-index: 9999;
+}
+
+.CHORO .map_button_title {
+    font-size: 10px;
+    color: steelblue;
+}
+
+.CHORO .map_button_p {
+    /**
+    float: left;
+    /**/
+    display: block;
+    height: 20px;
+    padding-top: 20px;
+    margin: 0;
+    /*background-color: grey;*/
+    text-align: center;
+}
+
+.CHORO .map_button {
+    color: grey;
+    cursor: pointer;
+    font-size: 10px;
+    font-variant:small-caps;
+}
+
+.CHORO .map_button.wide {
+    font-size: 13px;
+}
+
+.CHORO .map_button_selected {
+    color: #87b716;
+}
+
+/************************************************************/
+/*********************  TOOLTIP   ****************************/
+/************************************************************/
+
+.CHORO .tooltip_text,  .CHORO .tooltip_text span b {
+    text-align: left;
+    font-size: 8px;
+    color: #666;
+}
+
+.CHORO .tooltip_text span.selected b {
+    color: #87b716;
+}
+
+.CHORO .tooltip_text.wide,  .CHORO .tooltip_text.wide span b {
+    font-size: 10px;
+}
+
+
+.CHORO .tooltip_plate {
+    position: fixed;
+    text-overflow: ellipsis;
+    opacity: 0.85;
+    z-index: 9999;
+    pointer-events: none;
+    background-color: #FFFAFC; /*#D2691E;*/
+    border-color: #87b716;
+    border: 2px solid;
+    text-align: center;
+    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.CHORO .hide {
+    display: none;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+#container {
+	width: 1400px;
+	height: 600px;
+	border: 1px solid grey;
+	margin: 40px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="choro.css">
+
+<body>
+<div id="container" class="CHORO"></div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://localhost:88/utility.functions.js"></script>
+<script src="choro.js"></script>
+<script src="http://localhost:88/us-states.js"></script>
+<script>
+	$( document ).ready(function() {
+	    console.log( "ready!" );
+
+	    var parent = $('#container').get(0);
+
+	    var features = US_STATES.features;
+
+	    var growthScale = d3.scale.linear().domain([0,1]).range([-1, 1]);
+
+	    var inputData = {
+	    	metadata: {
+	    		"state": {index: 0},
+	    		"myGrowth": {index: 1},
+	    		"marketGrowth": {index: 2},
+	    		"gap": {index: 3},
+	    		"byIndex": {0: {title: "state"}, 1: {title: "myGrowth"}, 2: {title: "marketgrowth"}, 3: {title: "gap"}}
+	    	},
+	    	data: []
+	    };
+
+	    for (var i=0; i<features.length; ++i) {
+	    	var myGrowth = growthScale(Math.random()),
+	    		marketGrowth = growthScale(Math.random()) / 10,
+	    		gap = myGrowth - marketGrowth;
+
+	    	var entry = [
+	    		features[i].properties.name, // state name
+	    		{data: myGrowth, text: myGrowth.toFixed(2) + '%'},
+	    		{data: marketGrowth, text: marketGrowth.toFixed(2) + '%'},
+	    		{data: gap, text: gap.toFixed(2) + '%'}
+	    	];
+
+	    	inputData.data.push(entry);
+	    }
+
+	    CHORO_MAP_EXTENSION.createChoroMap("choro", inputData, parent, null, {});
+	});
+</script>
+

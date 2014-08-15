@@ -1,0 +1,235 @@
+.ARC_MAP  {
+   font-family: Tahoma, Arial, sans-serif;
+}
+
+.ARC_MAP .canvas {
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+/************************  [GE]  ******************************/
+.ARC_MAP .background {
+  fill: white;
+  pointer-events: all;
+}
+
+.ARC_MAP #states {
+  fill: #aaa;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.ARC_MAP .country {
+  /*fill: #DEB887;*/
+  /*fill: #939598;*/
+  stroke: white ;
+  stroke-width: 0.5;
+  opacity: 1;
+}
+
+.ARC_MAP .country_dest {
+    fill: steelblue;
+    opacity: 0.6;
+}
+
+.ARC_MAP .country_site {
+    fill: #f4af02;
+    opacity: 0.7;
+}
+
+.ARC_MAP .arc {
+    pointer-events: none;
+    stroke: #666;
+    stroke-width: 2.5;
+    fill: none;
+    opacity: 0.4;
+}
+
+.ARC_MAP .hide {
+    display: none;
+}
+
+.ARC_MAP .transparent {
+    opacity: 0.35;
+}
+
+.ARC_MAP .highlight {
+    /*stroke: lightsteelblue;*/
+    stroke-width: 1;
+    opacity: 0.8;
+    display: visible;
+    /*fill:  #DB3033;*/
+}
+
+.ARC_MAP .highlight_src_shape_selected {
+    stroke-width: 1;
+    opacity: 1;
+    /*stroke: #FB9093;*/
+    fill: #ffc;
+    stroke: #f4af02;
+}
+
+.ARC_MAP .highlight_dest_shape_selected {
+    stroke-width: 1;
+    opacity: 1;
+    /*stroke: #FB9093;*/
+    fill: #87CEEB;
+    stroke: steelblue;
+}
+
+.ARC_MAP .highlight_stroke_src_arc {
+    /*stroke: #FB9093;*/
+    stroke: #66A2D4;
+    opacity: 0.7;
+    display: visible;
+}
+
+.ARC_MAP .highlight_stroke_dest_arc {
+    /*stroke: #DB3033; RED*/
+    /*stroke: #FB9093;*/
+    stroke: #ffcf22;
+    opacity: 0.7;
+    display: visible;
+}
+
+.ARC_MAP .highlight_stroke_src_arc.highlight_stroke_dest_arc {
+    stroke: #9fdf9f;
+}
+
+.ARC_MAP .highlight_stroke_src_shape {
+    /* yellow countries*/
+    opacity: 1;
+    display: visible;
+}
+
+.ARC_MAP .highlight_stroke_dest_shape {
+    /*blue countries;*/
+    opacity: 0.95;
+    display: visible;
+}
+
+.ARC_MAP .infoDisplay {
+    background-color: #ffffff;
+    border: 1px solid gray;
+    font: 10px sans-serif;
+    height: 300px;
+    text-shadow: none;
+    width: 450px;
+}
+
+/****** LEGEND ******/
+.ARC_MAP .legend_text {
+    font-size: 9pt;
+    fill: #aaa;
+}
+
+/****** CHART ******/
+.ARC_MAP .chart_text_title {
+    font-size: 10pt;
+    letter-spacing:1.2px;
+    font-weight: 300;
+    fill: #777;
+}
+
+.ARC_MAP .chart_text_country_name {
+    font-size: 11pt;
+    letter-spacing:1.5px;
+    fill: #222;
+    /*fill: #FB9093;*/
+}
+
+.ARC_MAP .chart_text_header {
+    font-weight: 600;
+    letter-spacing:1.2px;
+}
+
+.ARC_MAP .chart_text {
+    font-size: 9pt;
+    fill: #999;
+}
+
+.ARC_MAP .chart_text_amount {
+    font-weight: 500;
+}
+
+.ARC_MAP .chart_text_total {
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.ARC_MAP .chart_text_export_total {
+    fill: #0063d1;
+
+}
+
+.ARC_MAP .chart_text_import_total {
+    fill: #f4af02;
+}
+
+
+/****** TOOLTIP ******/
+.ARC_MAP .tooltip_text {
+
+}
+
+.ARC_MAP .tooltip_plate {
+   position: fixed;
+   text-overflow: ellipsis;
+   opacity: 0.85;
+   z-index: 9999;
+   pointer-events: none;
+   background-color: #FFFAFC; /*#D2691E;*/
+   color: #8B4513;
+   border-color: #8B4513;
+   border: 2px solid;
+   text-align: center;
+   padding: 5px;
+   padding-top: 5px;
+   padding-bottom: 7px;
+
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+.ARC_MAP .ui-tooltip {
+   position: fixed;
+   text-overflow: ellipsis;
+   opacity: 0.85;
+   z-index: 9999;
+   pointer-events: none;
+   background-color: #FFFAFC; /*#D2691E;*/
+   color: #8B4513;
+   border-color: #8B4513;
+   border: 2px solid;
+   text-align: center;
+   padding: 5px;
+   padding-top: 5px;
+   padding-bottom: 7px;
+
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+.ARC_MAP .ui-tooltip-content {
+    opacity: 0.85;
+    background-color: #FFFAFC; /*#D2691E;*/
+    color: #8B4513;
+    text-align: left;
+    stroke: #643503;
+}
+
+
+
+.ARC_MAP .helperarc {
+    opacity: 0;
+    stroke: red;
+}
+
+.ARC_MAP .selectedArc {
+    stroke: #e53338;
+}
+/*
+.ARC_MAP .destCountry {
+    fill: #0063d1;
+    opacity: 1;
+}*/
