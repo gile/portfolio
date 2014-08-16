@@ -11,12 +11,14 @@
 	<link rel="stylesheet" type="text/css" href="arcs/arcs.css">
 	<link rel="stylesheet" type="text/css" href="choro/choro.css">
 
-	<link rel="stylesheet" href="css/slides.css">
   	<link rel="stylesheet" href="css/font-awesome.min.css">
+  	<link rel="stylesheet" href="css/FWSlider/component.css">
 
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/jquery.cbpFWSlider.js"></script>
 	
-	<script src="js/jquery.slides.min.js"></script>
 
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
@@ -61,12 +63,10 @@
 			$currentColumn = $('#column-home');
 			$('.main-container').css({height: $currentColumn.height()});
 
-			doneResizing();	
+			doneResizing();		
 
-			$("#slides").slidesjs({
-				width: 940,
-				height: 528
-		      });
+			$( '#cbp-fwslider' ).cbpFWSlider();	
+			$( '#cbp-fwslider2' ).cbpFWSlider();		
 		});
 
 		/////////////////////////////////////////////////////////////
@@ -86,7 +86,6 @@
 				mainContainerCss;
 
 			columnWidth = $('html').width();
-			console.log('name', name);
 
 			mainContainerCss = {
 				width: columnWidth * numColumns,
@@ -102,7 +101,6 @@
 			var mainContainerCss,
 				$thisColumn = $('#column-' + columnName);
 
-			console.log($currentColumn.attr('id') , $thisColumn.attr('id') )
 			if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
 
 			$currentColumn.animate({opacity: 0});
@@ -146,14 +144,46 @@
 		<div class="column" id="column-case-study" name="case-study">
 			   	<div class="content-container">
 			    		<h1 class="title page_title">Case Study</h1>
+			    		<div class="slides-container">
+				    		<div id="cbp-fwslider" class="cbp-fwslider">
+							<ul>
+								<li><a href="#"><img src="images/create-widget/1.jpg" alt="img01"/></a></li>
+								<li><a href="#"><img src="images/create-widget/2.jpg" alt="img02"/></a></li>
+								<li><a href="#"><img src="images/create-widget/3.jpg" alt="img03"/></a></li>
+								<li><a href="#"><img src="images/create-widget/4.jpg" alt="img04"/></a></li>
+								<li><a href="#"><img src="images/create-widget/5.jpg" alt="img05"/></a></li>
+								<li><a href="#"><img src="images/create-widget/6.jpg" alt="img06"/></a></li>
+								<li><a href="#"><img src="images/create-widget/7.jpg" alt="img07"/></a></li>
+								<li><a href="#"><img src="images/create-widget/8.jpg" alt="img08"/></a></li>
+								<li><a href="#"><img src="images/create-widget/9.jpg" alt="img09"/></a></li>
+							</ul>
+						</div>
+					</div>
 
-			    		<div id="slides" style="width:600px; height:400px">
+					<div class="slides-container" style="width:60%">
+				    		<div id="cbp-fwslider2" class="cbp-fwslider">
+							<ul>
+								<li><a href="#"><img src="images/vg1.jpg" alt="img01"/></a></li>
+								<li><a href="#"><img src="images/vg2.jpg" alt="img02"/></a></li>
+								<li><a href="#"><img src="images/vg3.jpg" alt="img03"/></a></li>							
+							</ul>
+						</div>
+					</div>
+			    		<!-- <div id="slides" class="slides">
 						<img src="images/vg1.jpg">
 						<img src="images/vg2.jpg">
 						<img src="images/vg3.jpg">
 						<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
       						<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 					</div>
+					<br>
+					<div id="slides2"  class="slides">
+						<img src="images/vg1.jpg">
+						<img src="images/vg2.jpg">
+						<img src="images/vg3.jpg">
+						<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
+      						<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
+					</div> -->
 			    	</div>
 		</div>
 
