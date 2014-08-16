@@ -1,94 +1,20 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<head>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700,700italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<head>	
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/maps.css">
 	<link rel="stylesheet" type="text/css" href="pie/pie.css">
 	<link rel="stylesheet" type="text/css" href="arcs/arcs.css">
 	<link rel="stylesheet" type="text/css" href="choro/choro.css">
-	<style>
-		body {
-			overflow-x:hidden;
-			font-family: 'PT Sans', sans-serif;
-		}
-
-		a {
-			text-decoration: none;
-		}
-
-		.header {
-			width: 100%;
-			height: 40px;
-			text-align: center;
-			padding-top: 15px;
-			/*background-color: grey;*/
-		}
-
-		.menu-link {
-			margin: 0 20px;
-			color: white;
-			cursor: pointer;
-			color: steelblue;
-			
-			font-size: 16px;
-		}
-
-		.main-container {
-			  overflow: hidden;
-			  /*scroll: auto;*/
-		}
-
-		.column {
-			float: left;
-			height: auto; 
-		}
-
-		.content-container {
-			width: 80%;
-			margin: 0 auto;
-		}
-
-		#column-home {
-			/*border: 1px solid steelblue;*/
-			/*background-color: steelblue;*/
-		}
-
-		#column-case-study {
-			/*border: 1px solid lavender;*/			
-
-		}
-
-		#column-maps {
-			/*border: 1px solid brown;*/
-			/*background-color: brown;*/
-			margin: 0 auto;
-			font-family: 'PT Sans', sans-serif;	
-		}
-
-		
-
-		.cover-photo {
-			width: 100%;
-			min-height: 700px;
-			background: url('images/girl.jpg') no-repeat;
-			
-			background-size:cover;
-			-webkit-background-size: cover; /* For WebKit*/
-			-moz-background-size: cover;    /* Mozilla*/
-			-o-background-size: cover;      /* Opera*/
-		}
-
-		.hidden {
-			opacity: 0;
-		}
-	</style>
 
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+	<script src="js/jssor.slider.mini.js"></script>
+
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
 
@@ -105,62 +31,47 @@
 	
 	<script type="text/javascript">
 		var 	id,
-			columnWidth,
 			duration = 500;
 
-		$('document').ready(function() {
-			var 	$columns = $('.column'),
-				$currentColumn;
+		var columnWidth,
+			$currentColumn;
 
-			var 	$home = $('#column-home'),
-				$caseStudy = $('#column-case-study'),
-				$maps = $('#column-maps');
-
-			var 	columnOffset = {
-					home: 0,
-					caseStudy: -1,
-					maps: -2
-				};
-
-			$('#link-home').click(function() {
-				//$columns.delay(duration).addClass('hidden');
-				$currentColumn.animate({opacity: 0});
-				$home.animate({opacity: 1});
-				$currentColumn = $home;
-
-				$('.main-container').animate({marginLeft: (columnWidth * columnOffset.home)}, duration);
-			});
-
-			$('#link-case-study').click(function() {				
-				$currentColumn.animate({opacity: 0});
-				$caseStudy.animate({opacity: 1});
-				$currentColumn = $caseStudy;
-
-				$('.main-container').animate({marginLeft: (columnWidth * columnOffset.caseStudy)}, duration);
-			});
-
-			$('#link-maps').click(function() {
-				$currentColumn.animate({opacity: 0});
-				$maps.animate({opacity: 1});
-				$currentColumn = $maps;
-
-				$('.main-container').animate({marginLeft: (columnWidth * columnOffset.maps)}, duration);
-			});
-
-			
-
-			$currentColumn = $home;
-
-			doneResizing();			
-		});
+		var 	columnOffset = {
+				'home': 0,
+				'case-study': -1,
+				'maps': -2
+			};
 
 		
+		
+		/////////////////////////////////////////////////////////////
+		// Init Code
+		/////////////////////////////////////////////////////////////
+		$('document').ready(function() {
+
+			$('.header-link').click(function() {
+				var name = $(this).attr('name');
+				headerLinkClick(name);
+			});
+
+			$currentColumn = $('#column-home');
+			$('.main-container').css({height: $currentColumn.height()});
+
+			doneResizing();	
+		});
+
+		/////////////////////////////////////////////////////////////
+		// Global Event Handlers
+		/////////////////////////////////////////////////////////////
 		$(window).resize(function() {
 		    clearTimeout(id);
 		    id = setTimeout(doneResizing, 500);
 		    
-		});
+		});	
 
+		/////////////////////////////////////////////////////////////
+		// Private Methods
+		/////////////////////////////////////////////////////////////	
 		function doneResizing(){
 			columnWidth = $('html').width();
 			console.log('RESIZE');
@@ -168,29 +79,61 @@
 			$('.main-container').width(columnWidth * 4);
 			$('.column').width(columnWidth);
 		}
+
+
+		function headerLinkClick(columnName) {
+			var mainContainerCss,
+				$thisColumn = $('#column-' + columnName);
+
+			$currentColumn.animate({opacity: 0});
+			$thisColumn.animate({opacity: 1});
+			$currentColumn = $thisColumn;
+
+			mainContainerCss = {
+				height: $thisColumn.height(),
+				marginLeft: columnWidth * columnOffset[columnName]
+			}
+
+			$('.main-container').animate(mainContainerCss, duration);
+		}	 
 	</script>
+
 </head>
 <body>
 	<div class="header">
-		<a id="link-home" class="menu-link">Home</a>
-		<a id="link-case-study" class="menu-link">Case Study</a>
-		<a id="link-maps" class="menu-link">Maps</a>
+		<a id="link-home" class="header-link" name="home">Home</a>
+		<a id="link-case-study" class="header-link" name="case-study">Case Study</a>
+		<a id="link-maps" class="header-link" name="maps">Maps</a>
 		
 	</div>
 	<div class="main-container">
-		  <div class="column" id="column-home">
-		    	<!-- <a href="3maps.html">3 Maps</a> -->
+
+		<!--  ++++++++++++++++++++++++++++ -->
+		<!-- 			HOME 					    	-->
+		<!-- ++++++++++++++++++++++++++++ -->
+		 <div class="column" id="column-home">
+		    	
 		    	<div class="cover-photo"></div>
 		    	HOME
+		    	
+		    	<!-- <div><img u="image" src="images/vg3.jpg" style="width:600px; height: 400px"/></div> -->
 		  </div>
 
-		   <div class="column" id="column-case-study">
-		   	<div class="content-container">
-		    		<h1 class="title page_title">Case Study</h1>
-		    	</div>
-		  </div>
+		<!--  ++++++++++++++++++++++++++++ -->
+		<!-- 			CASE STUDY			    	-->
+		<!-- ++++++++++++++++++++++++++++ -->
+		<div class="column" id="column-case-study">
+			   	<div class="content-container">
+			    		<h1 class="title page_title">Case Study</h1>
 
-		  <div class="column" id="column-maps">
+			    		
+			    	</div>
+		</div>
+
+		<!--  ++++++++++++++++++++++++++++ -->
+		<!-- 			MAPS 					    	-->
+		<!-- ++++++++++++++++++++++++++++ -->
+		 <div class="column" id="column-maps">
 		  	<div class="content-container">
 			    	<h1 class="title page_title">Three maps</h1>
 				<div class="text page_text">
