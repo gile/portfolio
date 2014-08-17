@@ -1,6 +1,5 @@
 .slides-container {
-	width:80%;
-	margin-left: -3%;
+	margin: 50px 0 40px 0;
 }
 
 .cbp-fwslider {
@@ -35,7 +34,8 @@
 }
 
 .cbp-fwslider ul li > a img {
-	border: none;
+	/*border: none;*/
+	border: 1px solid #aaa;
 	display: block;
 	margin: 0 auto;
 	max-width: 75%;
@@ -102,3 +102,37 @@
 .grey {
 	background: grey !important;
 }
+
+.caption-container {
+	position: relative;
+	border: 1px solid grey;
+	margin-bottom: 60px;
+}
+
+#caption-container-product-screenshots {
+	margin-bottom: 30px;
+}
+
+.caption {
+	position: absolute;
+	top: 0;
+	color: grey;
+	line-height: 18px;
+}
+
+@media all and (max-width: 800px) {
+	.cbp-fwslider nav span {
+		width: 20px;
+		height: 40px;
+		font-size: 20px;
+		line-height: 40px;
+	}
+}
+
+@media all and (max-width: 650px) {
+	.caption {
+		font-size: 80%;
+	}
+}
+
+

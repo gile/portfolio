@@ -76,7 +76,7 @@
 			// current and old item´s index
 			this.current = 0;
 			this.old = 0;
-			this.$el.attr('index', 0);
+			this._initCaption();			
 
 			// check if the list is currently moving
 			this.isAnimating = false;
@@ -123,7 +123,7 @@
 
 		},
 		_navigate : function( direction ) {			
-
+		
 			// do nothing if the list is currently moving
 			if( this.isAnimating ) {
 				return false;
@@ -141,7 +141,7 @@
 			// slide
 			this._slide();
 
-			this.$el.attr('index', this.current);
+			this._setCaption();
 
 		},
 		_slide : function() {
@@ -201,7 +201,15 @@
 			// slide
 			this._slide();
 
-			this.$el.attr('index', this.current);
+			this._setCaption();
+		},
+		_initCaption: function() {
+			this.$el.parent().find('.caption').css({'opacity': 0});
+			this.$el.parent().find('#caption-1').css({'opacity': 1});
+		},
+		_setCaption: function() {
+			this.$el.parent().find('#caption-' + (this.old + 1)).animate({'opacity': 0});
+			this.$el.parent().find('#caption-' + (this.current + 1)).animate({'opacity': 1});
 		},
 		destroy : function() {
 
