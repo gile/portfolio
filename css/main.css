@@ -158,34 +158,78 @@ a .section-label {
 }
 
 .contact-container {
-	margin: 0 auto;
-	text-align: center;
+	margin: 30px auto;
+	/*text-align: center;*/
 }
 
 .contact-section {
 	display: inline-block;
-	margin: 30px 20px 0;
+	margin: 60px 20px 0;
 }
 
 .contact-icon {
-	font-size: 50px;
-	color: #3ca0d3;
+	font-size: 36px;
+	/*color: #3ca0d3;*/
+	color: steelblue;
+	margin: 0 10px;
 }
 
 #email-icon {
-	/*color: #f86767;*/
+	font-size: 32px;
+	color: #f86767;
 }
 
 #phone-icon {
-	/*color: #a3e46b;*/
+	color: #73b43b;
 }
 
 #linkedin-icon {
-	font-size: 54px;
-	/*color: #63b6e5;*/
+	color: #63b6e5;
+}
+
+#marker-icon {
+	color: #9370DB;	
+}
+
+.contact-text {
+	font-size: 20px;
+	color: #bbb;
+}
+
+/* the colored icontact text */
+.info-text {
+	font-size: 34px;
+	text-decoration: none;
+}
+
+.email-text {
+	color: #f86767;	
+}
+
+.email-text:hover {
+	text-decoration: underline;
+}
+
+.phone-text {
+	color: #73b43b;	
+}
+
+.linkedin-text {
+	color: #63b6e5;
+}
+
+.linkedin-text:hover {
+	text-decoration: underline;
 }
 
 .contact-map {
-	height: 300px;
-	margin-top: 30px;
+	height: 180px;
+	width: 40%;
+	display: inline-block;
+	margin-left: 120px;
+	border: 2px solid #9370DB;
+}
+
+.tab-text {
+	padding-left: 60px;
 }

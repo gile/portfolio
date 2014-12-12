@@ -2,482 +2,520 @@
 <html>
 <meta charset="utf-8">
 <head>	
-	<!-- <<<<<<< FONTS >>>>>>>> -->
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+<!-- <<<<<<< FONTS >>>>>>>> -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
-	<!-- <<<<<<< CSS >>>>>>>> -->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/maps.css">
-	<link rel="stylesheet" type="text/css" href="pie/pie.css">
-	<link rel="stylesheet" type="text/css" href="arcs/arcs.css">
-	<link rel="stylesheet" type="text/css" href="choro/choro.css">
+<!-- <<<<<<< CSS >>>>>>>> -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/maps.css">
+<link rel="stylesheet" type="text/css" href="pie/pie.css">
+<link rel="stylesheet" type="text/css" href="arcs/arcs.css">
+<link rel="stylesheet" type="text/css" href="choro/choro.css">
 
-	<!-- FontAwesome -->
-  	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- FontAwesome -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  	<link rel="stylesheet" href="css/FWSlider/component.css">
+<link rel="stylesheet" href="css/FWSlider/component.css">
 
-  	<!-- Mapbox -->
-  	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
+<!-- Mapbox -->
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
 
-        	<!-- JQuery -->	
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<!-- JQuery -->	
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
-	<script src="js/modernizr.custom.js"></script>
-	<script src="js/jquery.cbpFWSlider.js"></script>	
+<script src="js/modernizr.custom.js"></script>
+<script src="js/jquery.cbpFWSlider.js"></script>	
 
-	<!-- <<<<<<< JAVASCRIPT >>>>>>>> -->
-	<!-- D3 -->
-	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+<!-- <<<<<<< JAVASCRIPT >>>>>>>> -->
+<!-- D3 -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
 
-	<!-- Mapbox -->	
-	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
+<!-- Mapbox -->	
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
 
-	<script src="util/underscore-min.js"></script>
-	<script src="util/utility.functions.js"></script>
-	<script src="util/us-states.js"></script>
-	<script src="util/world-countries.js"></script>
+<script src="util/underscore-min.js"></script>
+<script src="util/utility.functions.js"></script>
+<script src="util/us-states.js"></script>
+<script src="util/world-countries.js"></script>
 
-	<script src="pie/pie.js"></script>
-	<script src="arcs/arcs.js"></script>
-	<script src="choro/choro.js"></script>
+<script src="pie/pie.js"></script>
+<script src="arcs/arcs.js"></script>
+<script src="choro/choro.js"></script>
 
-	<script src="util/data.js"></script>
+<script src="util/data.js"></script>
+
+<script type="text/javascript">
+var 	id,
+		duration = 500;
+
+var 	columnOffset = {
+		'home': 0,
+		'case-study': -1,
+		'maps': -2,
+		'cv': -3,
+		'contact': -4
+	};
+
+var 	numColumns = Object.keys(columnOffset).length,
+		columnWidth,
+		$currentColumn;
+
+
+
+/////////////////////////////////////////////////////////////
+// Init Code
+/////////////////////////////////////////////////////////////
+$('document').ready(function() {
+
+	$('.header-link').click(function() {
+		var name = $(this).attr('name');
+		headerLinkClick(name);
+	});
+
+	$currentColumn = $('#column-home');
+	$('.main-container').css({height: $currentColumn.height()});
+
+	doneResizing();		
+
+	$( '#fwslider-create-widget' ).cbpFWSlider();	
+	$( '#fwslider-move-widget' ).cbpFWSlider();		
+	$( '#fwslider-product-screenshots' ).cbpFWSlider();		
+
+	// Provide your access token
+	L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';
+	// Create a map in the div #map
+	L.mapbox.map('contact-map', 'gil.io75e0n1', {
+		center: [
+			32.0550,
+			34.7700
+		],
+		zoom: 14
+	});	
+});
+
+/////////////////////////////////////////////////////////////
+// Global Event Handlers
+/////////////////////////////////////////////////////////////
+$(window).resize(function() {
+    $('body').hide();
+    clearTimeout(id);
+    id = setTimeout(doneResizing, 500);
+    
+});	
+
+/////////////////////////////////////////////////////////////
+// Private Methods
+/////////////////////////////////////////////////////////////	
+function doneResizing(){
+	var columnName = $currentColumn.attr('name'),
+		columnHeight = $currentColumn.height(),
+		mainContainerCss;
+
+	$('body').show();
+
+	columnWidth = $('html').width();			
+
+	// must be set before we get $currentColumn.height()
+	$('.column').width(columnWidth);
+
+	mainContainerCss = {
+		width: columnWidth * numColumns,
+		height: $currentColumn.height(),
+		marginLeft: columnWidth * columnOffset[columnName]
+	};			
 	
-	<script type="text/javascript">
-		var 	id,
-				duration = 500;
-		
-		var 	columnOffset = {
-				'home': 0,
-				'case-study': -1,
-				'maps': -2,
-				'cv': -3,
-				'contact': -4
-			};
-
-		var 	numColumns = Object.keys(columnOffset).length,
-				columnWidth,
-				$currentColumn;
-
-		
-		
-		/////////////////////////////////////////////////////////////
-		// Init Code
-		/////////////////////////////////////////////////////////////
-		$('document').ready(function() {
-
-			$('.header-link').click(function() {
-				var name = $(this).attr('name');
-				headerLinkClick(name);
-			});
-
-			$currentColumn = $('#column-home');
-			$('.main-container').css({height: $currentColumn.height()});
-
-			doneResizing();		
-
-			$( '#fwslider-create-widget' ).cbpFWSlider();	
-			$( '#fwslider-move-widget' ).cbpFWSlider();		
-			$( '#fwslider-product-screenshots' ).cbpFWSlider();		
-
-			// Provide your access token
-			L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';
-			// Create a map in the div #map
-			L.mapbox.map('contact-map', 'gil.io75e0n1', {
-				center: [
-					32.0633,
-					34.8000
-				],
-				zoom: 13
-			});	
-		});
-
-		/////////////////////////////////////////////////////////////
-		// Global Event Handlers
-		/////////////////////////////////////////////////////////////
-		$(window).resize(function() {
-		    $('body').hide();
-		    clearTimeout(id);
-		    id = setTimeout(doneResizing, 500);
-		    
-		});	
-
-		/////////////////////////////////////////////////////////////
-		// Private Methods
-		/////////////////////////////////////////////////////////////	
-		function doneResizing(){
-			var columnName = $currentColumn.attr('name'),
-				columnHeight = $currentColumn.height(),
-				mainContainerCss;
-
-			$('body').show();
-
-			columnWidth = $('html').width();			
-
-			// must be set before we get $currentColumn.height()
-			$('.column').width(columnWidth);
-
-			mainContainerCss = {
-				width: columnWidth * numColumns,
-				height: $currentColumn.height(),
-				marginLeft: columnWidth * columnOffset[columnName]
-			};			
-			
-			$('.main-container').css(mainContainerCss);				
-		}
+	$('.main-container').css(mainContainerCss);				
+}
 
 
-		function headerLinkClick(columnName) {
-			var mainContainerCss,
-				$thisColumn = $('#column-' + columnName);
+function headerLinkClick(columnName) {
+	var mainContainerCss,
+		$thisColumn = $('#column-' + columnName);
 
-			if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
+	if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
 
-			$currentColumn.animate({opacity: 0});
-			$thisColumn.animate({opacity: 1});
-			$currentColumn = $thisColumn;
+	$currentColumn.animate({opacity: 0});
+	$thisColumn.animate({opacity: 1});
+	$currentColumn = $thisColumn;
 
-			mainContainerCss = {
-				height: $thisColumn.height(),
-				marginLeft: columnWidth * columnOffset[columnName]
-			}
+	mainContainerCss = {
+		height: $thisColumn.height(),
+		marginLeft: columnWidth * columnOffset[columnName]
+	}
 
-			$('.main-container').animate(mainContainerCss, duration);
+	$('.main-container').animate(mainContainerCss, duration);
 
-			console.log('CLICK', columnName, $('.main-container').height());
-		}	 
-	</script>
+	console.log('CLICK', columnName, $('.main-container').height());
+}	 
+</script>
 
 </head>
 <body>
-	<div class="header">
-			<div class="header-links">
-				<a id="link-home" class="header-link" name="home">Home</a>
-				<a id="link-case-study" class="header-link" name="case-study">Case Study</a>
-				<a id="link-maps" class="header-link" name="maps">Maps</a>
-				<a id="link-cv" class="header-link" name="cv">CV</a>
-				<a id="link-contact" class="header-link" name="contact">Contact</a>
-			</div>
+<div class="header">
+	<div class="header-links">
+		<a id="link-home" class="header-link" name="home">Home</a>
+		<a id="link-case-study" class="header-link" name="case-study">Case Study</a>
+		<a id="link-maps" class="header-link" name="maps">Maps</a>
+		<a id="link-cv" class="header-link" name="cv">CV</a>
+		<a id="link-contact" class="header-link" name="contact">Contact</a>
 	</div>
-	<div class="main-container">
+</div>
+<div class="main-container">
 
-		<!--  ++++++++++++++++++++++++++++ -->
-		<!-- 			HOME 					    	-->
-		<!-- ++++++++++++++++++++++++++++ -->
-		 <div class="column" id="column-home" name="home">
-		    	
-		    	<div class="cover-photo"></div>
-		    	HOME
-		    	
-		    	<!-- <div><img u="image" src="images/vg3.jpg" style="width:600px; height: 400px"/></div> -->
-		  </div>
+<!--  ++++++++++++++++++++++++++++ -->
+<!-- 			HOME 					    	-->
+<!-- ++++++++++++++++++++++++++++ -->
+ <div class="column" id="column-home" name="home">
+    	
+    	<div class="cover-photo"></div>
+    	HOME
+    	
+    	<!-- <div><img u="image" src="images/vg3.jpg" style="width:600px; height: 400px"/></div> -->
+  </div>
 
-		<!--  ++++++++++++++++++++++++++++ -->
-		<!-- 			CASE STUDY			    	-->
-		<!-- ++++++++++++++++++++++++++++ -->
-		<div class="column" id="column-case-study" name="case-study">
-			   	<div class="content-container">
-			    		<h1 class="title page_title">Case Study</h1>
-			    		<p class="section-text">
-			    			As part of my contribution to a BI dashboard solution, I was responsible for the UX design of a new web-based interface.
-			    			<br>
-			    			My approch was to first understand what the basic flows are, where a flow is a set of actions a user ,must take in order to complete a specific goal.
-			    			<br><br>
-			    			For each flow I had prepared a series of mockups used to illustrate to the R&D team, Marketing and Graphic Designers how the product should look and behave.			    			
-			    		</p>
-			    		<!-- Create Widget -->
-			    		<div class="slides-container" id="slides-create-widget">
-			    			<h3 class="section-title">Create Widget</h3>
-			    			<div class="caption-container">
-			    				<p class="caption" id="caption-1">
-			    					One of the first tasks a user will encounter is the need to create a widget (e.g. graph, map, or KPI).
-			    					I sought to make the process less confusing by integrating hints which display the first time a widget is created.
-			    					
-			    				</p>
-			    				<p class="caption" id="caption-2">
-			    					When creating a widget, a user must first define the datasource he wants to use, and what type of widget will be created.
-			    					<br>
-			    					This is illustrated by the big digits, so that he is aware of these two steps.
-			    				</p>
-			    				<p class="caption" id="caption-3">
-			    					Early on, it was decided that there should be a clear separation between the data aspects of the widget (on the left), and the style aspects on the right.
-			    				</p>
-			    				<p class="caption" id="caption-4">
-			    					A major challenge was the design of the data-browser - a pop-up used to select a data source.
-			    					<br>
-			    					This browser must be compact and easy to use, yet display a large amount of information.
-			    					<br>
-			    					To help the user find his data quickly, an auto-complete text box was used.
-			    				</p>
-			    				<p class="caption" id="caption-5">
-			    					A map widget after data and styling attributes have been added.
-			    				</p>
-			    			</div>
-				    		<div id="fwslider-create-widget" class="cbp-fwslider">
-							<ul>
-								<li><a href="#"><img src="images/create-widget/1.jpg" /></a></li>
-								<li><a href="#"><img src="images/create-widget/2.jpg" /></a></li>
-								<li><a href="#"><img src="images/create-widget/3.jpg" /></a></li>
-								<li><a href="#"><img src="images/create-widget/4.jpg" /></a></li>
-								<li><a href="#"><img src="images/create-widget/5.jpg" /></a></li>						
-							</ul>
-						</div>
-					</div>
+<!--  ++++++++++++++++++++++++++++ -->
+<!-- 			CASE STUDY			    	-->
+<!-- ++++++++++++++++++++++++++++ -->
+<div class="column" id="column-case-study" name="case-study">
+	   	<div class="content-container">
+	    		<h1 class="title page_title">Case Study</h1>
+	    		<p class="section-text">
+	    			As part of my contribution to a BI dashboard solution, I was responsible for the UX design of a new web-based interface.
+	    			<br>
+	    			My approch was to first understand what the basic flows are, where a flow is a set of actions a user ,must take in order to complete a specific goal.
+	    			<br><br>
+	    			For each flow I had prepared a series of mockups used to illustrate to the R&D team, Marketing and Graphic Designers how the product should look and behave.			    			
+	    		</p>
+	    		<!-- Create Widget -->
+	    		<div class="slides-container" id="slides-create-widget">
+	    			<h3 class="section-title">Create Widget</h3>
+	    			<div class="caption-container">
+	    				<p class="caption" id="caption-1">
+	    					One of the first tasks a user will encounter is the need to create a widget (e.g. graph, map, or KPI).
+	    					I sought to make the process less confusing by integrating hints which display the first time a widget is created.
+	    					
+	    				</p>
+	    				<p class="caption" id="caption-2">
+	    					When creating a widget, a user must first define the datasource he wants to use, and what type of widget will be created.
+	    					<br>
+	    					This is illustrated by the big digits, so that he is aware of these two steps.
+	    				</p>
+	    				<p class="caption" id="caption-3">
+	    					Early on, it was decided that there should be a clear separation between the data aspects of the widget (on the left), and the style aspects on the right.
+	    				</p>
+	    				<p class="caption" id="caption-4">
+	    					A major challenge was the design of the data-browser - a pop-up used to select a data source.
+	    					<br>
+	    					This browser must be compact and easy to use, yet display a large amount of information.
+	    					<br>
+	    					To help the user find his data quickly, an auto-complete text box was used.
+	    				</p>
+	    				<p class="caption" id="caption-5">
+	    					A map widget after data and styling attributes have been added.
+	    				</p>
+	    			</div>
+		    		<div id="fwslider-create-widget" class="cbp-fwslider">
+					<ul>
+						<li><a href="#"><img src="images/create-widget/1.jpg" /></a></li>
+						<li><a href="#"><img src="images/create-widget/2.jpg" /></a></li>
+						<li><a href="#"><img src="images/create-widget/3.jpg" /></a></li>
+						<li><a href="#"><img src="images/create-widget/4.jpg" /></a></li>
+						<li><a href="#"><img src="images/create-widget/5.jpg" /></a></li>						
+					</ul>
+				</div>
+			</div>
 
-					<!-- Create Indicator -->
-					<div class="slides-container">
-						<h3 class="section-title">Move Widget</h3>
-			    			<div class="caption-container">
-			    				<p class="caption" id="caption-1">
-			    					Moving widgets around the dashboard is accomplished in two step.
-			    					<br>
-			    					First, the user enters "Edit Mode" by clicking a button in the top menu. A different color scheme is then applied.
-			    				</p>
-			    				<p class="caption" id="caption-2">
-			    					Second, the widgets are positioned using a drag-and-drop approach.
-			    					<br>
-			    					As the user hovers near a legal position for the widget, it is highlighted.
-			    				</p>
-			    				<p class="caption" id="caption-3">
-			    					In Edit Mode, widgets can either be re-positioned or resized.
-			    				</p>
-			    				<p class="caption" id="caption-4">
-			    					The widget positions are based on a column layout.
-			    					<br>
-			    					A vertical marker notifies the user that the current placement will breate a new column.
-			    				</p>
-			    				<p class="caption" id="caption-5">
-			    					When the widget is placed in this position, the new column is created.
-			    				</p>
-			    			</div>
-				    		<div id="fwslider-move-widget" class="cbp-fwslider">
-							<ul>
-								<li><a href="#"><img src="images/move-widget/1.jpg" /></a></li>
-								<li><a href="#"><img src="images/move-widget/2.jpg" /></a></li>
-								<li><a href="#"><img src="images/move-widget/3.jpg" /></a></li>
-								<li><a href="#"><img src="images/move-widget/4.jpg" /></a></li>
-								<li><a href="#"><img src="images/move-widget/5.jpg" /></a></li>
-							</ul>
-						</div>
-					</div>
+			<!-- Create Indicator -->
+			<div class="slides-container">
+				<h3 class="section-title">Move Widget</h3>
+	    			<div class="caption-container">
+	    				<p class="caption" id="caption-1">
+	    					Moving widgets around the dashboard is accomplished in two step.
+	    					<br>
+	    					First, the user enters "Edit Mode" by clicking a button in the top menu. A different color scheme is then applied.
+	    				</p>
+	    				<p class="caption" id="caption-2">
+	    					Second, the widgets are positioned using a drag-and-drop approach.
+	    					<br>
+	    					As the user hovers near a legal position for the widget, it is highlighted.
+	    				</p>
+	    				<p class="caption" id="caption-3">
+	    					In Edit Mode, widgets can either be re-positioned or resized.
+	    				</p>
+	    				<p class="caption" id="caption-4">
+	    					The widget positions are based on a column layout.
+	    					<br>
+	    					A vertical marker notifies the user that the current placement will breate a new column.
+	    				</p>
+	    				<p class="caption" id="caption-5">
+	    					When the widget is placed in this position, the new column is created.
+	    				</p>
+	    			</div>
+		    		<div id="fwslider-move-widget" class="cbp-fwslider">
+					<ul>
+						<li><a href="#"><img src="images/move-widget/1.jpg" /></a></li>
+						<li><a href="#"><img src="images/move-widget/2.jpg" /></a></li>
+						<li><a href="#"><img src="images/move-widget/3.jpg" /></a></li>
+						<li><a href="#"><img src="images/move-widget/4.jpg" /></a></li>
+						<li><a href="#"><img src="images/move-widget/5.jpg" /></a></li>
+					</ul>
+				</div>
+			</div>
 
-					<!-- Screenshots -->
-					<div class="slides-container">
-						<h3 class="section-title">Product Screenshots</h3>
-			    			<div class="caption-container" id="caption-container-product-screenshots">
-			    				<p class="caption" id="caption-1">
-			    					Home Screen
-			    				</p>
-			    				<p class="caption" id="caption-2">
-			    					Dashboard
-			    				</p>
-			    				<p class="caption" id="caption-3">
-			    					Create / Edit Widget
-			    				</p>
-			    				<p class="caption" id="caption-4">
-			    					Move Widget (new column)
-			    				</p>			    				
-			    			</div>
-				    		<div id="fwslider-product-screenshots" class="cbp-fwslider">
-							<ul>
-								<li><a href="#"><img src="images/product-screenshots/1.png" /></a></li>
-								<li><a href="#"><img src="images/product-screenshots/2.png" /></a></li>
-								<li><a href="#"><img src="images/product-screenshots/3.png" /></a></li>
-								<li><a href="#"><img src="images/product-screenshots/4.png" /></a></li>
-							</ul>
-						</div>
-					</div>
-			    	</div>
+			<!-- Screenshots -->
+			<div class="slides-container">
+				<h3 class="section-title">Product Screenshots</h3>
+	    			<div class="caption-container" id="caption-container-product-screenshots">
+	    				<p class="caption" id="caption-1">
+	    					Home Screen
+	    				</p>
+	    				<p class="caption" id="caption-2">
+	    					Dashboard
+	    				</p>
+	    				<p class="caption" id="caption-3">
+	    					Create / Edit Widget
+	    				</p>
+	    				<p class="caption" id="caption-4">
+	    					Move Widget (new column)
+	    				</p>			    				
+	    			</div>
+		    		<div id="fwslider-product-screenshots" class="cbp-fwslider">
+					<ul>
+						<li><a href="#"><img src="images/product-screenshots/1.png" /></a></li>
+						<li><a href="#"><img src="images/product-screenshots/2.png" /></a></li>
+						<li><a href="#"><img src="images/product-screenshots/3.png" /></a></li>
+						<li><a href="#"><img src="images/product-screenshots/4.png" /></a></li>
+					</ul>
+				</div>
+			</div>
+	    	</div>
+</div>
+
+<!--  ++++++++++++++++++++++++++++ -->
+<!-- 			MAPS 					    	-->
+<!-- ++++++++++++++++++++++++++++ -->
+ <div class="column" id="column-maps" name="maps">
+  	<div class="content-container">
+	    	<h1 class="title page_title">Three maps</h1>
+		<div class="text page_text">
+			The maps displayed below were created in javascript, using Mike Bostock's <a href="http://d3js.org/">D3</a> data visualization library.<br>
+			<span class="notice">All the data is randomly generated</span>
+
 		</div>
 
-		<!--  ++++++++++++++++++++++++++++ -->
-		<!-- 			MAPS 					    	-->
-		<!-- ++++++++++++++++++++++++++++ -->
-		 <div class="column" id="column-maps" name="maps">
-		  	<div class="content-container">
-			    	<h1 class="title page_title">Three maps</h1>
-				<div class="text page_text">
-					The maps displayed below were created in javascript, using Mike Bostock's <a href="http://d3js.org/">D3</a> data visualization library.<br>
-					<span class="notice">All the data is randomly generated</span>
-
-				</div>
-
-				<!--  ***********  PIE  ***********   -->
-				<div class="section-title">Brand Market Share</div>
-				<div class="text map_text pie_text">
-					Hover over a pie chart to see a more detailed display, or click on any country to zoom in.
-				</div>
-				<div class="container PIE"></div>
+		<!--  ***********  PIE  ***********   -->
+		<div class="section-title">Brand Market Share</div>
+		<div class="text map_text pie_text">
+			Hover over a pie chart to see a more detailed display, or click on any country to zoom in.
+		</div>
+		<div class="container PIE"></div>
 
 
-				<!--  ***********  ARCS  ***********   -->
-				<div class="section-title">Import / Export Sites </div>
-				<div class="text map_text arcs_text">
-					Hover over a country to see its import/export balance, or click on any country to zoom in.
-				</div>
-				<div class="container ARCS"></div>
+		<!--  ***********  ARCS  ***********   -->
+		<div class="section-title">Import / Export Sites </div>
+		<div class="text map_text arcs_text">
+			Hover over a country to see its import/export balance, or click on any country to zoom in.
+		</div>
+		<div class="container ARCS"></div>
 
 
-				<!--  ***********  CHORO  ***********   -->
-				<div class="section-title">Brand Growth</div>
-				<div class="text map_text choro_text">
-					Hover over a state to see more info, or click on the links at the top of the map (e.g. "<span class="button_name">marketgrowth</span>") <br>to change the diplayed measure.
-				</div>
-				<div class="container CHORO"></div>
-			</div>
-		  </div>
+		<!--  ***********  CHORO  ***********   -->
+		<div class="section-title">Brand Growth</div>
+		<div class="text map_text choro_text">
+			Hover over a state to see more info, or click on the links at the top of the map (e.g. "<span class="button_name">marketgrowth</span>") <br>to change the diplayed measure.
+		</div>
+		<div class="container CHORO"></div>
+	</div>
+  </div>
 
-		<!--  ++++++++++++++++++++++++++++ -->
-		<!-- 			CV			    	-->
-		<!-- ++++++++++++++++++++++++++++ -->
-		<div class="column" id="column-cv" name="cv">
-		   	<div class="content-container">
+<!--  ++++++++++++++++++++++++++++ -->
+<!-- 			CV			    	-->
+<!-- ++++++++++++++++++++++++++++ -->
+<div class="column" id="column-cv" name="cv">
+   	<div class="content-container">
 
-		    		<h1 class="title page_title">Curriculum Vitae</h1>
+    		<h1 class="title page_title">Curriculum Vitae</h1>
 
-	    			<div class="text-container">
-	    				<div id="cv-skills">
-				    		<p class="section-title" ><span>Skills</span></p>
-			    			<p class="section-text">	
-				    			<span class="section-label">javascript</span>
-				    			<span class="section-text text-grey"> jquery | svg | d3 </span>
-				    		</p>
-				    		<p class="section-text">	
-			    				<span class="section-label">html <span class="section-label-digits">5</span></span>
-			    			</p>
-			    			<p class="section-text">	
-			    				<span class="section-label">css <span class="section-label-digits">3</span></span>
-			    			</p>
-			    			<p class="section-text">	
-			    				<span class="section-label">photoshop</span>
-			    			</p>
-			    			<p class="section-text">	
-			    				<span class="section-label">illustrator</span>
-			    			</p>
-			    			<p class="section-text">	
-			    				<span class="section-label">indesign</span>
-			    			</p>
-		    			</div>
-			    		<br>
+			<div class="text-container">
+				<div id="cv-skills">
+		    		<p class="section-title" ><span>Skills</span></p>
+	    			<p class="section-text">	
+		    			<span class="section-label">javascript</span>
+		    			<span class="section-text text-grey"> jquery | svg | d3 </span>
+		    		</p>
+		    		<p class="section-text">	
+	    				<span class="section-label">html <span class="section-label-digits">5</span></span>
+	    			</p>
+	    			<p class="section-text">	
+	    				<span class="section-label">css <span class="section-label-digits">3</span></span>
+	    			</p>
+	    			<p class="section-text">	
+	    				<span class="section-label">photoshop</span>
+	    			</p>
+	    			<p class="section-text">	
+	    				<span class="section-label">illustrator</span>
+	    			</p>
+	    			<p class="section-text">	
+	    				<span class="section-label">indesign</span>
+	    			</p>
+    			</div>
+	    		<br>
 
-			    		<div id="cv-academic">
-				    		<p class="section-title"><span>Academic History</span></p>					    		
-				    		<p class="section-text">
-				    			<a href="https://en.wikipedia.org/wiki/Technion_%E2%80%93_Israel_Institute_of_Technology" target="_blank">
-				    				<span class="section-label">technion</span>
-				    			</a>
-				    			<span class="section-text text-grey">2000-2005 | B.Sc Computer Science | avg 91 </span>
-				    		</p>
-				    		<p class="section-text">
-				    			<a href="https://en.wikipedia.org/wiki/Shenkar_College_of_Engineering_and_Design"  target="_blank">
-				    				<span class="section-label">shenkar</span>	
-				    			</a>
-				    			<span class="section-text text-grey"> 2009-2011 | Visual Communication </span>	
-				    		</p>
-			    		</div>
-			    		<br>
+	    		<div id="cv-academic">
+		    		<p class="section-title"><span>Academic History</span></p>					    		
+		    		<p class="section-text">
+		    			<a href="https://en.wikipedia.org/wiki/Technion_%E2%80%93_Israel_Institute_of_Technology" target="_blank">
+		    				<span class="section-label">technion</span>
+		    			</a>
+		    			<span class="section-text text-grey">2000-2005 | B.Sc Computer Science | avg 91 </span>
+		    		</p>
+		    		<p class="section-text">
+		    			<a href="https://en.wikipedia.org/wiki/Shenkar_College_of_Engineering_and_Design"  target="_blank">
+		    				<span class="section-label">shenkar</span>	
+		    			</a>
+		    			<span class="section-text text-grey"> 2009-2011 | Visual Communication </span>	
+		    		</p>
+	    		</div>
+	    		<br>
 
-			    		<div id="cv-professional">
-				    		<p class="section-title"><span>Professional History</span></p>
-				    		
-				    		<p class="section-text">
-				    			<a href="http://www.sisense.com"  target="_blank">
-				    				<span class="section-label">sisense</span>	
-				    			</a>
-				    			<span class="section-text text-grey">2012 - present | UX and client-side development</span>
-				    			<br>
-				    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
-				    		</p>
+	    		<div id="cv-professional">
+		    		<p class="section-title"><span>Professional History</span></p>
+		    		
+		    		<p class="section-text">
+		    			<a href="http://www.sisense.com"  target="_blank">
+		    				<span class="section-label">sisense</span>	
+		    			</a>
+		    			<span class="section-text text-grey">2012 - present | UX and client-side development</span>
+		    			<br>
+		    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
+		    		</p>
 
-				    		<p class="section-text">
-				    			<a href="http://www.kontera.com"  target="_blank">
-				    				<span class="section-label">kontera</span>	
-				    			</a>
-				    			<span class="section-text text-grey">2011 - 2012 | Design and development of web advertisment platforms</span>
-				    			<br>
-				    			<!-- <span class="section-text ph-text">Design and development of web advertisment platforms</span>			    			 -->
-				    		</p>
+		    		<p class="section-text">
+		    			<a href="http://www.kontera.com"  target="_blank">
+		    				<span class="section-label">kontera</span>	
+		    			</a>
+		    			<span class="section-text text-grey">2011 - 2012 | Design and development of web advertisment platforms</span>
+		    			<br>
+		    			<!-- <span class="section-text ph-text">Design and development of web advertisment platforms</span>			    			 -->
+		    		</p>
 
-				    		<p class="section-text">
-				    			<a href="http://www.avaya.com"  target="_blank">
-				    				<span class="section-label">avaya</span>	
-				    			</a>
-				    			<span class="section-text text-grey">2005 - 2009 | development of gateways for enterprise IP telephony</span>
-				    			<br>
-				    		</p>
+		    		<p class="section-text">
+		    			<a href="http://www.avaya.com"  target="_blank">
+		    				<span class="section-label">avaya</span>	
+		    			</a>
+		    			<span class="section-text text-grey">2005 - 2009 | development of gateways for enterprise IP telephony</span>
+		    			<br>
+		    		</p>
 
-				    		<p class="section-text">
-				    			<a href="http://www.intel.com"  target="_blank">
-				    				<span class="section-label">intel</span>	
-				    			</a>
-				    			<span class="section-text text-grey">2002 - 2005 | development of software testing tools for wireless products</span>
-				    			<br>
-				    		</p>
-			    		</div>
+		    		<p class="section-text">
+		    			<a href="http://www.intel.com"  target="_blank">
+		    				<span class="section-label">intel</span>	
+		    			</a>
+		    			<span class="section-text text-grey">2002 - 2005 | development of software testing tools for wireless products</span>
+		    			<br>
+		    		</p>
+	    		</div>
 
-			    		<div id="cv-languages">
-				    		<p class="section-title" ><span>Languages</span></p>
-			    			<p class="section-text">	
-				    			<span class="section-label">english</span>
-				    			<span class="section-text text-grey"> fluent </span>
-				    		</p>
-				    		<p class="section-text">	
-				    			<span class="section-label">hebrew</span>
-				    			<span class="section-text text-grey"> fluent </span>
-				    		</p>
-				    		<p class="section-text">	
-				    			<span class="section-label">spanish</span>
-				    			<span class="section-text text-grey"> intermediate </span>
-				    		</p>
-				    		<p class="section-text">	
-				    			<span class="section-label">italian</span>
-				    			<span class="section-text text-grey"> intermediate </span>
-				    		</p>
-				    	</div>
-			    		<div class="section-bottom"></div>
-		    		</div>
+	    		<div id="cv-languages">
+		    		<p class="section-title" ><span>Languages</span></p>
+	    			<p class="section-text">	
+		    			<span class="section-label">english</span>
+		    			<span class="section-text text-grey"> fluent </span>
+		    		</p>
+		    		<p class="section-text">	
+		    			<span class="section-label">hebrew</span>
+		    			<span class="section-text text-grey"> fluent </span>
+		    		</p>
+		    		<p class="section-text">	
+		    			<span class="section-label">spanish</span>
+		    			<span class="section-text text-grey"> intermediate </span>
+		    		</p>
+		    		<p class="section-text">	
+		    			<span class="section-label">italian</span>
+		    			<span class="section-text text-grey"> intermediate </span>
+		    		</p>
 		    	</div>
-		 </div>
+	    		<div class="section-bottom"></div>
+    		</div>
+    	</div>
+ </div>
 
-		 <!--  ++++++++++++++++++++++++++++ -->
-		<!-- 			CONTACT			    	-->
-		<!-- ++++++++++++++++++++++++++++ -->
-		<div class="column" id="column-contact" name="contact">
-			   	<div class="content-container">
+ <!--  ++++++++++++++++++++++++++++ -->
+<!-- 			CONTACT			    	-->
+<!-- ++++++++++++++++++++++++++++ -->
+<div class="column" id="column-contact" name="contact">
+	   	<div class="content-container">
 
-			    		<h1 class="title page_title">Contact</h1>
+	    		<h1 class="title page_title">Contact</h1>
 
-		    			<div class="text-container">
-		    				  				
+    			<div class="text-container">
+    				  				
 
-		    				<!-- ICONS -->
-		    				<div class="contact-container">
-			    				<div class="contact-section" id="contact-email">
-			    					<i class="contact-icon fa fa-envelope" id="email-icon"></i>
-			    				</div>
+    				<!-- ICONS -->
+    				<div class="contact-container">
+	    				<!-- 
+	    				<div class="contact-section" id="contact-email">
+	    					<i class="contact-icon fa fa-envelope" id="email-icon"></i>
+	    				</div>
+	    				<div>gil.erlich@gmail.com</div>
 
-			    				<div class="contact-section" id="contact-phone">
-			    					<i class="contact-icon fa fa-phone" id="phone-icon"></i>
-			    				</div>
+	    				<div class="contact-section" id="contact-phone">
+	    					<i class="contact-icon fa fa-phone" id="phone-icon"></i>
+	    				</div>
+	    				<div>+972-54-5572205</div>
 
-			    				<div class="contact-section" id="contact-linkedin">
-			    					<i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i>
-			    				</div>
+	    				<div class="contact-section" id="contact-linkedin">
+	    					<i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i>
+	    				</div>
+	    				<div>linked</div>
+
+	    				<div class="contact-section" id="contact-marker">
+	    					<i class="contact-icon fa fa-map-marker" id="linkedin-icon"></i>
+	    				</div> 
+	    				-->
+	    				<div class="contact-text">
+
+		    				<div>
+		    					&lt;div><br>
+	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-envelope" id="email-icon"></i>&lt;/img&gt</span><br>
+	    						<span class="tab-text">&lt;span><a class="email-text info-text" target="_blank" href="mailto:gil.erlich@gmail.com">gil.erlich@gmail.com</a>&lt;/span&gt</span><br>
 		    				</div>
+		    				<br>
+		    				<div>
+	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-phone" id="phone-icon"></i>&lt;/img&gt</span><br>
+	    						<span class="tab-text">&lt;span><span class="phone-text info-text">+972-54-5572205</span>&lt;/span&gt</span><br>
+		    				</div>
+		    				<br>
+		    				<div>
+	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i>&lt;/img&gt</span><br>
+	    						<span class="tab-text">&lt;span><a class="linkedin-text info-text" target="_blank" href="https://www.linkedin.com/profile/view?id=17752890">www.linkedin.com</a>&lt;/span&gt</span><br>
+		    				</div>	
+		    				<br>
+		    				<div>
+	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-map-marker" id="marker-icon"></i>&lt;/img&gt</span><br>
+	    						<span class="tab-text">&lt;div></span><br>
+	    						<div class="contact-map" id="contact-map"></div><br>
+	    						<span class="tab-text">&lt;/div&gt</span><br>
+		    					&lt;/div&gt
+		    				</div>		    				
 
-		    				<!-- MAP -->
-		    				<div class="contact-map" id="contact-map"></div>		  
-		    					
-		    				
 		    			</div>
-		    		</div>
-		</div>
+	    				
+	    				
+    				</div>
 
-	</div>
+    				<!-- MAP -->
+    						  
+    					
+    				
+    			</div>
+    		</div>
+</div>
 
-	
+</div>
+
+
 </body>
 </html>
