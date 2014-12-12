@@ -2,26 +2,38 @@
 <html>
 <meta charset="utf-8">
 <head>	
+	<!-- <<<<<<< FONTS >>>>>>>> -->
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
+	<!-- <<<<<<< CSS >>>>>>>> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/maps.css">
 	<link rel="stylesheet" type="text/css" href="pie/pie.css">
 	<link rel="stylesheet" type="text/css" href="arcs/arcs.css">
 	<link rel="stylesheet" type="text/css" href="choro/choro.css">
 
-  	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- FontAwesome -->
+  	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
   	<link rel="stylesheet" href="css/FWSlider/component.css">
 
+  	<!-- Mapbox -->
+  	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
+
+        	<!-- JQuery -->	
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 	<script src="js/modernizr.custom.js"></script>
-	<script src="js/jquery.cbpFWSlider.js"></script>
-	
+	<script src="js/jquery.cbpFWSlider.js"></script>	
 
+	<!-- <<<<<<< JAVASCRIPT >>>>>>>> -->
+	<!-- D3 -->
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+
+	<!-- Mapbox -->	
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
 
 	<script src="util/underscore-min.js"></script>
 	<script src="util/utility.functions.js"></script>
@@ -36,17 +48,19 @@
 	
 	<script type="text/javascript">
 		var 	id,
-			duration = 500;
-
-		var numColumns = 3,
-			columnWidth,
-			$currentColumn;
-
+				duration = 500;
+		
 		var 	columnOffset = {
 				'home': 0,
 				'case-study': -1,
-				'maps': -2
+				'maps': -2,
+				'cv': -3,
+				'contact': -4
 			};
+
+		var 	numColumns = Object.keys(columnOffset).length,
+				columnWidth,
+				$currentColumn;
 
 		
 		
@@ -67,7 +81,18 @@
 
 			$( '#fwslider-create-widget' ).cbpFWSlider();	
 			$( '#fwslider-move-widget' ).cbpFWSlider();		
-			$( '#fwslider-product-screenshots' ).cbpFWSlider();			
+			$( '#fwslider-product-screenshots' ).cbpFWSlider();		
+
+			// Provide your access token
+			L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';
+			// Create a map in the div #map
+			L.mapbox.map('contact-map', 'gil.io75e0n1', {
+				center: [
+					32.0633,
+					34.8000
+				],
+				zoom: 13
+			});	
 		});
 
 		/////////////////////////////////////////////////////////////
@@ -129,11 +154,13 @@
 </head>
 <body>
 	<div class="header">
-		<div class="header-links">
-			<a id="link-home" class="header-link" name="home">Home</a>
-			<a id="link-case-study" class="header-link" name="case-study">Case Study</a>
-			<a id="link-maps" class="header-link" name="maps">Maps</a>
-		</div>
+			<div class="header-links">
+				<a id="link-home" class="header-link" name="home">Home</a>
+				<a id="link-case-study" class="header-link" name="case-study">Case Study</a>
+				<a id="link-maps" class="header-link" name="maps">Maps</a>
+				<a id="link-cv" class="header-link" name="cv">CV</a>
+				<a id="link-contact" class="header-link" name="contact">Contact</a>
+			</div>
 	</div>
 	<div class="main-container">
 
@@ -279,7 +306,7 @@
 				</div>
 
 				<!--  ***********  PIE  ***********   -->
-				<h3 class="section-title">Brand Market Share</h3>
+				<div class="section-title">Brand Market Share</div>
 				<div class="text map_text pie_text">
 					Hover over a pie chart to see a more detailed display, or click on any country to zoom in.
 				</div>
@@ -302,7 +329,153 @@
 				<div class="container CHORO"></div>
 			</div>
 		  </div>
-		 
+
+		<!--  ++++++++++++++++++++++++++++ -->
+		<!-- 			CV			    	-->
+		<!-- ++++++++++++++++++++++++++++ -->
+		<div class="column" id="column-cv" name="cv">
+		   	<div class="content-container">
+
+		    		<h1 class="title page_title">Curriculum Vitae</h1>
+
+	    			<div class="text-container">
+	    				<div id="cv-skills">
+				    		<p class="section-title" ><span>Skills</span></p>
+			    			<p class="section-text">	
+				    			<span class="section-label">javascript</span>
+				    			<span class="section-text text-grey"> jquery | svg | d3 </span>
+				    		</p>
+				    		<p class="section-text">	
+			    				<span class="section-label">html <span class="section-label-digits">5</span></span>
+			    			</p>
+			    			<p class="section-text">	
+			    				<span class="section-label">css <span class="section-label-digits">3</span></span>
+			    			</p>
+			    			<p class="section-text">	
+			    				<span class="section-label">photoshop</span>
+			    			</p>
+			    			<p class="section-text">	
+			    				<span class="section-label">illustrator</span>
+			    			</p>
+			    			<p class="section-text">	
+			    				<span class="section-label">indesign</span>
+			    			</p>
+		    			</div>
+			    		<br>
+
+			    		<div id="cv-academic">
+				    		<p class="section-title"><span>Academic History</span></p>					    		
+				    		<p class="section-text">
+				    			<a href="https://en.wikipedia.org/wiki/Technion_%E2%80%93_Israel_Institute_of_Technology" target="_blank">
+				    				<span class="section-label">technion</span>
+				    			</a>
+				    			<span class="section-text text-grey">2000-2005 | B.Sc Computer Science | avg 91 </span>
+				    		</p>
+				    		<p class="section-text">
+				    			<a href="https://en.wikipedia.org/wiki/Shenkar_College_of_Engineering_and_Design"  target="_blank">
+				    				<span class="section-label">shenkar</span>	
+				    			</a>
+				    			<span class="section-text text-grey"> 2009-2011 | Visual Communication </span>	
+				    		</p>
+			    		</div>
+			    		<br>
+
+			    		<div id="cv-professional">
+				    		<p class="section-title"><span>Professional History</span></p>
+				    		
+				    		<p class="section-text">
+				    			<a href="http://www.sisense.com"  target="_blank">
+				    				<span class="section-label">sisense</span>	
+				    			</a>
+				    			<span class="section-text text-grey">2012 - present | UX and client-side development</span>
+				    			<br>
+				    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
+				    		</p>
+
+				    		<p class="section-text">
+				    			<a href="http://www.kontera.com"  target="_blank">
+				    				<span class="section-label">kontera</span>	
+				    			</a>
+				    			<span class="section-text text-grey">2011 - 2012 | Design and development of web advertisment platforms</span>
+				    			<br>
+				    			<!-- <span class="section-text ph-text">Design and development of web advertisment platforms</span>			    			 -->
+				    		</p>
+
+				    		<p class="section-text">
+				    			<a href="http://www.avaya.com"  target="_blank">
+				    				<span class="section-label">avaya</span>	
+				    			</a>
+				    			<span class="section-text text-grey">2005 - 2009 | development of gateways for enterprise IP telephony</span>
+				    			<br>
+				    		</p>
+
+				    		<p class="section-text">
+				    			<a href="http://www.intel.com"  target="_blank">
+				    				<span class="section-label">intel</span>	
+				    			</a>
+				    			<span class="section-text text-grey">2002 - 2005 | development of software testing tools for wireless products</span>
+				    			<br>
+				    		</p>
+			    		</div>
+
+			    		<div id="cv-languages">
+				    		<p class="section-title" ><span>Languages</span></p>
+			    			<p class="section-text">	
+				    			<span class="section-label">english</span>
+				    			<span class="section-text text-grey"> fluent </span>
+				    		</p>
+				    		<p class="section-text">	
+				    			<span class="section-label">hebrew</span>
+				    			<span class="section-text text-grey"> fluent </span>
+				    		</p>
+				    		<p class="section-text">	
+				    			<span class="section-label">spanish</span>
+				    			<span class="section-text text-grey"> intermediate </span>
+				    		</p>
+				    		<p class="section-text">	
+				    			<span class="section-label">italian</span>
+				    			<span class="section-text text-grey"> intermediate </span>
+				    		</p>
+				    	</div>
+			    		<div class="section-bottom"></div>
+		    		</div>
+		    	</div>
+		 </div>
+
+		 <!--  ++++++++++++++++++++++++++++ -->
+		<!-- 			CONTACT			    	-->
+		<!-- ++++++++++++++++++++++++++++ -->
+		<div class="column" id="column-contact" name="contact">
+			   	<div class="content-container">
+
+			    		<h1 class="title page_title">Contact</h1>
+
+		    			<div class="text-container">
+		    				  				
+
+		    				<!-- ICONS -->
+		    				<div class="contact-container">
+			    				<div class="contact-section" id="contact-email">
+			    					<i class="contact-icon fa fa-envelope" id="email-icon"></i>
+			    				</div>
+
+			    				<div class="contact-section" id="contact-phone">
+			    					<i class="contact-icon fa fa-phone" id="phone-icon"></i>
+			    				</div>
+
+			    				<div class="contact-section" id="contact-linkedin">
+			    					<i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i>
+			    				</div>
+		    				</div>
+
+		    				<!-- MAP -->
+		    				<div class="contact-map" id="contact-map"></div>		  
+		    					
+		    				
+		    			</div>
+		    		</div>
+		</div>
+
 	</div>
 
 	

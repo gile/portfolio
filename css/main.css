@@ -5,14 +5,6 @@ body {
 	font-family: 'PT Sans', sans-serif !important;
 }
 
-.section-title {
-	font-size: 1.5em;
-	font-weight: bold;
-	text-align: left;
-	margin-top: 80px;
-	margin-bottom: 10px;
-}
-
 a {
 	text-decoration: none;
 }
@@ -29,8 +21,12 @@ a {
 }
 
 .header-links {
-	width: 500px;
-	margin: 15px auto 0;
+	position: relative;
+	height: 40px;
+	width: 60%;
+	margin: 0 auto 0;
+	padding-top: 20px;
+	border-bottom: 1px solid #bbb;
 }
 
 .header-link {
@@ -46,15 +42,6 @@ a {
 	margin-top: 60px;
 	overflow: hidden;
 	/*scroll: auto;*/
-}
-
-.page_title {		
-	width: 80%;
-	margin-top: 0.5em;
-	margin-bottom: 10px;
-	text-align: left;
-	font-size: 40pt;
-	font-weight: 300;
 }
 
 .column {
@@ -93,4 +80,112 @@ a {
 	-webkit-background-size: cover; /* For WebKit*/
 	-moz-background-size: cover;    /* Mozilla*/
 	-o-background-size: cover;      /* Opera*/
+}
+
+.page_title {		
+	width: 80%;
+	margin-top: 0.5em;
+	margin-bottom: 10px;
+	text-align: left;
+	font-size: 40pt;
+	font-weight: 300;
+	color: #677da7;
+}
+
+.text-container {
+	margin-left: 50px;
+}
+
+.section-title {
+	font-size: 1.5em;	
+	text-align: left;
+	margin-top: 80px;
+	margin-bottom: 10px;
+}
+
+.section-label {
+	display: inline-block;
+	width: 140px;
+	/*font-weight: bold;*/
+	color: black;
+	font-variant: small-caps;
+	font-size: 20px;
+}
+
+.section-label .section-label-digits {
+	font-size: 14px;
+}
+
+a .section-label {
+	color: steelblue;
+}
+
+.text-grey {
+	color: grey;
+	font-size: 16px;
+}
+
+.section-bottom {
+	height: 40px;
+}
+
+#column-cv {
+	font-size: 18px;
+}
+
+#column-cv .section-title {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#column-cv .section-title span {
+	padding-bottom: 10px;
+	border-bottom: 1px solid steelblue;
+}
+
+#column-cv .section-text {
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+#column-cv #cv-skills .section-text {
+	margin-top: 5px;
+}
+
+#column-cv .ph-text {
+	margin-left: 105px;
+	font-size: 16px;
+}
+
+.contact-container {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.contact-section {
+	display: inline-block;
+	margin: 30px 20px 0;
+}
+
+.contact-icon {
+	font-size: 50px;
+	color: #3ca0d3;
+}
+
+#email-icon {
+	/*color: #f86767;*/
+}
+
+#phone-icon {
+	/*color: #a3e46b;*/
+}
+
+#linkedin-icon {
+	font-size: 54px;
+	/*color: #63b6e5;*/
+}
+
+.contact-map {
+	height: 300px;
+	margin-top: 30px;
 }
