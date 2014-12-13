@@ -30,12 +30,16 @@ a {
 }
 
 .header-link {
-	margin: 0 20px;
-	color: white;
+	margin: 0 30px;
 	cursor: pointer;
-	color: steelblue;
-	
-	font-size: 16px;
+	color: #033685;
+	font-variant: small-caps;
+	font-size: 22px;
+}
+
+.header-link:hover {
+	color: #63b6e5;
+	ont-size: 18px;
 }
 
 .main-container {
@@ -89,7 +93,9 @@ a {
 	text-align: left;
 	font-size: 40pt;
 	font-weight: 300;
-	color: #677da7;
+	/*color: #677da7;*/
+	color: #200;
+	font-family: 'Duru Sans', sans-serif;
 }
 
 .text-container {
@@ -101,6 +107,7 @@ a {
 	text-align: left;
 	margin-top: 80px;
 	margin-bottom: 10px;
+	color: steelblue;
 }
 
 .section-label {
@@ -163,19 +170,19 @@ a .section-label {
 }
 
 .contact-section {
-	display: inline-block;
-	margin: 60px 20px 0;
+	/*display: inline-block;*/
+	margin: 40px  0 20px;
 }
 
 .contact-icon {
 	font-size: 36px;
 	/*color: #3ca0d3;*/
 	color: steelblue;
-	margin: 0 10px;
+	/*margin: 0 10px;*/
 }
 
 #email-icon {
-	font-size: 32px;
+	font-size: 30px;
 	color: #f86767;
 }
 
@@ -207,7 +214,8 @@ a .section-label {
 }
 
 .email-text:hover {
-	text-decoration: underline;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #f86767;	
 }
 
 .phone-text {
@@ -215,18 +223,20 @@ a .section-label {
 }
 
 .linkedin-text {
+	line-height: 26px;
 	color: #63b6e5;
 }
 
 .linkedin-text:hover {
-	text-decoration: underline;
+	border-bottom: 2px solid #63b6e5;
 }
 
 .contact-map {
 	height: 180px;
 	width: 40%;
 	display: inline-block;
-	margin-left: 120px;
+	/*margin-left: 120px;*/
+	margin-top: 10px;
 	border: 2px solid #9370DB;
 }
 
