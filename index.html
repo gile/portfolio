@@ -6,9 +6,10 @@
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Duru+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 
 <!-- <<<<<<< CSS >>>>>>>> -->
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/maps.css">
 <link rel="stylesheet" type="text/css" href="pie/pie.css">
 <link rel="stylesheet" type="text/css" href="arcs/arcs.css">
@@ -22,13 +23,14 @@
 <!-- Mapbox -->
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
 
-	<!-- JQuery -->	
+
+<!-- <<<<<<< JAVASCRIPT >>>>>>>> -->
+<!-- JQuery -->	
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 <script src="js/modernizr.custom.js"></script>
 <script src="js/jquery.cbpFWSlider.js"></script>	
 
-<!-- <<<<<<< JAVASCRIPT >>>>>>>> -->
 <!-- D3 -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
@@ -44,131 +46,19 @@
 <script src="pie/pie.js"></script>
 <script src="arcs/arcs.js"></script>
 <script src="choro/choro.js"></script>
-
 <script src="util/data.js"></script>
 
-<script type="text/javascript">
-var 	id,
-		duration = 500;
-
-var 	columnOffset = {
-		'home': 0,
-		'case-study': -1,
-		'maps': -2,
-		'cv': -3,
-		'contact': -4
-	};
-
-var 	numColumns = Object.keys(columnOffset).length,
-		columnWidth,
-		$currentColumn;
-
-
-
-/////////////////////////////////////////////////////////////
-// Init Code
-/////////////////////////////////////////////////////////////
-$('document').ready(function() {
-
-	$('.header-link').click(function() {
-		var name = $(this).attr('name');
-		headerLinkClick(name);
-	});
-
-	$currentColumn = $('#column-home');
-	$('.main-container').css({height: $currentColumn.height()});
-
-	doneResizing();		
-
-	$( '#fwslider-create-widget' ).cbpFWSlider();	
-	$( '#fwslider-move-widget' ).cbpFWSlider();		
-	$( '#fwslider-product-screenshots' ).cbpFWSlider();		
-
-	// Provide your access token
-	L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';
-	// Create a map in the div #map
-	L.mapbox.map('contact-map', 'gil.io75e0n1', {
-		center: [
-			32.0565,
-			34.7650
-		],
-		zoom: 14
-	});	
-
-	$('.info-text').mouseover(function() {
-		//console.log('FFFF');
-	});
-
-	$('.info-text').mouseout(function() {
-		//console.log('FFFF');
-	});
-});
-
-/////////////////////////////////////////////////////////////
-// Global Event Handlers
-/////////////////////////////////////////////////////////////
-$(window).resize(function() {
-    $('body').hide();
-    clearTimeout(id);
-    id = setTimeout(doneResizing, 500);
-    
-});	
-
-/////////////////////////////////////////////////////////////
-// Private Methods
-/////////////////////////////////////////////////////////////	
-function doneResizing(){
-	var columnName = $currentColumn.attr('name'),
-		columnHeight = $currentColumn.height(),
-		mainContainerCss;
-
-	$('body').show();
-
-	columnWidth = $('html').width();			
-
-	// must be set before we get $currentColumn.height()
-	$('.column').width(columnWidth);
-
-	mainContainerCss = {
-		width: columnWidth * numColumns,
-		height: $currentColumn.height(),
-		marginLeft: columnWidth * columnOffset[columnName]
-	};			
-	
-	$('.main-container').css(mainContainerCss);				
-}
-
-
-function headerLinkClick(columnName) {
-	var mainContainerCss,
-		$thisColumn = $('#column-' + columnName);
-
-	if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
-
-	$currentColumn.animate({opacity: 0});
-	$thisColumn.animate({opacity: 1});
-	$currentColumn = $thisColumn;
-
-	mainContainerCss = {
-		height: $thisColumn.height(),
-		marginLeft: columnWidth * columnOffset[columnName]
-	}
-
-	$('.main-container').animate(mainContainerCss, duration);
-
-	console.log('CLICK', columnName, $('.main-container').height());
-}	 
-</script>
+<script src="js/main.js"></script>
 
 </head>
 <body>
 <div class="header">
 	<div class="header-links">
-		<a id="link-home" class="header-link" name="home">home</a>
-		<a id="link-case-study" class="header-link" name="case-study">case study</a>
-		<a id="link-maps" class="header-link" name="maps">maps</a>
-		<a id="link-cv" class="header-link" name="cv">cv</a>
-		<a id="link-contact" class="header-link" name="contact">contact</a>
+		<div class="header-item"><a id="link-home" class="header-link" name="home">home</a></div>
+		<div class="header-item"><a id="link-case-study" class="header-link" name="case-study">case study</a></div>
+		<div class="header-item"><a id="link-maps" class="header-link" name="maps">maps</a></div>
+		<div class="header-item"><a id="link-cv" class="header-link" name="cv">cv</a></div>
+		<div class="header-item"><a id="link-contact" class="header-link" name="contact">contact</a></div>
 	</div>
 </div>
 <div class="main-container">
@@ -177,10 +67,19 @@ function headerLinkClick(columnName) {
 <!-- 			HOME 					    	-->
 <!-- ++++++++++++++++++++++++++++ -->
  <div class="column" id="column-home" name="home">
-    	
-    	<div class="cover-photo"></div>
-    	HOME
-    	
+ 	<div class="content-container">
+    		<h1 class="title page_title" id="home-title"><span id="home-title-prompt">&gt</span><span id="home-title-text"></span><span id="home-title-cursor">|</span></h1>
+    		<div id="toc-container" >
+    			<div class="toc-item">
+    				<a class="toc-text" name="case-study">case study</a>
+    				<div class="toc-metadata">drwxr-xr-x</div>
+    				<!-- <div class="toc-metadata">Dec 13 11.23</div> -->
+    			</div>
+    			<div class="toc-item"><a class="toc-text" name="maps">3 maps</a></div>
+    			<div class="toc-item"><a class="toc-text" name="cv">curriculum vitae</a></div>
+    			<div class="toc-item"><a class="toc-text" name="contact">contact</a></div>
+    		</div>
+    	</div>
     	<!-- <div><img u="image" src="images/vg3.jpg" style="width:600px; height: 400px"/></div> -->
   </div>
 

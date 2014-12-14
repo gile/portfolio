@@ -1,3 +1,15 @@
+@courierNew: 'Courier New', monospace;
+@droidMono: 'Droid Sans Mono';
+@darkBlue: #033685;
+
+@monospace: @droidMono;
+
+@linkColor: steelblue;
+
+.hidden {
+	display: none;
+}
+
 body {
 	margin: 0;
 	overflow-x:hidden;
@@ -9,6 +21,9 @@ a {
 	text-decoration: none;
 }
 
+/*----------------------------------------------*/
+/*-------- HEADER
+/*----------------------------------------------*/
 .header {
 	position: fixed;
 	top: 0;
@@ -29,19 +44,31 @@ a {
 	border-bottom: 1px solid #bbb;
 }
 
-.header-link {
-	margin: 0 30px;
+.header-item {
+	width: 100px;
+	
+
+	display: inline-block;
+	border: 1px solid purple;
+}
+
+.header-link {	
 	cursor: pointer;
-	color: #033685;
+	color: @linkColor;
 	font-variant: small-caps;
 	font-size: 22px;
+	border: 1px solid green;
 }
 
 .header-link:hover {
 	color: #63b6e5;
-	ont-size: 18px;
+	font-size: 24px;
+	transform: scale(1.2);
 }
 
+/*----------------------------------------------*/
+/*-------- COLUMNS
+/*----------------------------------------------*/
 .main-container {
 	margin-top: 60px;
 	overflow: hidden;
@@ -75,33 +102,9 @@ a {
 	font-family: 'PT Sans', sans-serif;	
 }
 
-.cover-photo {
-	width: 100%;
-	min-height: 700px;
-	background: url('../images/girl.jpg') no-repeat;
-
-	background-size:cover;
-	-webkit-background-size: cover; /* For WebKit*/
-	-moz-background-size: cover;    /* Mozilla*/
-	-o-background-size: cover;      /* Opera*/
-}
-
-.page_title {		
-	width: 80%;
-	margin-top: 0.5em;
-	margin-bottom: 10px;
-	text-align: left;
-	font-size: 40pt;
-	font-weight: 300;
-	/*color: #677da7;*/
-	color: #200;
-	font-family: 'Duru Sans', sans-serif;
-}
-
-.text-container {
-	margin-left: 50px;
-}
-
+/*----------------------------------------------*/
+/*-------- GENERAL
+/*----------------------------------------------*/
 .section-title {
 	font-size: 1.5em;	
 	text-align: left;
@@ -136,6 +139,82 @@ a .section-label {
 	height: 40px;
 }
 
+.text-container {
+	margin-left: 50px;
+}
+
+/*----------------------------------------------*/
+/*-------- HOME
+/*----------------------------------------------*/
+.cover-photo {
+	width: 100%;
+	min-height: 700px;
+	background: url('../images/girl.jpg') no-repeat;
+
+	background-size:cover;
+	-webkit-background-size: cover; /* For WebKit*/
+	-moz-background-size: cover;    /* Mozilla*/
+	-o-background-size: cover;      /* Opera*/
+}
+
+.page_title {		
+	width: 80%;
+	margin-top: 0.5em;
+	margin-bottom: 10px;
+	text-align: left;
+	font-size: 50px;
+	font-weight: 300;
+	/*color: #677da7;*/
+	color: #200;
+	font-family: 'Duru Sans', sans-serif;
+}
+
+#home-title-prompt {
+	font-family: @monospace;
+	/*font-size: 40px;*/
+	color: grey;
+}
+
+#home-title-text {
+	/*font-size: 40px;*/
+	font-family: @monospace;
+}
+
+#toc-container {
+	margin-top: 30px;
+	visibility: hidden;
+	/*margin-left: 30px;*/
+}
+
+.toc-item {	
+	margin-bottom: 10px;
+}
+
+.toc-text {
+	
+	/*font-family: @monospace;*/
+	font-size: 40px;
+	color: @linkColor;
+	font-family: @monospace;
+}
+
+.toc-text:hover {
+	color: #48D1CC;
+	cursor: pointer;
+}
+
+.toc-metadata {
+	float: right;
+	width: 250px;
+	font-size: 36px;
+	color: #bbb;
+	font-family: @monospace;
+	content: " (" attr(href) ")";
+}
+
+/*----------------------------------------------*/
+/*-------- CV
+/*----------------------------------------------*/
 #column-cv {
 	font-size: 18px;
 }
@@ -164,6 +243,9 @@ a .section-label {
 	font-size: 16px;
 }
 
+/*----------------------------------------------*/
+/*-------- CONTACT
+/*----------------------------------------------*/
 .contact-container {
 	margin: 30px auto;
 	/*text-align: center;*/
