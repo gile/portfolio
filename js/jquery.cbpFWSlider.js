@@ -123,21 +123,27 @@
 
 		},
 		_navigate : function( direction ) {			
-		
+			
 			// do nothing if the list is currently moving
 			if( this.isAnimating ) {
 				return false;
 			}
-
-			this.isAnimating = true;
+			
 			// update old and current values
 			this.old = this.current;
+
 			if( direction === 'next' && this.current < this.itemsCount - 1 ) {
 				++this.current;
 			}
 			else if( direction === 'previous' && this.current > 0 ) {
 				--this.current;
 			}
+			else {
+				return false;
+			}
+
+			this.isAnimating = true;
+
 			// slide
 			this._slide();
 

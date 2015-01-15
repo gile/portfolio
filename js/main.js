@@ -3,7 +3,7 @@ var 	id,
 
 var 	columnOffset = {
 		'home': 0,
-		'case-study': -1,
+		'ux': -1,
 		'maps': -2,
 		'cv': -3,
 		'contact': -4
@@ -28,7 +28,8 @@ $('document').ready(function() {
 		headerLinkClick(name);
 	});
 
-	$('.toc-item').click(function() {
+	$('.toc-item a').click(function() {
+		console.log(this);
 		var name = $(this).attr('name');
 		headerLinkClick(name);
 	});
@@ -38,9 +39,10 @@ $('document').ready(function() {
 
 	doneResizing();		
 
-	$( '#fwslider-create-widget' ).cbpFWSlider();	
-	$( '#fwslider-move-widget' ).cbpFWSlider();		
-	$( '#fwslider-product-screenshots' ).cbpFWSlider();		
+	$( '#fwslider-sisense-mockups' ).cbpFWSlider();	
+	$( '#fwslider-sisense-screenshots' ).cbpFWSlider();
+	$( '#fwslider-zennet-mockups' ).cbpFWSlider();		
+	$( '#fwslider-zennet-screenshots' ).cbpFWSlider();		
 
 	// Provide your access token
 	L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';
@@ -61,27 +63,19 @@ $('document').ready(function() {
 		//console.log('FFFF');
 	});
 
+	$('.slides-container img')
+	runTocAnimation();
 
-	var 	str = "Table of Contents";
-	var 	initial_delay = 1000,
-		delay_step = 50;
-
-	var 	text = "";
-
-	var 	titleText = d3.select('#home-title-text')
-
-	for (var i =0; i < str.length; ++i) {
-		titleText.transition()
-			.delay(initial_delay + i*delay_step)
-			.text(str.slice(0, i))
-	}
-		
-	titleText.transition()
-	  	.delay( initial_delay + ((str.length + 1) * delay_step) )	
-	  	.each("end", function() {
-	  		d3.select('#home-title-cursor').style('visibility', 'hidden');
-			d3.select('#toc-container').style('visibility', 'visible');
-		});
+	// $('#create-widget-list' ).magnificPopup({
+	// 	delegate: 'a', // child items selector, by clicking on it popup will open
+ //  		type: 'image',
+ //  		gallery:{enabled:true},
+ //  		image: {
+	// 	    // options for image content type
+	// 	    titleSrc: 'title'
+ // 		}
+ //  		// other options
+	// });
 });
 
 
@@ -99,6 +93,30 @@ $(window).resize(function() {
 /////////////////////////////////////////////////////////////
 // Private Methods
 /////////////////////////////////////////////////////////////	
+function runTocAnimation() {
+	var 	str = "Table of Contents";
+
+	var 	initial_delay = 1000,
+		delay_step = 20;
+
+	var 	text = "";
+
+	var 	titleText = d3.select('#home-title-text')
+
+	for (var i =0; i < str.length; ++i) {
+		titleText.transition()
+			.delay(initial_delay + i*delay_step)
+			.text(str.slice(0, i))
+	}
+		
+	titleText.transition()
+	  	.delay( initial_delay + ((str.length + 1) * delay_step) )	
+	  	.each("end", function() {
+	  		d3.select('#home-title-cursor').style('visibility', 'hidden');
+			d3.select('#home-content').style('visibility', 'visible');
+		});
+} 
+
 function doneResizing(){
 	var columnName = $currentColumn.attr('name'),
 		columnHeight = $currentColumn.height(),
@@ -127,6 +145,9 @@ function headerLinkClick(columnName) {
 
 	if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
 
+	//$('body').css('overflow-y', 'hidden');
+	
+
 	$currentColumn.animate({opacity: 0});
 	$thisColumn.animate({opacity: 1});
 	$currentColumn = $thisColumn;
@@ -137,6 +158,14 @@ function headerLinkClick(columnName) {
 	}
 
 	$('.main-container').animate(mainContainerCss, duration);
+
+	setTimeout(function() {
+		window.scrollTo(0, 0);
+	}, duration/2);
+
+	setTimeout(function() {
+		$('body').css('overflow-y', 'scroll');
+	}, duration);
 
 	console.log('CLICK', columnName, $('.main-container').height());
 }	 

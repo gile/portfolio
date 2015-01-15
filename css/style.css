@@ -10,6 +10,9 @@ body {
 a {
   text-decoration: none;
 }
+.grey-text {
+  color: #888888;
+}
 /*----------------------------------------------*/
 /*-------- HEADER
 /*----------------------------------------------*/
@@ -32,21 +35,20 @@ a {
   border-bottom: 1px solid #bbb;
 }
 .header-item {
-  width: 100px;
+  /*width: 100px;*/
+  margin: 0 30px;
   display: inline-block;
-  border: 1px solid purple;
+  /*border: 1px solid purple;*/
 }
 .header-link {
   cursor: pointer;
   color: #4682b4;
   font-variant: small-caps;
   font-size: 22px;
-  border: 1px solid green;
+  /*  border: 1px solid green;*/
 }
 .header-link:hover {
   color: #63b6e5;
-  font-size: 24px;
-  transform: scale(1.2);
 }
 /*----------------------------------------------*/
 /*-------- COLUMNS
@@ -68,7 +70,7 @@ a {
   /*border: 1px solid steelblue;*/
   /*background-color: steelblue;*/
 }
-#column-case-study {
+#column-ux {
   /*border: 1px solid lavender;*/
 }
 #column-maps {
@@ -80,12 +82,30 @@ a {
 /*----------------------------------------------*/
 /*-------- GENERAL
 /*----------------------------------------------*/
+.page-title {
+  width: 60%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 38px;
+  font-weight: 300;
+  /*color: #677da7;*/
+  color: #556;
+  font-family: 'Duru Sans', sans-serif;
+}
+.page-text {
+  color: #888888;
+  font-size: 16px;
+  margin-left: 10px;
+}
 .section-title {
-  font-size: 1.5em;
+  font-size: 28px;
   text-align: left;
   margin-top: 80px;
-  margin-bottom: 10px;
-  color: steelblue;
+  margin-left: 8px;
+  margin-right: 20px;
+  color: #4682b4;
+  display: inline-block;
 }
 .section-label {
   display: inline-block;
@@ -126,18 +146,7 @@ a .section-label {
   -o-background-size: cover;
   /* Opera*/
 }
-.page_title {
-  width: 80%;
-  margin-top: 0.5em;
-  margin-bottom: 10px;
-  text-align: left;
-  font-size: 50px;
-  font-weight: 300;
-  /*color: #677da7;*/
-  color: #200;
-  font-family: 'Duru Sans', sans-serif;
-}
-#home-title-prompt {
+.prompt {
   font-family: 'Droid Sans Mono';
   /*font-size: 40px;*/
   color: grey;
@@ -146,9 +155,11 @@ a .section-label {
   /*font-size: 40px;*/
   font-family: 'Droid Sans Mono';
 }
+#home-content {
+  visibility: hidden;
+}
 #toc-container {
   margin-top: 30px;
-  visibility: hidden;
   /*margin-left: 30px;*/
 }
 .toc-item {
@@ -161,7 +172,7 @@ a .section-label {
   font-family: 'Droid Sans Mono';
 }
 .toc-text:hover {
-  color: #48D1CC;
+  color: #48d1cc;
   cursor: pointer;
 }
 .toc-metadata {
@@ -171,6 +182,49 @@ a .section-label {
   color: #bbb;
   font-family: 'Droid Sans Mono';
   content: " (" attr(href) ")";
+}
+/*----------------------------------------------*/
+/*-------- UX EXAMPLES
+/*----------------------------------------------*/
+#column-ux .slides-container {
+  /*position: absolute;*/
+  margin-top: 0;
+}
+#column-ux .section-title {
+  margin-top: 20px;
+  font-style: italic;
+}
+#column-ux .section-text {
+  margin-top: 10px;
+}
+#column-ux .slides-container .caption-container {
+  border: none;
+  width: 100%;
+  /*margin-left: 10px;*/
+}
+#column-ux .slides-container .caption {
+  left: 0;
+  top: 5px;
+  width: 100%;
+  text-align: center;
+}
+#column-ux .slides-container .caption span {
+  margin-left: -5px;
+}
+#column-ux .slides-container .cbp-fwslider {
+  padding: 0 0 50px;
+}
+#column-ux hr {
+  width: 60%;
+  margin-bottom: 60px;
+}
+/*----------------------------------------------*/
+/*-------- MAPS
+/*----------------------------------------------*/
+.map-text {
+  color: #888888;
+  font-size: 16px;
+  margin-left: 10px;
 }
 /*----------------------------------------------*/
 /*-------- CV

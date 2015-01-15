@@ -1,1 +1,3 @@
 python -m SimpleHTTPServer 90
+*.ini
+bad
