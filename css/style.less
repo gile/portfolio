@@ -1,10 +1,12 @@
 @blue:	#4682b4;
 @turquoise: 	#48D1CC;
+@lightBlue:	#63b6e5;
 @grey:	#888;
 
 @menuColor:		@blue;
 @menuHoverColor: 	@turquoise;
 @pageTextColor:	@grey;
+@linkHoverColor: 	@lightBlue;
 
 @pageTextFontSize: 16px;
 
@@ -65,10 +67,30 @@ a {
   font-variant: small-caps;
   font-size: 22px;
 /*  border: 1px solid green;*/
+	&:hover {
+	  	color: @linkHoverColor;
+	}
+
+	span {
+		font-size: 18px;
+	}
 }
 
-.header-link:hover {
-  color: #63b6e5;
+
+.header-brackets {
+	position: absolute;
+	padding-top: 5px;
+
+	span {
+		font-size: 18px;
+		font-variant: small-caps;
+		color: @menuColor;
+		display: inline-block;
+	}
+
+	div {
+		width: 20px;
+	}
 }
 
 /*----------------------------------------------*/
@@ -131,6 +153,7 @@ a {
 	color: @menuColor;
 	display: inline-block;
 }
+
 .section-label {
 	display: inline-block;
 	width: 140px;
@@ -139,19 +162,28 @@ a {
 	font-variant: small-caps;
 	font-size: 20px;
 }
+
 .section-label .section-label-digits {
 	font-size: 14px;
 }
+
 a .section-label {
 	color: steelblue;
+
+	&:hover {
+		color: @linkHoverColor;
+	}
 }
+
 .text-grey {
 	color: grey;
 	font-size: 16px;
 }
+
 .section-bottom {
 	height: 40px;
 }
+
 .text-container {
 	margin-left: 50px;
 }
@@ -160,55 +192,82 @@ a .section-label {
 /*----------------------------------------------*/
 /*-------- HOME
 /*----------------------------------------------*/
+.content-container svg {
+	width: 100%;
+	height: 600px;
+}
+
 .cover-photo {
-  width: 100%;
-  min-height: 700px;
-  background: url('../images/girl.jpg') no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  /* For WebKit*/
-  -moz-background-size: cover;
-  /* Mozilla*/
-  -o-background-size: cover;
-  /* Opera*/
+	width: 100%;
+	min-height: 700px;
+	background: url('../images/girl.jpg') no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	/* For WebKit*/
+	-moz-background-size: cover;
+	/* Mozilla*/
+	-o-background-size: cover;
+	/* Opera*/
 }
 
 .prompt {
-  font-family: 'Droid Sans Mono';
-  /*font-size: 40px;*/
-  color: grey;
+	font-family: 'Droid Sans Mono';
+	/*font-size: 40px;*/
+	color: grey;
 }
+
 #home-title-text {
-  /*font-size: 40px;*/
-  font-family: 'Droid Sans Mono';
+	/*font-size: 40px;*/
+	font-family: 'Droid Sans Mono';
 }
+
 #home-content {
-  visibility: hidden;
+	
 }
+
 #toc-container {
-  margin-top: 30px;
-  /*margin-left: 30px;*/
+  	margin-top: 30px;
+  	/*margin-left: 30px;*/
 }
+
 .toc-item {
-  margin-bottom: 10px;
+	height: 200px;
+  	margin-bottom: 10px;
 }
+
 .toc-text {
-  /*font-family: @monospace;*/
-  font-size: 40px;
-  color: @menuColor;
-  font-family: 'Droid Sans Mono';
+	/*font-family: @monospace;*/
+	font-size: 40px;
+	color: @menuColor;
+	font-family: 'Droid Sans Mono';
 }
+
 .toc-text:hover {
-  color: @menuHoverColor;
-  cursor: pointer;
+	color: @menuHoverColor;
+	cursor: pointer;
 }
+
 .toc-metadata {
-  float: right;
-  width: 250px;
-  font-size: 36px;
-  color: #bbb;
-  font-family: 'Droid Sans Mono';
-  content: " (" attr(href) ")";
+	float: right;
+	width: 250px;
+	font-size: 36px;
+	color: #bbb;
+	font-family: 'Droid Sans Mono';
+	content: " (" attr(href) ")";
+}
+
+.strip {
+	
+	width: 100%;
+	height: 150px;
+}
+
+#strip-ux {
+	background: url('../images/girl.jpg') no-repeat;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	-o-background-size: 100% auto;
+	background-size: 100% auto;
 }
 
 /*----------------------------------------------*/
@@ -241,6 +300,7 @@ a .section-label {
 			top: 5px;
 			width: 100%;
 			text-align: center;
+			margin-top: 0;
 
 			span {
 				margin-left: -5px;
@@ -254,8 +314,8 @@ a .section-label {
 	}
 
 	hr {
-		width: 60%;
-		margin-bottom: 60px;
+		width: 90%;
+		margin-bottom: 50px;
 	}
 }
 

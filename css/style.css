@@ -50,6 +50,22 @@ a {
 .header-link:hover {
   color: #63b6e5;
 }
+.header-link span {
+  font-size: 18px;
+}
+.header-brackets {
+  position: absolute;
+  padding-top: 5px;
+}
+.header-brackets span {
+  font-size: 18px;
+  font-variant: small-caps;
+  color: #4682b4;
+  display: inline-block;
+}
+.header-brackets div {
+  width: 20px;
+}
 /*----------------------------------------------*/
 /*-------- COLUMNS
 /*----------------------------------------------*/
@@ -121,6 +137,9 @@ a {
 a .section-label {
   color: steelblue;
 }
+a .section-label:hover {
+  color: #63b6e5;
+}
 .text-grey {
   color: grey;
   font-size: 16px;
@@ -134,6 +153,10 @@ a .section-label {
 /*----------------------------------------------*/
 /*-------- HOME
 /*----------------------------------------------*/
+.content-container svg {
+  width: 100%;
+  height: 600px;
+}
 .cover-photo {
   width: 100%;
   min-height: 700px;
@@ -155,14 +178,12 @@ a .section-label {
   /*font-size: 40px;*/
   font-family: 'Droid Sans Mono';
 }
-#home-content {
-  visibility: hidden;
-}
 #toc-container {
   margin-top: 30px;
   /*margin-left: 30px;*/
 }
 .toc-item {
+  height: 200px;
   margin-bottom: 10px;
 }
 .toc-text {
@@ -182,6 +203,17 @@ a .section-label {
   color: #bbb;
   font-family: 'Droid Sans Mono';
   content: " (" attr(href) ")";
+}
+.strip {
+  width: 100%;
+  height: 150px;
+}
+#strip-ux {
+  background: url('../images/girl.jpg') no-repeat;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
 }
 /*----------------------------------------------*/
 /*-------- UX EXAMPLES
@@ -207,6 +239,7 @@ a .section-label {
   top: 5px;
   width: 100%;
   text-align: center;
+  margin-top: 0;
 }
 #column-ux .slides-container .caption span {
   margin-left: -5px;
@@ -215,8 +248,8 @@ a .section-label {
   padding: 0 0 50px;
 }
 #column-ux hr {
-  width: 60%;
-  margin-bottom: 60px;
+  width: 90%;
+  margin-bottom: 50px;
 }
 /*----------------------------------------------*/
 /*-------- MAPS

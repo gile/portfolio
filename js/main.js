@@ -13,7 +13,9 @@ var 	numColumns = Object.keys(columnOffset).length,
 		columnWidth,
 		$currentColumn;
 
-
+var 	headerColor = '#4682b4',
+	headerColorHover = '#63b6e5',
+	headerActiveColor = '#f86767'; // red
 
 
 /////////////////////////////////////////////////////////////
@@ -22,7 +24,7 @@ var 	numColumns = Object.keys(columnOffset).length,
 $('document').ready(function() {
 
 	
-
+	
 	$('.header-link').click(function() {
 		var name = $(this).attr('name');
 		headerLinkClick(name);
@@ -35,7 +37,7 @@ $('document').ready(function() {
 	});
 
 	$currentColumn = $('#column-home');
-	$('.main-container').css({height: $currentColumn.height()});
+	//$('.main-container').css({height: $currentColumn.height()});
 
 	doneResizing();		
 
@@ -63,8 +65,12 @@ $('document').ready(function() {
 		//console.log('FFFF');
 	});
 
+
+	headerSetActive('home', 0)
+
 	$('.slides-container img')
-	runTocAnimation();
+	//runTocAnimation();
+
 
 	// $('#create-widget-list' ).magnificPopup({
 	// 	delegate: 'a', // child items selector, by clicking on it popup will open
@@ -138,22 +144,58 @@ function doneResizing(){
 	$('.main-container').css(mainContainerCss);				
 }
 
+function headerSetActive(name, duration) {
+	if (!duration || duration === 0) {
+		
+		d3.selectAll('.header-link span')
+			.style('opacity', 0);
+
+		d3.selectAll('.header-link')
+			.style('color', '');
+
+		d3.selectAll('#link-' + name + ' span')
+			.style('opacity', 1);
+
+		d3.selectAll('#link-' + name)
+			.style('color', headerActiveColor);
+	}
+
+	else {
+		d3.selectAll('.header-link span').transition()
+			.duration(duration)
+			.style('opacity', 0);
+
+		d3.selectAll('.header-link').transition()
+			.duration(duration)
+			.style('color', '');		
+
+		d3.selectAll('#link-' + name + ' span').transition()
+			.delay(duration + 50)
+			.duration(duration)
+			.style('opacity', 1);
+
+		d3.selectAll('#link-' + name).transition()
+			.delay(duration + 50)
+			.duration(duration)
+			.style('color', headerActiveColor);
+	}
+}
 
 function headerLinkClick(columnName) {
-	var mainContainerCss,
+	var 	mainContainerCss,
 		$thisColumn = $('#column-' + columnName);
 
 	if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
 
 	//$('body').css('overflow-y', 'hidden');
-	
+	headerSetActive(columnName, 200);
 
 	$currentColumn.animate({opacity: 0});
 	$thisColumn.animate({opacity: 1});
 	$currentColumn = $thisColumn;
 
 	mainContainerCss = {
-		height: $thisColumn.height(),
+		//height: $thisColumn.height(),
 		marginLeft: columnWidth * columnOffset[columnName]
 	}
 
@@ -168,4 +210,4 @@ function headerLinkClick(columnName) {
 	}, duration);
 
 	console.log('CLICK', columnName, $('.main-container').height());
-}	 
+}	

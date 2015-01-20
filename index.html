@@ -38,12 +38,14 @@
 <!-- D3 -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/d3.layout.js"></script>
+<script type="text/javascript" src="js/d3.geom.js"></script>
 
 <!-- Mapbox -->	
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
 
 <!-- Lightbox -->	
-<script src="js/magnific.min.js"></script>
+<!-- <script src="js/magnific.min.js"></script> -->
 
 <script src="util/underscore-min.js"></script>
 <script src="util/utility.functions.js"></script>
@@ -61,11 +63,22 @@
 <body>
 <div class="header">
 	<div class="header-links">
-		<div class="header-item"><a id="link-home" class="header-link" name="home">home</a></div>
-		<div class="header-item"><a id="link-ux" class="header-link" name="ux">ux examples</a></div>
-		<div class="header-item"><a id="link-maps" class="header-link" name="maps">maps</a></div>
-		<div class="header-item"><a id="link-cv" class="header-link" name="cv">cv</a></div>
-		<div class="header-item"><a id="link-contact" class="header-link" name="contact">contact</a></div>
+		<!-- <div class="header-brackets"><span>&lt; </span><span> &gt</span></div> -->
+		<div class="header-item"><a id="link-home" class="header-link" name="home">
+			<span>&lt; </span>home<span> &gt</span>			
+		</a></div>
+		<div class="header-item"><a id="link-ux" class="header-link" name="ux">
+			<span>&lt; </span>ux examples<span> &gt</span>			
+		</a></div>
+		<div class="header-item"><a id="link-maps" class="header-link" name="maps">
+			<span>&lt; </span>maps<span> &gt</span>
+		</a></div>
+		<div class="header-item"><a id="link-cv" class="header-link" name="cv">
+			<span>&lt; </span>cv<span> &gt</span>
+		</a></div>
+		<div class="header-item"><a id="link-contact" class="header-link" name="contact">
+			<span>&lt; </span>contact<span> &gt</span>
+		</a></div>
 	</div>
 </div>
 <div class="main-container">
@@ -75,29 +88,22 @@
 <!-- ++++++++++++++++++++++++++++ -->
  <div class="column" id="column-home" name="home">
  	<div class="content-container">
-    		<h1 class="title page-title" id="home-title">
+    		<!-- <h1 class="title page-title" id="home-title">
     			<span id="home-title-prompt" class="prompt">&gt</span>
     			<span id="home-title-text"></span>
     			<span id="home-title-cursor" class="cursor">|</span>
-    		</h1>
+    		</h1> -->
     		<div id="home-content">
 	    		<div id="toc-container" >
 	    			<div class="toc-item">
 	    				<a class="toc-text" name="ux">ux examples</a>
-	    				<div class="toc-metadata">drwxr-xr-x</div>
-	    				<!-- <div class="toc-metadata">Dec 13 11.23</div> -->
+	    				<div class="strip" id="strip-ux"></div>
 	    			</div>
 	    			<div class="toc-item"><a class="toc-text" name="maps">3 maps</a></div>
 	    			<div class="toc-item"><a class="toc-text" name="cv">curriculum vitae</a></div>
 	    			<div class="toc-item"><a class="toc-text" name="contact">contact</a></div>
 	    		</div>
-	    		<!-- <div id="about-container" >
-	    			<h1 class="title page_title" id="home-about-title">
-	    				<span id="home-about-prompt" class="prompt">&gt</span>
-	    				<span id="home-about-text"></span>
-	    				<span id="home-about-cursor cursor">|</span>
-	    			</h1>
-	    		</div> -->
+	    		
     		</div>
     	</div>
     	<!-- <div><img u="image" src="images/vg3.jpg" style="width:600px; height: 400px"/></div> -->
@@ -107,149 +113,149 @@
 <!-- 			UX EXAMPLES		    	-->
 <!-- ++++++++++++++++++++++++++++ -->
 <div class="column" id="column-ux" name="ux">
-	   	<div class="content-container">
-	    		<h1 class="title page-title">UX Examples</h1>
-	    		<p class="section-text">
-	    			<!-- As part of my contribution to a BI dashboard solution, I was responsible for the UX design of a new web-based interface.
-	    			<br>
-	    			My approch was to first understand what the basic flows are, where a flow is a set of actions a user ,must take in order to complete a specific goal.
-	    			<br><br>
-	    			For each flow I had prepared a series of mockups used to illustrate to the R&D team, Marketing and Graphic Designers how the product should look and behave.	 -->		    			
+   	<div class="content-container">
+    		<h1 class="title page-title">UX Examples</h1>
+    		<p class="section-text">
+    			<!-- As part of my contribution to a BI dashboard solution, I was responsible for the UX design of a new web-based interface.
+    			<br>
+    			My approch was to first understand what the basic flows are, where a flow is a set of actions a user ,must take in order to complete a specific goal.
+    			<br><br>
+    			For each flow I had prepared a series of mockups used to illustrate to the R&D team, Marketing and Graphic Designers how the product should look and behave.	 -->		    			
 
-	    			<!-- Product mockups and screenshots. These were used to illustrate screen composition and flow to the R&D and Marketing teams.	 -->
-	    		</p>
-	    		<!-- Create Widget -->
-	    		<div class="slides-container" id="sisense-mockups">
-	    			<div class="section-title">Sisense / <span class="grey-text">Mockups</span></div>
-	    			<div class="caption-container">
-	    				<p class="caption" id="caption-1">
-	    					<!-- One of the first tasks a user will encounter is the need to create a widget (e.g. graph, map, or KPI).
-	    					I sought to make the process less confusing by integrating hints which display the first time a widget is created. -->
-	    					<span>Create Widget</span>
-	    					
-	    				</p>
-	    				<p class="caption" id="caption-2">
-	    					<!-- When creating a widget, a user must first define the datasource he wants to use, and what type of widget will be created.
-	    					<br>
-	    					This is illustrated by the big digits, so that he is aware of these two steps. -->
-	    					<span>Dashboard</span>
-	    				</p>
-	    				<p class="caption" id="caption-3">
-	    					<span>Edit Widget</span>
-	    					<!-- Early on, it was decided that there should be a clear separation between the data aspects of the widget (on the left), and the style aspects on the right. -->
-	    				</p>
-	    				<p class="caption" id="caption-4">
-	    					<span>Indicator (KPI) Widget</span>
-	    					<!-- A major challenge was the design of the data-browser - a pop-up used to select a data source.
-	    					<br>
-	    					This browser must be compact and easy to use, yet display a large amount of information.
-	    					<br>
-	    					To help the user find his data quickly, an auto-complete text box was used. -->
-	    				</p>
-	    				<p class="caption" id="caption-5">
-	    					<span>Move Widget</span>
-	    					<!-- A map widget after data and styling attributes have been added. -->
-	    				</p>
-	    			</div>
-		    		<div id="fwslider-sisense-mockups" class="cbp-fwslider">
-					<ul id="create-widget-list">
-						<li><a><img id="img1" src="images/sisense-mockups/1.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/2.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/3.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/4.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/5.jpg" /></a></li>						
-					</ul>
-				</div>
-			</div>			
-			<hr>			
+    			<!-- Product mockups and screenshots. These were used to illustrate screen composition and flow to the R&D and Marketing teams.	 -->
+    		</p>
+    		<!-- Create Widget -->
+    		<div class="slides-container" id="sisense-mockups">
+    			<div class="section-title">Sisense / <span class="grey-text">Mockups</span></div>
+    			<div class="caption-container">
+    				<p class="caption" id="caption-1">
+    					<!-- One of the first tasks a user will encounter is the need to create a widget (e.g. graph, map, or KPI).
+    					I sought to make the process less confusing by integrating hints which display the first time a widget is created. -->
+    					<span>Create Widget</span>
+    					
+    				</p>
+    				<p class="caption" id="caption-2">
+    					<!-- When creating a widget, a user must first define the datasource he wants to use, and what type of widget will be created.
+    					<br>
+    					This is illustrated by the big digits, so that he is aware of these two steps. -->
+    					<span>Dashboard</span>
+    				</p>
+    				<p class="caption" id="caption-3">
+    					<span>Edit Widget</span>
+    					<!-- Early on, it was decided that there should be a clear separation between the data aspects of the widget (on the left), and the style aspects on the right. -->
+    				</p>
+    				<p class="caption" id="caption-4">
+    					<span>Indicator (KPI) Widget</span>
+    					<!-- A major challenge was the design of the data-browser - a pop-up used to select a data source.
+    					<br>
+    					This browser must be compact and easy to use, yet display a large amount of information.
+    					<br>
+    					To help the user find his data quickly, an auto-complete text box was used. -->
+    				</p>
+    				<p class="caption" id="caption-5">
+    					<span>Move Widget</span>
+    					<!-- A map widget after data and styling attributes have been added. -->
+    				</p>
+    			</div>
+	    		<div id="fwslider-sisense-mockups" class="cbp-fwslider">
+				<ul id="create-widget-list">
+					<li><a><img id="img1" src="images/sisense-mockups/1.jpg" /></a></li>
+					<li><a ><img src="images/sisense-mockups/2.jpg" /></a></li>
+					<li><a ><img src="images/sisense-mockups/3.jpg" /></a></li>
+					<li><a ><img src="images/sisense-mockups/4.jpg" /></a></li>
+					<li><a ><img src="images/sisense-mockups/5.jpg" /></a></li>						
+				</ul>
+			</div>
+		</div>			
+		<hr>			
 
-			<!-- Sisense Screenshots -->
-			<div class="slides-container" id="slides-sisense-screenshots">
-				<div class="section-title">Sisense / <span class="grey-text">Product Screenshots</span></div>
-	    			<div class="caption-container" id="caption-container-sisense-screenshots">
-	    				<p class="caption" id="caption-1">
-	    					Dashboard
-	    				</p>
-	    				<p class="caption" id="caption-2">
-	    					Create / Edit Widget
-	    				</p>
-	    				<p class="caption" id="caption-3">
-	    					Indicator (KPI) Widget
-	    				</p>
-	    				<p class="caption" id="caption-4">
-	    					Move Widget (new column)
-	    				</p>			    				
-	    			</div>
-		    		<div id="fwslider-sisense-screenshots" class="cbp-fwslider">
-					<ul>
-						<li><a ><img src="images/product-screenshots/1.png" /></a></li>
-						<li><a ><img src="images/product-screenshots/2.png" /></a></li>
-						<li><a ><img src="images/product-screenshots/3.png" /></a></li>
-						<li><a ><img src="images/product-screenshots/4.png" /></a></li>
-					</ul>
-				</div>
+		<!-- Sisense Screenshots -->
+		<div class="slides-container" id="slides-sisense-screenshots">
+			<div class="section-title">Sisense / <span class="grey-text">Product Screenshots</span></div>
+    			<div class="caption-container" id="caption-container-sisense-screenshots">
+    				<p class="caption" id="caption-1">
+    					Dashboard
+    				</p>
+    				<p class="caption" id="caption-2">
+    					Create / Edit Widget
+    				</p>
+    				<p class="caption" id="caption-3">
+    					Indicator (KPI) Widget
+    				</p>
+    				<p class="caption" id="caption-4">
+    					Move Widget (new column)
+    				</p>			    				
+    			</div>
+	    		<div id="fwslider-sisense-screenshots" class="cbp-fwslider">
+				<ul>
+					<li><a ><img src="images/product-screenshots/1.png" /></a></li>
+					<li><a ><img src="images/product-screenshots/2.png" /></a></li>
+					<li><a ><img src="images/product-screenshots/3.png" /></a></li>
+					<li><a ><img src="images/product-screenshots/4.png" /></a></li>
+				</ul>
 			</div>
-			<hr>	
+		</div>
+		<hr>	
 
-			<!-- Zennet Mockups -->
-			<div class="slides-container" id="slides-zennet-mockups">
-			<div class="section-title">Zennet / <span class="grey-text">Mockups</span></div>
-	    			<div class="caption-container" id="caption-container-zennet-mockups">
-	    				<p class="caption" id="caption-1">
-	    					Start Screen
-	    				</p>
-	    				<p class="caption" id="caption-2">
-	    					Dashboard
-	    				</p>
-	    				<p class="caption" id="caption-3">
-	    					List Filters
-	    				</p>
-	    				<p class="caption" id="caption-4">
-	    					Edit Filters
-	    				</p>
-	    				<p class="caption" id="caption-5">
-	    					Flow
-	    				</p>			    				
-	    			</div>
-		    		<div id="fwslider-zennet-mockups" class="cbp-fwslider">
-					<ul>
-						<li><a ><img src="images/zennet-mockups/m_start.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/m_dashboard.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/m_list.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/m_filter.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/ztn-flow.jpg" /></a></li>
-					</ul>
-				</div>
+		<!-- Zennet Mockups -->
+		<div class="slides-container" id="slides-zennet-mockups">
+		<div class="section-title">Zennet / <span class="grey-text">Mockups</span></div>
+    			<div class="caption-container" id="caption-container-zennet-mockups">
+    				<p class="caption" id="caption-1">
+    					Start Screen
+    				</p>
+    				<p class="caption" id="caption-2">
+    					Dashboard
+    				</p>
+    				<p class="caption" id="caption-3">
+    					List Filters
+    				</p>
+    				<p class="caption" id="caption-4">
+    					Edit Filters
+    				</p>
+    				<p class="caption" id="caption-5">
+    					Flow
+    				</p>			    				
+    			</div>
+	    		<div id="fwslider-zennet-mockups" class="cbp-fwslider">
+				<ul>
+					<li><a ><img src="images/zennet-mockups/m_start.jpg" /></a></li>
+					<li><a ><img src="images/zennet-mockups/m_dashboard.jpg" /></a></li>
+					<li><a ><img src="images/zennet-mockups/m_list.jpg" /></a></li>
+					<li><a ><img src="images/zennet-mockups/m_filter.jpg" /></a></li>
+					<li><a ><img src="images/zennet-mockups/ztn-flow.jpg" /></a></li>
+				</ul>
 			</div>
-			<hr>	
-			
-			<!-- Zennet Screenshots -->
-			<div class="slides-container" id="slides-zennet-screenshots">
-			<div class="section-title">Zennet / <span class="grey-text">Screenshots</span></div>
-	    			<div class="caption-container" id="caption-container-zennet-screenshots">
-	    				<p class="caption" id="caption-1">
-	    					Start Screen
-	    				</p>
-	    				<p class="caption" id="caption-2">
-	    					Dashboard
-	    				</p>
-	    				<p class="caption" id="caption-3">
-	    					List Filters
-	    				</p>
-	    				<p class="caption" id="caption-4">
-	    					Edit Filters
-	    				</p>	    						    			
-	    			</div>
-		    		<div id="fwslider-zennet-screenshots" class="cbp-fwslider">
-					<ul>
-						<li><a ><img src="images/zennet-screenshots/start.jpg" /></a></li>
-						<li><a ><img src="images/zennet-screenshots/dashboard.jpg" /></a></li>
-						<li><a ><img src="images/zennet-screenshots/list.jpg" /></a></li>
-						<li><a ><img src="images/zennet-screenshots/filter.jpg" /></a></li>
-					</ul>
-				</div>
+		</div>
+		<hr>	
+		
+		<!-- Zennet Screenshots -->
+		<div class="slides-container" id="slides-zennet-screenshots">
+		<div class="section-title">Zennet / <span class="grey-text">Screenshots</span></div>
+    			<div class="caption-container" id="caption-container-zennet-screenshots">
+    				<p class="caption" id="caption-1">
+    					Start Screen
+    				</p>
+    				<p class="caption" id="caption-2">
+    					Dashboard
+    				</p>
+    				<p class="caption" id="caption-3">
+    					List Filters
+    				</p>
+    				<p class="caption" id="caption-4">
+    					Edit Filters
+    				</p>	    						    			
+    			</div>
+	    		<div id="fwslider-zennet-screenshots" class="cbp-fwslider">
+				<ul>
+					<li><a ><img src="images/zennet-screenshots/start.jpg" /></a></li>
+					<li><a ><img src="images/zennet-screenshots/dashboard.jpg" /></a></li>
+					<li><a ><img src="images/zennet-screenshots/list.jpg" /></a></li>
+					<li><a ><img src="images/zennet-screenshots/filter.jpg" /></a></li>
+				</ul>
 			</div>
-	    	</div>
+		</div>
+    	</div>
 </div>
 
 <!--  ++++++++++++++++++++++++++++ -->
@@ -343,10 +349,19 @@
 		    		<p class="section-title"><span>Professional History</span></p>
 		    		
 		    		<p class="section-text">
+		    			<a href="http://www.zennet.sc"  target="_blank">
+		    				<span class="section-label">zennet</span>	
+		    			</a>
+		    			<span class="section-text text-grey">2014 - present | UX and client-side development</span>
+		    			<br>
+		    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
+		    		</p>
+
+		    		<p class="section-text">
 		    			<a href="http://www.sisense.com"  target="_blank">
 		    				<span class="section-label">sisense</span>	
 		    			</a>
-		    			<span class="section-text text-grey">2012 - present | UX and client-side development</span>
+		    			<span class="section-text text-grey">2012 - 2014 | UX and client-side development</span>
 		    			<br>
 		    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
 		    		</p>
