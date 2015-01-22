@@ -38,8 +38,6 @@
 <!-- D3 -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/d3.layout.js"></script>
-<script type="text/javascript" src="js/d3.geom.js"></script>
 
 <!-- Mapbox -->	
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
@@ -58,6 +56,7 @@
 <script src="util/data.js"></script>
 
 <script src="js/main.js"></script>
+
 
 </head>
 <body>
@@ -95,13 +94,31 @@
     		</h1> -->
     		<div id="home-content">
 	    		<div id="toc-container" >
-	    			<div class="toc-item">
-	    				<a class="toc-text" name="ux">ux examples</a>
-	    				<div class="strip" id="strip-ux"></div>
+
+	    			<svg id="toc-svg"></svg>
+
+	    			<!-- <div class="toc-item" id="toc-item-ux">
+	    				<div class="toc-text-container">
+	    					<a class="toc-text" name="ux" id="toc-text-ux"></a>
+	    					<span class="large" ></span>
+	    				</div>
+
 	    			</div>
-	    			<div class="toc-item"><a class="toc-text" name="maps">3 maps</a></div>
-	    			<div class="toc-item"><a class="toc-text" name="cv">curriculum vitae</a></div>
-	    			<div class="toc-item"><a class="toc-text" name="contact">contact</a></div>
+	    			<div class="toc-item" id="toc-item-maps">
+	    				<a class="toc-text" name="maps" id="toc-text-maps"></a>
+	    				<span class="large" ></span>
+
+	    			</div>
+	    			<div class="toc-item" id="toc-item-cv">
+	    				<a class="toc-text" name="cv" id="toc-text-cv"></a>
+	    				<span class="large" ></span>
+
+	    			</div>
+	    			<div class="toc-item" id="toc-item-contact">
+	    				<a class="toc-text" name="contact" id="toc-text-contact"></a>
+	    				<span class="large" ></span>
+
+	    			</div> -->
 	    		</div>
 	    		
     		</div>
@@ -127,13 +144,7 @@
     		<!-- Create Widget -->
     		<div class="slides-container" id="sisense-mockups">
     			<div class="section-title">Sisense / <span class="grey-text">Mockups</span></div>
-    			<div class="caption-container">
-    				<p class="caption" id="caption-1">
-    					<!-- One of the first tasks a user will encounter is the need to create a widget (e.g. graph, map, or KPI).
-    					I sought to make the process less confusing by integrating hints which display the first time a widget is created. -->
-    					<span>Create Widget</span>
-    					
-    				</p>
+    			<div class="caption-container">    				
     				<p class="caption" id="caption-2">
     					<!-- When creating a widget, a user must first define the datasource he wants to use, and what type of widget will be created.
     					<br>
@@ -159,7 +170,7 @@
     			</div>
 	    		<div id="fwslider-sisense-mockups" class="cbp-fwslider">
 				<ul id="create-widget-list">
-					<li><a><img id="img1" src="images/sisense-mockups/1.jpg" /></a></li>
+					<!-- <li><a><img id="img1" src="images/sisense-mockups/1.jpg" /></a></li> -->
 					<li><a ><img src="images/sisense-mockups/2.jpg" /></a></li>
 					<li><a ><img src="images/sisense-mockups/3.jpg" /></a></li>
 					<li><a ><img src="images/sisense-mockups/4.jpg" /></a></li>
@@ -308,7 +319,7 @@
 		    		<p class="section-title" ><span>Skills</span></p>
 	    			<p class="section-text">	
 		    			<span class="section-label">javascript</span>
-		    			<span class="section-text text-grey"> jquery | svg | d3 </span>
+		    			<span class="section-text text-grey"> [ jquery,  svg, d3 ]</span>
 		    		</p>
 		    		<p class="section-text">	
 	    				<span class="section-label">html <span class="section-label-digits">5</span></span>
@@ -379,7 +390,7 @@
 		    			<a href="http://www.avaya.com"  target="_blank">
 		    				<span class="section-label">avaya</span>	
 		    			</a>
-		    			<span class="section-text text-grey">2005 - 2009 | development of gateways for enterprise IP telephony</span>
+		    			<span class="section-text text-grey">2005 - 2009 | Development of gateways for enterprise IP telephony</span>
 		    			<br>
 		    		</p>
 
@@ -387,7 +398,8 @@
 		    			<a href="http://www.intel.com"  target="_blank">
 		    				<span class="section-label">intel</span>	
 		    			</a>
-		    			<span class="section-text text-grey">2002 - 2005 | development of software testing tools for wireless products</span>
+		    			<span class="section-text text-grey">2002 - 2005 </span>
+		    			<span class="section-text text-grey"> | Development of software testing tools for wireless products</span>
 		    			<br>
 		    		</p>
 	    		</div>

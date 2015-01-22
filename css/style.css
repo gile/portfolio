@@ -5,7 +5,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: 'PT Sans', sans-serif !important;
+  font-family: 'Duru Sans', sans-serif !important;
 }
 a {
   text-decoration: none;
@@ -32,6 +32,7 @@ a {
   width: 60%;
   margin: 0 auto 0;
   padding-top: 20px;
+  line-height: 19px;
   border-bottom: 1px solid #bbb;
 }
 .header-item {
@@ -42,13 +43,10 @@ a {
 }
 .header-link {
   cursor: pointer;
-  color: #4682b4;
+  color: #888888;
   font-variant: small-caps;
   font-size: 22px;
   /*  border: 1px solid green;*/
-}
-.header-link:hover {
-  color: #63b6e5;
 }
 .header-link span {
   font-size: 18px;
@@ -60,7 +58,7 @@ a {
 .header-brackets span {
   font-size: 18px;
   font-variant: small-caps;
-  color: #4682b4;
+  color: #888888;
   display: inline-block;
 }
 .header-brackets div {
@@ -93,7 +91,7 @@ a {
   /*border: 1px solid brown;*/
   /*background-color: brown;*/
   margin: 0 auto;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Duru Sans', sans-serif;
 }
 /*----------------------------------------------*/
 /*-------- GENERAL
@@ -107,7 +105,7 @@ a {
   font-weight: 300;
   /*color: #677da7;*/
   color: #556;
-  font-family: 'Duru Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }
 .page-text {
   color: #888888;
@@ -120,7 +118,7 @@ a {
   margin-top: 80px;
   margin-left: 8px;
   margin-right: 20px;
-  color: #4682b4;
+  color: #888888;
   display: inline-block;
 }
 .section-label {
@@ -153,10 +151,6 @@ a .section-label:hover {
 /*----------------------------------------------*/
 /*-------- HOME
 /*----------------------------------------------*/
-.content-container svg {
-  width: 100%;
-  height: 600px;
-}
 .cover-photo {
   width: 100%;
   min-height: 700px;
@@ -169,14 +163,13 @@ a .section-label:hover {
   -o-background-size: cover;
   /* Opera*/
 }
-.prompt {
-  font-family: 'Droid Sans Mono';
-  /*font-size: 40px;*/
-  color: grey;
-}
 #home-title-text {
   /*font-size: 40px;*/
-  font-family: 'Droid Sans Mono';
+  font-family: 'PT Sans', sans-serif;
+}
+.toc-text:hover {
+  color: #63b6e5;
+  cursor: pointer;
 }
 #toc-container {
   margin-top: 30px;
@@ -184,36 +177,37 @@ a .section-label:hover {
 }
 .toc-item {
   height: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+.toc-text-container {
+  height: 50px;
 }
 .toc-text {
+  /*display: block;*/
+  height: 50px;
   /*font-family: @monospace;*/
-  font-size: 40px;
-  color: #4682b4;
-  font-family: 'Droid Sans Mono';
+  font-size: 30px;
+  color: #888888;
+  font-family: 'Duru Sans', sans-serif;
 }
-.toc-text:hover {
-  color: #48d1cc;
+span.large {
+  height: 50px;
+  /*font-size: 46px;*/
+  color: #888888;
+  font-family: 'Duru Sans', sans-serif;
+}
+svg circle {
+  stroke-width: 1.5px;
   cursor: pointer;
 }
-.toc-metadata {
-  float: right;
-  width: 250px;
-  font-size: 36px;
-  color: #bbb;
-  font-family: 'Droid Sans Mono';
-  content: " (" attr(href) ")";
+svg line {
+  stroke: #aaa;
 }
-.strip {
-  width: 100%;
-  height: 150px;
-}
-#strip-ux {
-  background: url('../images/girl.jpg') no-repeat;
-  -webkit-background-size: 100% auto;
-  -moz-background-size: 100% auto;
-  -o-background-size: 100% auto;
-  background-size: 100% auto;
+svg text {
+  font-family: 'Duru Sans', sans-serif;
+  font-variant: small-caps;
+  cursor: pointer;
+  /*pointer-events: none;*/
 }
 /*----------------------------------------------*/
 /*-------- UX EXAMPLES
@@ -225,6 +219,7 @@ a .section-label:hover {
 #column-ux .section-title {
   margin-top: 20px;
   font-style: italic;
+  color: #4682b4;
 }
 #column-ux .section-text {
   margin-top: 10px;
@@ -254,7 +249,10 @@ a .section-label:hover {
 /*----------------------------------------------*/
 /*-------- MAPS
 /*----------------------------------------------*/
-.map-text {
+#column-maps .section-title {
+  color: #73b43b;
+}
+#column-maps .map-text {
   color: #888888;
   font-size: 16px;
   margin-left: 10px;
@@ -268,14 +266,24 @@ a .section-label:hover {
 #column-cv .section-title {
   margin-top: 40px;
   margin-bottom: 20px;
+  color: #9370db;
 }
 #column-cv .section-title span {
   padding-bottom: 10px;
-  border-bottom: 1px solid steelblue;
+  border-bottom: 1px solid #9370db;
 }
 #column-cv .section-text {
   margin-top: 10px;
   margin-bottom: 0;
+  margin-left: 9px;
+  min-width: 140px;
+}
+#column-cv a .section-label {
+  color: #7199f1;
+  /*opacity: 0.8;*/
+}
+#column-cv a .section-label:hover {
+  opacity: 0.8;
 }
 #column-cv #cv-skills .section-text {
   margin-top: 5px;
@@ -287,67 +295,74 @@ a .section-label:hover {
 /*----------------------------------------------*/
 /*-------- CONTACT
 /*----------------------------------------------*/
-.contact-container {
+#column-contact {
+  color: #ff7f50;
+  /* the colored icontact text */
+}
+#column-contact .contact-container {
   margin: 30px auto;
   /*text-align: center;*/
 }
-.contact-section {
+#column-contact .contact-section {
   /*display: inline-block;*/
   margin: 40px  0 20px;
+  color: #ff7f50;
 }
-.contact-icon {
-  font-size: 36px;
+#column-contact .contact-icon {
+  font-size: 25px;
   /*color: #3ca0d3;*/
-  color: steelblue;
+  /*color: steelblue;*/
   /*margin: 0 10px;*/
 }
-#email-icon {
-  font-size: 30px;
-  color: #f86767;
+#column-contact #email-icon {
+  font-size: 22px;
+  color: #ff7f50;
+  /*color: #f86767;*/
 }
-#phone-icon {
-  color: #73b43b;
+#column-contact #phone-icon {
+  /*color: #73b43b;*/
 }
-#linkedin-icon {
-  color: #63b6e5;
+#column-contact #linkedin-icon {
+  /*color: #63b6e5;*/
 }
-#marker-icon {
-  color: #9370DB;
+#column-contact #marker-icon {
+  /*color: #9370DB;*/
 }
-.contact-text {
+#column-contact .contact-text {
   font-size: 20px;
   color: #bbb;
 }
-/* the colored icontact text */
-.info-text {
-  font-size: 34px;
+#column-contact .info-text {
+  font-size: 25px;
   text-decoration: none;
 }
-.email-text {
-  color: #f86767;
+#column-contact .email-text {
+  /*color: #f86767;*/
+  color: #ff7f50;
 }
-.email-text:hover {
+#column-contact .email-text:hover {
   padding-bottom: 5px;
   border-bottom: 2px solid #f86767;
 }
-.phone-text {
-  color: #73b43b;
+#column-contact .phone-text {
+  /*color: #73b43b;*/
+  color: #ff7f50;
 }
-.linkedin-text {
+#column-contact .linkedin-text {
   line-height: 26px;
-  color: #63b6e5;
+  color: #ff7f50;
 }
-.linkedin-text:hover {
+#column-contact .linkedin-text:hover {
   border-bottom: 2px solid #63b6e5;
 }
-.contact-map {
+#column-contact .contact-map {
   height: 180px;
-  width: 40%;
+  width: 70%;
   display: inline-block;
   /*margin-left: 120px;*/
   margin-top: 10px;
-  border: 2px solid #9370DB;
+  border: 2px solid #ff7f50;
 }
-.tab-text {
+#column-contact .tab-text {
   padding-left: 60px;
 }
