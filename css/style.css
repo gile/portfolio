@@ -202,6 +202,7 @@ svg circle {
 }
 svg line {
   stroke: #aaa;
+  opacity: 0.5;
 }
 svg text {
   font-family: 'Duru Sans', sans-serif;
@@ -250,7 +251,7 @@ svg text {
 /*-------- MAPS
 /*----------------------------------------------*/
 #column-maps .section-title {
-  color: #73b43b;
+  color: #4682b4;
 }
 #column-maps .map-text {
   color: #888888;
@@ -266,11 +267,11 @@ svg text {
 #column-cv .section-title {
   margin-top: 40px;
   margin-bottom: 20px;
-  color: #9370db;
+  color: #4682b4;
 }
 #column-cv .section-title span {
   padding-bottom: 10px;
-  border-bottom: 1px solid #9370db;
+  border-bottom: 1px solid #4682b4;
 }
 #column-cv .section-text {
   margin-top: 10px;
@@ -296,7 +297,7 @@ svg text {
 /*-------- CONTACT
 /*----------------------------------------------*/
 #column-contact {
-  color: #ff7f50;
+  color: #4682b4;
   /* the colored icontact text */
 }
 #column-contact .contact-container {
@@ -306,7 +307,7 @@ svg text {
 #column-contact .contact-section {
   /*display: inline-block;*/
   margin: 40px  0 20px;
-  color: #ff7f50;
+  color: #4682b4;
 }
 #column-contact .contact-icon {
   font-size: 25px;
@@ -316,7 +317,7 @@ svg text {
 }
 #column-contact #email-icon {
   font-size: 22px;
-  color: #ff7f50;
+  color: #4682b4;
   /*color: #f86767;*/
 }
 #column-contact #phone-icon {
@@ -338,7 +339,7 @@ svg text {
 }
 #column-contact .email-text {
   /*color: #f86767;*/
-  color: #ff7f50;
+  color: #4682b4;
 }
 #column-contact .email-text:hover {
   padding-bottom: 5px;
@@ -346,11 +347,11 @@ svg text {
 }
 #column-contact .phone-text {
   /*color: #73b43b;*/
-  color: #ff7f50;
+  color: #4682b4;
 }
 #column-contact .linkedin-text {
   line-height: 26px;
-  color: #ff7f50;
+  color: #4682b4;
 }
 #column-contact .linkedin-text:hover {
   border-bottom: 2px solid #63b6e5;
@@ -361,7 +362,7 @@ svg text {
   display: inline-block;
   /*margin-left: 120px;*/
   margin-top: 10px;
-  border: 2px solid #ff7f50;
+  border: 2px solid #4682b4;
 }
 #column-contact .tab-text {
   padding-left: 60px;

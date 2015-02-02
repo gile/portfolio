@@ -159,11 +159,15 @@ function runTocAnimation() {
 
 	var 	fontSize = 27;
 
-	var	enlargedRadiusFactor = 1.1,
-		enlargedFontFactor = 1.2;
+	var 	stroke = 1,
+		hoverStroke = 4;
+
+	var	hoverRadiusFactor = 1.05,
+		enlargedFontFactor = 1,
+		totalRadius = (radius * hoverRadiusFactor) + hoverStroke;
 
 	var 	textOffset = 10,
-		textOffsetHover = 20;
+		textOffsetHover = 25;
 
 	var	force = d3.layout.force()
 			.gravity(gravity)
@@ -198,10 +202,11 @@ function runTocAnimation() {
 	node.append("circle")
 		.attr("r", radius)
 		.style("fill", function(d) { return d.color })
-		.style("stroke", function(d) { return d3.rgb(d.color); })
+		.style('stroke-width', stroke)
+		.style("stroke", function(d) { return d3.rgb(d.color).brighter(); })
 
 	node.append("text")
-		    .attr("x", enlargedRadius() + textOffset )
+		    .attr("x", totalRadius + textOffset)
 		    .attr("dy", "10px")
 		    .style('font-size', fontSize + 'px')
 		    .style("fill", function(d) { return d.color})
@@ -211,9 +216,9 @@ function runTocAnimation() {
 	function tick() {
 		node
 			.attr("transform", function(d) { 
-				var r = enlargedRadius();
-				d.x = Math.max(r, Math.min(width - r - 150, d.x));
-				d.y = Math.max(r, Math.min(height - r, d.y)); 
+				var tr = totalRadius;
+				d.x = Math.max(tr, Math.min(width - tr - 150, d.x));
+				d.y = Math.max(tr, Math.min(height - tr, d.y)); 
 				return "translate(" + d.x + "," + d.y + ")"; 
 			});
 
@@ -223,8 +228,8 @@ function runTocAnimation() {
 			.attr("y2", function(d) { return d.target.y; });
 	}
 
-	function enlargedRadius() {
-		return radius * enlargedRadiusFactor;
+	function hoverRadius() {
+		return radius * hoverRadiusFactor;
 	}
 
 	function mouseover() {
@@ -233,18 +238,19 @@ function runTocAnimation() {
 
 
 		el.select("circle").transition()
-			.duration(200)
-			.attr("r", enlargedRadius())
+			.duration(250)
+			.attr("r", hoverRadius())
 			//.style("fill", d3.rgb( color ).brighter() )
-
-			.style("stroke", d3.rgb( color ).brighter());
+			.style("stroke-width", hoverStroke)
+			
 
 		el.select("text").transition()
 			.duration(200)
 			//.ease('cubic')
-			.attr("x", enlargedRadius() +textOffsetHover )
+			.attr("x", totalRadius +textOffsetHover )
 			//.style("fill", d3.rgb( color ).brighter() )
 			//.style("opacity", 0.6)
+			//.style('font-weight', 700)
 			.style('font-size', (fontSize * enlargedFontFactor) + 'px');
 	}
 
@@ -253,16 +259,18 @@ function runTocAnimation() {
 			color = el.attr('color');
 
 		el.select("circle").transition()
-			.duration(200)
+			.duration(250)
 			.attr("r", radius)
 			//.style("fill", color)
-			.style("stroke", d3.rgb( color ));
+			.style("stroke-width", stroke);
 
 		el.select("text").transition()
 			.duration(200)
-			.attr("x", enlargedRadius() + textOffset )
+			.attr("x", totalRadius + textOffset )
 			//.style("fill", color)
 			//.style("opacity", 1)
+			//.style('font-weight', 400)
+
 			.style('font-size', fontSize + 'px');
 	}
 
