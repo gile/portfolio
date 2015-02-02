@@ -7,6 +7,17 @@ body {
   font: 12px sans-serif;
 }
 
+.info-container {
+	position: relative;
+	height: 400px;
+	border: 1px solid grey;
+	margin-left: 100px;
+}
+
+.info-section {
+	position: absolute;
+}
+
 .axis path,
 .axis line {
 	fill: none;
@@ -54,18 +65,84 @@ body {
 <script type="text/javascript" src="/js/tipped.js"></script>
 
 <body>
-<p id="menu"><b>Top States by Age Bracket, 2008</b><br>Age: <select></select>
+<p id="menu"><b>Select Category</b><br><select></select>
+<div class="info-container">
+	<div id="info-academic" class="info-section">
+    		<p class="section-title"><span>Academic History</span></p>					    		
+    		<p class="section-text">
+    			<a href="https://en.wikipedia.org/wiki/Technion_%E2%80%93_Israel_Institute_of_Technology" target="_blank">
+    				<span class="section-label">technion</span>
+    			</a>
+    			<span class="section-text text-grey">2000-2005 | B.Sc Computer Science | avg 91 </span>
+    		</p>
+    		<p class="section-text">
+    			<a href="https://en.wikipedia.org/wiki/Shenkar_College_of_Engineering_and_Design"  target="_blank">
+    				<span class="section-label">shenkar</span>	
+    			</a>
+    			<span class="section-text text-grey"> 2009-2011 | Visual Communication </span>	
+    		</p>
+	</div>
+	<br>
+
+	<div id="info-professional" class="info-section">
+    		<p class="section-title"><span>Professional History</span></p>
+    		
+    		<p class="section-text">
+    			<a href="http://www.zennet.sc"  target="_blank">
+    				<span class="section-label">zennet</span>	
+    			</a>
+    			<span class="section-text text-grey">2014 - present | UX and client-side development</span>
+    			<br>
+    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
+    		</p>
+
+    		<p class="section-text">
+    			<a href="http://www.sisense.com"  target="_blank">
+    				<span class="section-label">sisense</span>	
+    			</a>
+    			<span class="section-text text-grey">2012 - 2014 | UX and client-side development</span>
+    			<br>
+    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
+    		</p>
+
+    		<p class="section-text">
+    			<a href="http://www.kontera.com"  target="_blank">
+    				<span class="section-label">kontera</span>	
+    			</a>
+    			<span class="section-text text-grey">2011 - 2012 | Design and development of web advertisment platforms</span>
+    			<br>
+    			<!-- <span class="section-text ph-text">Design and development of web advertisment platforms</span>			    			 -->
+    		</p>
+
+    		<p class="section-text">
+    			<a href="http://www.avaya.com"  target="_blank">
+    				<span class="section-label">avaya</span>	
+    			</a>
+    			<span class="section-text text-grey">2005 - 2009 | Development of gateways for enterprise IP telephony</span>
+    			<br>
+    		</p>
+
+    		<p class="section-text">
+    			<a href="http://www.intel.com"  target="_blank">
+    				<span class="section-label">intel</span>	
+    			</a>
+    			<span class="section-text text-grey">2002 - 2005 </span>
+    			<span class="section-text text-grey"> | Development of software testing tools for wireless products</span>
+    			<br>
+    		</p>
+	</div>
+</div>
 <div class="container">
 </div>
 
 <script>
 	var 	cv = {
-			"Education": [
+			"academic": [
 				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1)},
 				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1)}
 			],
 
-			"Professional": [
+			"professional": [
 				{name: "intel", start:  new Date(2002, 4, 1), end:new Date(2005, 6, 1)},
 				{name: "avaya" , start:  new Date(2005, 9, 1), end:new Date(2009, 2, 1)},
 				{name: "kontera" , start:  new Date(2011, 3, 1), end:new Date(2012, 4, 1)},
@@ -162,7 +239,8 @@ body {
 		
 		y.domain(data.map(function(d) { return d.name; }));
 
-		console.log(x.domain())
+		d3.selectAll('.info-section').transition().duration(duration).style('opacity', 0);
+		d3.select('#info-' + key).transition().duration(duration).style('opacity', 1);
 	
 		var bar = svg.selectAll(".bar")
 			.data(data, function(d) { return d.name; });
