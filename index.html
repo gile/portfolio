@@ -87,44 +87,14 @@
 <!-- 			HOME 					    	-->
 <!-- ++++++++++++++++++++++++++++ -->
  <div class="column" id="column-home" name="home">
- 	<div class="content-container">
-    		<!-- <h1 class="title page-title" id="home-title">
-    			<span id="home-title-prompt" class="prompt">&gt</span>
-    			<span id="home-title-text"></span>
-    			<span id="home-title-cursor" class="cursor">|</span>
-    		</h1> -->
+ 	<div class="content-container">    		
     		<div id="home-content">
 	    		<div id="toc-container" >
-
-	    			<svg id="toc-svg"></svg>
-
-	    			<!-- <div class="toc-item" id="toc-item-ux">
-	    				<div class="toc-text-container">
-	    					<a class="toc-text" name="ux" id="toc-text-ux"></a>
-	    					<span class="large" ></span>
-	    				</div>
-
-	    			</div>
-	    			<div class="toc-item" id="toc-item-maps">
-	    				<a class="toc-text" name="maps" id="toc-text-maps"></a>
-	    				<span class="large" ></span>
-
-	    			</div>
-	    			<div class="toc-item" id="toc-item-cv">
-	    				<a class="toc-text" name="cv" id="toc-text-cv"></a>
-	    				<span class="large" ></span>
-
-	    			</div>
-	    			<div class="toc-item" id="toc-item-contact">
-	    				<a class="toc-text" name="contact" id="toc-text-contact"></a>
-	    				<span class="large" ></span>
-
-	    			</div> -->
+	    			<svg id="toc-svg"></svg>	 
 	    		</div>
 	    		
     		</div>
     	</div>
-    	<!-- <div><img u="image" src="images/vg3.jpg" style="width:600px; height: 400px"/></div> -->
   </div>
 
 <!--  ++++++++++++++++++++++++++++ -->
@@ -315,13 +285,17 @@
 
     		<h1 class="title page-title">Curriculum Vitae</h1>
     		<p id="menu">
-    			<b>Select Category</b>
     			<br>
     			<select></select>
     		</p>
-		<div class="text-container">>
-			<div  class="info-container">
-		    		<div id="cv-academic" class="info-section">
+
+		<div class="cv-container">
+			<!-- **** HISTORY **** --> 
+			<div  class="cv-sections-container">
+				<div id="svg-container-history" class="svg-container"></div>
+
+				<!-- *** Academic ** --> 
+		    		<div id="cv-academic" class="cv-section">
 			    		<p class="section-title"><span>Academic History</span></p>					    		
 			    		<p class="section-text">
 			    			<a href="https://en.wikipedia.org/wiki/Technion_%E2%80%93_Israel_Institute_of_Technology" target="_blank">
@@ -336,9 +310,9 @@
 			    			<span class="section-text text-grey"> 2009-2011 | Visual Communication </span>	
 			    		</p>
 		    		</div>
-		    		<br>
 
-		    		<div id="cv-professional" class="info-section">
+		    		<!-- *** Professional ** --> 
+		    		<div id="cv-professional" class="cv-section">
 			    		<p class="section-title"><span>Professional History</span></p>
 			    		
 			    		<p class="section-text">
@@ -386,10 +360,11 @@
 			    		</p>
 		    		</div>
 		    	</div>
-		    	<div id="svg-container-history" class="svg-container"></div>
+		    	
 
-		    	<div class="info-container">
-		    		<div id="cv-skills" class="info-section">
+		    	<!-- **** SKILLS **** --> 
+		    	<div class="cv-sections-container">
+		    		<div id="cv-skills" class="cv-section">
 			    		<p class="section-title" ><span>Skills</span></p>
 		    			<p class="section-text">	
 			    			<span class="section-label">javascript</span>
@@ -413,7 +388,7 @@
 	    			</div>
 		    		<br>
 
-		    		<div id="cv-languages" class="info-section">
+		    		<div id="cv-languages" class="cv-section">
 			    		<p class="section-title" ><span>Languages</span></p>
 		    			<p class="section-text">	
 			    			<span class="section-label">english</span>

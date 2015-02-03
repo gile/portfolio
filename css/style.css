@@ -196,15 +196,15 @@ span.large {
   color: #888888;
   font-family: 'Duru Sans', sans-serif;
 }
-svg circle {
+svg#toc-svg circle {
   stroke-width: 1.5px;
   cursor: pointer;
 }
-svg line {
+svg#toc-svg line {
   stroke: #aaa;
   opacity: 0.5;
 }
-svg text {
+svg#toc-svg text {
   font-family: 'Duru Sans', sans-serif;
   font-variant: small-caps;
   cursor: pointer;
@@ -265,8 +265,9 @@ svg text {
   font-size: 18px;
 }
 #column-cv .section-title {
-  margin-top: 40px;
-  margin-bottom: 20px;
+  /*margin-top: 40px;*/
+  margin-top: 0;
+  margin-bottom: 160px;
   color: #4682b4;
 }
 #column-cv .section-title span {

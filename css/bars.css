@@ -1,51 +1,65 @@
-
-.info-container {
-	position: relative;
-	height: 400px;
-	border: 1px solid grey;
-	margin-left: 100px;
+#column-cv .cv-sections-container {
+  position: relative;
+  height: 250px;
+  /*border: 1px solid grey;*/
+  margin-left: 0;
 }
-
-.info-section {
-	position: absolute;
+#column-cv .cv-section {
+  position: absolute;
 }
-
-.axis path,
-.axis line {
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
+#column-cv .svg-container {
+  top: 60px;
+  position: absolute;
 }
-
-.x.axis path {
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
+#column-cv select {
+  width: 156px;
+  border: 1px solid #ccc;
+  color: steelblue;
+  padding: 5px;
+  font-size: 18px;
+  background: url('../images/down.png');
+  background-size: 12px 6px;
+  background-position: 92% center;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
-
-.line {
-	fill: none;
-	stroke-width: 7px;
+#column-cv input[type="radio"] {
+  margin: 3px 3px 0px 5px;
 }
-
-.bar:hover rect {
-	fill: brown;
+#column-cv svg .axis path,
+#column-cv svg .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
-
-.label {
-	fill: white;
-	font-size: 16px;
+#column-cv svg .x.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
-
-.axis {
-	shape-rendering: crispEdges;
+#column-cv svg .line {
+  fill: none;
+  stroke-width: 7px;
 }
-
-.x.axis line {
-	stroke: black;
-	stroke-opacity: .8;
+#column-cv svg .bar:hover rect {
+  fill: brown;
 }
-
-.y.axis line {
-	stroke: none;
+#column-cv svg .label {
+  fill: white;
+  font-size: 16px;
+}
+#column-cv svg .axis {
+  shape-rendering: crispEdges;
+}
+#column-cv svg .x.axis line {
+  stroke: black;
+  stroke-opacity: .8;
+}
+#column-cv svg .y.axis line {
+  stroke: none;
+}
+#column-cv svg .tick text {
+  font-size: 14px;
 }

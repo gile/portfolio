@@ -1,5 +1,5 @@
 function createBars() {
-	var 	cv = {
+	var 	cv_data = {
 			"academic": [
 				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1)},
 				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1)}
@@ -17,9 +17,9 @@ function createBars() {
 	var cvFirstRun = false;
 
 	// set the stage for the visualization
-	var 	margin = {top: 20, right: 20, bottom: 30, left: 80},
+	var 	margin = {top: 0, right: 20, bottom: 30, left: 10},
 		width = 960,
-		height = 150;
+		height = 100;
 
 	var	x = d3.time.scale().range([0, width]),
 		y = d3.scale.ordinal().rangeRoundBands([0, height], .1);
@@ -33,16 +33,15 @@ function createBars() {
 
 	var 	cv_keys = [ ];
 
-	$.each(cv, function(key) {
+	$.each(cv_data, function(key) {
 	 	cv_keys.push(key);
 	});
 
-
+	
 	// add svg box where viz will go    
 	var 	svg = d3.select("#svg-container-history").append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
-			.style("margin-left", margin.left + "px")
 		       .append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -88,6 +87,10 @@ function createBars() {
 
 	redraw();
 
+	function capitalise(string)
+	{
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
 
 	function change() {
 		d3.transition()
@@ -98,7 +101,7 @@ function createBars() {
 	function redraw() {
 
 		var	key = menu.property("value"),
-			data = cv[ key ];
+			data = cv_data[ key ];
 
 			console.log(d3.min(data, function(c) { return c.start; } ))
 
