@@ -1,0 +1,51 @@
+
+.info-container {
+	position: relative;
+	height: 400px;
+	border: 1px solid grey;
+	margin-left: 100px;
+}
+
+.info-section {
+	position: absolute;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.x.axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.line {
+	fill: none;
+	stroke-width: 7px;
+}
+
+.bar:hover rect {
+	fill: brown;
+}
+
+.label {
+	fill: white;
+	font-size: 16px;
+}
+
+.axis {
+	shape-rendering: crispEdges;
+}
+
+.x.axis line {
+	stroke: black;
+	stroke-opacity: .8;
+}
+
+.y.axis line {
+	stroke: none;
+}
