@@ -90,6 +90,11 @@ foci = {
 var nodes = cv_data[keys[0]].concat(cv_data[keys[1]]),
     currentFoci = foci["programming"];
 
+// keep other clusters offstage on init
+nodes.forEach(function(d) {
+  if (d.cluster > 0) d.x = width + 100;
+});
+
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -98,6 +103,7 @@ var force = d3.layout.force()
     .nodes(nodes)
     .links([])
     .gravity(0)
+    .friction(0.8) // convergence speed
     .size([width, height])
     .on("tick", tick);
 
@@ -125,11 +131,7 @@ g.append("text")
       .attr("dy", 3)
       .text(function(d) { return d.name})
 
-// mask disabled nodes on init
-d3.selectAll('g.node-n').style('opacity', 0)
-
 function tick(e) {
-    //console.log(e)
       var k = .1 * e.alpha;
 
       // Push nodes toward their designated focus.
@@ -147,8 +149,6 @@ function change() {
     
    var value = menu.property("value");
    currentFoci = foci[value];
-    
-    d3.selectAll('g').style('opacity', 1)
 
    force.start();
 }
