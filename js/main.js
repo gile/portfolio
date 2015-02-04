@@ -102,7 +102,9 @@ $(document).ready(function() {
 
 	runTocAnimation();
 
-	createBars();
+	createBars("#svg-container-history");
+
+	createForceLayout("#svg-container-skills");
 
 });
 

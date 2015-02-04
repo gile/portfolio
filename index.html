@@ -58,6 +58,7 @@
 
 <script src="js/main.js"></script>
 <script src="js/bars.js"></script>
+<script src="js/forceLayout.js"></script>
 
 </head>
 <body>
@@ -288,127 +289,23 @@
 
 		<div class="cv-container">			
 			<!-- **** HISTORY **** --> 
-			<p id="menu">
-	    			<br>
-	    			<select></select>
-	    		</p>
 			<div  class="cv-sections-container">
-				<div id="svg-container-history" class="svg-container"></div>
-
-				<!-- *** Academic ** --> 
-		    		<div id="cv-academic" class="cv-section">
-			    		<p class="section-title"><span>Academic History</span></p>					    		
-			    		<p class="section-text">
-			    			<a href="https://en.wikipedia.org/wiki/Technion_%E2%80%93_Israel_Institute_of_Technology" target="_blank">
-			    				<span class="section-label">technion</span>
-			    			</a>
-			    			<span class="section-text text-grey">2000-2005 | B.Sc Computer Science | avg 91 </span>
-			    		</p>
-			    		<p class="section-text">
-			    			<a href="https://en.wikipedia.org/wiki/Shenkar_College_of_Engineering_and_Design"  target="_blank">
-			    				<span class="section-label">shenkar</span>	
-			    			</a>
-			    			<span class="section-text text-grey"> 2009-2011 | Visual Communication </span>	
-			    		</p>
-		    		</div>
-
-		    		<!-- *** Professional ** --> 
-		    		<div id="cv-professional" class="cv-section">
-			    		<p class="section-title"><span>Professional History</span></p>
-			    		
-			    		<p class="section-text">
-			    			<a href="http://www.zennet.sc"  target="_blank">
-			    				<span class="section-label">zennet</span>	
-			    			</a>
-			    			<span class="section-text text-grey">2014 - present | UX and client-side development</span>
-			    			<br>
-			    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
-			    		</p>
-
-			    		<p class="section-text">
-			    			<a href="http://www.sisense.com"  target="_blank">
-			    				<span class="section-label">sisense</span>	
-			    			</a>
-			    			<span class="section-text text-grey">2012 - 2014 | UX and client-side development</span>
-			    			<br>
-			    			<!-- <span class="section-text ph-text">UX and client-side development</span> -->
-			    		</p>
-
-			    		<p class="section-text">
-			    			<a href="http://www.kontera.com"  target="_blank">
-			    				<span class="section-label">kontera</span>	
-			    			</a>
-			    			<span class="section-text text-grey">2011 - 2012 | Design and development of web advertisment platforms</span>
-			    			<br>
-			    			<!-- <span class="section-text ph-text">Design and development of web advertisment platforms</span>			    			 -->
-			    		</p>
-
-			    		<p class="section-text">
-			    			<a href="http://www.avaya.com"  target="_blank">
-			    				<span class="section-label">avaya</span>	
-			    			</a>
-			    			<span class="section-text text-grey">2005 - 2009 | Development of gateways for enterprise IP telephony</span>
-			    			<br>
-			    		</p>
-
-			    		<p class="section-text">
-			    			<a href="http://www.intel.com"  target="_blank">
-			    				<span class="section-label">intel</span>	
-			    			</a>
-			    			<span class="section-text text-grey">2002 - 2005 </span>
-			    			<span class="section-text text-grey"> | Development of software testing tools for wireless products</span>
-			    			<br>
-			    		</p>
-		    		</div>
+				<p class="section-title"><span>History </span>&nbsp;<span class="grey-text "> academic <span class="small-text"> | </span> professional </span></p>	
+				<p id="history-menu" class="menu">
+		    			<select></select>
+		    		</p>
+			
+				<div id="svg-container-history" class="svg-container"></div>		    		
 		    	</div>
 		    	
-
 		    	<!-- **** SKILLS **** --> 
 		    	<div class="cv-sections-container">
-		    		<div id="cv-skills" class="cv-section">
-			    		<p class="section-title" ><span>Skills</span></p>
-		    			<p class="section-text">	
-			    			<span class="section-label">javascript</span>
-			    			<span class="section-text text-grey"> [ jquery,  svg, d3 ]</span>
-			    		</p>
-			    		<p class="section-text">	
-		    				<span class="section-label">html <span class="section-label-digits">5</span></span>
-		    			</p>
-		    			<p class="section-text">	
-		    				<span class="section-label">css <span class="section-label-digits">3</span></span>
-		    			</p>
-		    			<p class="section-text">	
-		    				<span class="section-label">photoshop</span>
-		    			</p>
-		    			<p class="section-text">	
-		    				<span class="section-label">illustrator</span>
-		    			</p>
-		    			<p class="section-text">	
-		    				<span class="section-label">indesign</span>
-		    			</p>
-	    			</div>
-		    		<br>
-
-		    		<div id="cv-languages" class="cv-section">
-			    		<p class="section-title" ><span>Languages</span></p>
-		    			<p class="section-text">	
-			    			<span class="section-label">english</span>
-			    			<span class="section-text text-grey"> fluent </span>
-			    		</p>
-			    		<p class="section-text">	
-			    			<span class="section-label">hebrew</span>
-			    			<span class="section-text text-grey"> fluent </span>
-			    		</p>
-			    		<p class="section-text">	
-			    			<span class="section-label">spanish</span>
-			    			<span class="section-text text-grey"> intermediate </span>
-			    		</p>
-			    		<p class="section-text">	
-			    			<span class="section-label">italian</span>
-			    			<span class="section-text text-grey"> intermediate </span>
-			    		</p>
-			    	</div>
-		    		<div class="section-bottom"></div>
+			    	<p class="section-title" ><span>Skills </span>&nbsp;<span class="grey-text">programming<span class="small-text"> | </span>languages</span></p>
+			    	<p id="skills-menu" class="menu">
+		    			<select></select>
+		    		</p>
+		    	
+		    		<div id="svg-container-skills" class="svg-container"></div>		    		
 	    		</div>
 	    	</div>
     	</div>

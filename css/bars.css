@@ -1,65 +1,61 @@
-#column-cv .cv-sections-container {
-  position: relative;
-  height: 250px;
-  /*border: 1px solid grey;*/
-  margin-left: 0;
-}
-#column-cv .cv-section {
-  position: absolute;
-}
 #column-cv .svg-container {
-  top: 60px;
-  position: absolute;
+  /*top: 60px;*/
+  /*position: absolute;*/
 }
-#column-cv select {
-  width: 156px;
-  border: 1px solid #ccc;
-  color: steelblue;
-  padding: 5px;
-  font-size: 18px;
-  background: url('../images/down.png');
-  background-size: 12px 6px;
-  background-position: 92% center;
-  background-repeat: no-repeat;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-#column-cv input[type="radio"] {
-  margin: 3px 3px 0px 5px;
-}
-#column-cv svg .axis path,
-#column-cv svg .axis line {
+#column-cv #svg-container-history svg .axis path,
+#column-cv #svg-container-history svg .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
-#column-cv svg .x.axis path {
+#column-cv #svg-container-history svg .x.axis path {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
-#column-cv svg .line {
+#column-cv #svg-container-history svg .line {
   fill: none;
   stroke-width: 7px;
 }
-#column-cv svg .bar:hover rect {
+#column-cv #svg-container-history svg .bar:hover rect {
   fill: brown;
 }
-#column-cv svg .label {
+#column-cv #svg-container-history svg .label {
   fill: white;
   font-size: 16px;
 }
-#column-cv svg .axis {
+#column-cv #svg-container-history svg .axis {
   shape-rendering: crispEdges;
 }
-#column-cv svg .x.axis line {
+#column-cv #svg-container-history svg .x.axis line {
   stroke: black;
   stroke-opacity: .8;
 }
-#column-cv svg .y.axis line {
+#column-cv #svg-container-history svg .y.axis line {
   stroke: none;
 }
-#column-cv svg .tick text {
+#column-cv #svg-container-history svg .tick text {
   font-size: 14px;
 }
+#column-cv #svg-container-history svg .text-small {
+  font-size: 12px;
+}
+#column-cv #svg-container-skills .node {
+  stroke-width: 1.5px;
+}
+#column-cv #svg-container-skills .label {
+  text-anchor: middle;
+  font-family: 'Duru Sans', sans-serif !important;
+  font-size: 12px;
+  fill: white;
+}
+/*target Internet Explorer 9 and Internet Explorer 10:*/
+/*@media screen and (min-width:0\0) { 
+	#column-cv  { 
+		select {
+			background:none;
+			padding: 5px;
+		}
+	}
+}
+*/

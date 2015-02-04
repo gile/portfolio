@@ -1,28 +1,31 @@
-function createBars() {
+function createBars(selector) {
 	var 	cv_data = {
 			"academic": [
-				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1)},
-				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1)}
+				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1), content: "B.Sc Computer Science | avg 90.3"},
+				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1), content: "Visual Communication | avg 88"}
 			],
 
 			"professional": [
-				{name: "intel", start:  new Date(2002, 4, 1), end:new Date(2005, 6, 1)},
-				{name: "avaya" , start:  new Date(2005, 9, 1), end:new Date(2009, 2, 1)},
-				{name: "kontera" , start:  new Date(2011, 3, 1), end:new Date(2012, 4, 1)},
-				{name: "sisense" , start:  new Date(2012, 7, 1), end:new Date(2014, 6, 1)},
-				{name: "zennet" , start:  new Date(2014, 9, 1), end:new Date(2015, 1, 1)}
+				{name: "intel", start:  new Date(2002, 4, 1), end:new Date(2005, 6, 1), content: "sw dev (intern)"},
+				{name: "sisense" , start:  new Date(2012, 7, 1), end:new Date(2014, 6, 1), content: "UX + client-side dev"},				
+				{name: "kontera" , start:  new Date(2011, 3, 1), end:new Date(2012, 4, 1), content: "sw dev"},
+				{name: "avaya" , start:  new Date(2005, 9, 1), end:new Date(2009, 2, 1), content: "sw dev"},
+				{name: "zennet" , start:  new Date(2014, 9, 1), end:new Date(2015, 1, 1), content: "UX Lead"}
 			]
 		}
 
 	var cvFirstRun = false;
 
+	var 	menu = d3.select("#history-menu select")
+			.on("change", change);
+
 	// set the stage for the visualization
-	var 	margin = {top: 0, right: 20, bottom: 30, left: 10},
-		width = 960,
+	var 	margin = {top: 0, right: 40, bottom: 30, left: 10},
+		width = $(selector).parent().width() * 0.9,
 		height = 100;
 
-	var	x = d3.time.scale().range([0, width]),
-		y = d3.scale.ordinal().rangeRoundBands([0, height], .1);
+	var	x = d3.time.scale().range([0, width - margin.left - margin.right]),
+		y = d3.scale.ordinal().rangeRoundBands([0, height - margin.top - margin.bottom], .1);
 
 	var 	barHeight = height / 2;
 	var 	color = d3.scale.category10(); // to generate a different color for each line
@@ -39,7 +42,7 @@ function createBars() {
 
 	
 	// add svg box where viz will go    
-	var 	svg = d3.select("#svg-container-history").append("svg")
+	var 	svg = d3.select(selector).append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		       .append("g")
@@ -57,10 +60,6 @@ function createBars() {
 			.orient("left")	
 			//.rangeRoundBands([0, height], .1);
 
-	var 	//menu = d3.select("#menu select")
-	menu = d3.select("#menu select")
-		.on("change", change);
-
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")");
@@ -70,14 +69,11 @@ function createBars() {
 		.append("line")
 		.attr("class", "domain")
 		.attr("y2", height);
-		
-	console.log('menu', menu)
 
 	menu.selectAll("option")
 		.data(cv_keys)
 		.enter().append("option")
 		.text(function(d) { 
-			console.log("AAA"); 
 			return d; 
 		});
 
@@ -103,8 +99,6 @@ function createBars() {
 		var	key = menu.property("value"),
 			data = cv_data[ key ];
 
-			console.log(d3.min(data, function(c) { return c.start; } ))
-
 		x.domain([
 			d3.time.month.offset(d3.min(data, function(c) { return c.start; } ), -6),
 			d3.time.month.offset(d3.max(data, function(c) { return c.end; } ), 6)
@@ -112,9 +106,9 @@ function createBars() {
 		
 		y.domain(data.map(function(d) { return d.name; }));
 
-		// display info
-		d3.selectAll('.cv-section').transition().duration(duration).style('opacity', 0);
-		d3.select('#cv-' + key).transition().duration(duration).style('opacity', 1);
+		// // display info
+		// d3.selectAll('.cv-section').transition().duration(duration).style('opacity', 0);
+		// d3.select('#cv-' + key).transition().duration(duration).style('opacity', 1);
 
 		var bar = svg.selectAll(".bar")
 			.data(data, function(d) { return d.name; });
@@ -133,16 +127,28 @@ function createBars() {
 			.attr("height",barHeight)
 			.style('fill', function(d, i) {return color(i)})			
 
-		barEnter.append("text")
+		var text = barEnter.append("text")
 			.attr("class", "label")
 			.attr("x", 0)
 			.attr("y", 0)
-			.attr("dy", "-20px")
+			.attr("dy", "-25px")
 			.attr("text-anchor", "start")
 			.style('opacity', 0)
+			
+
+		text.append('tspan')
+			.attr("x", 0)
+			.attr("y", 0)
 			.style('fill', function(d, i) {return color(i)})
 			.text(function(d) { return d.name})
 
+		text.append('tspan')
+			.attr('class', 'text-small')
+			.attr("x", 0)
+			.attr("y", 0)
+			.attr("dy", "-8px")
+			.style('fill', 'grey')
+			.text(function(d) { return d.content})
 
 		// UPDATE //
 		bar.selectAll("rect").transition()

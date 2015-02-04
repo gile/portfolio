@@ -2,17 +2,6 @@
 <meta charset="utf-8">
 <style>
 
-.node {
-  stroke-width: 1.5px;
-}
-
-.label {
-    text-anchor: middle;
-    font-family: 'Duru Sans', sans-serif !important;
-    font-size: 12px;
-    fill: white;
-}
-
 </style>
 <body>
 <p id="menu"><b>Select Category</b><br><select></select>
@@ -202,8 +191,7 @@ function cluster(alpha) {
   };
 }
 
-// Resolves collisions between d and all other circles.
-function collide(alpha) {
+// Resolves collisions between d and all other circles. function collide(alpha) {
   var quadtree = d3.geom.quadtree(nodes);
   return function(d) {
     var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
