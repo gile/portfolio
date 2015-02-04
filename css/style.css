@@ -264,6 +264,9 @@ svg#toc-svg text {
 #column-cv {
   font-size: 18px;
 }
+#column-cv .cv-container {
+  margin-left: 20px;
+}
 #column-cv .section-title {
   /*margin-top: 40px;*/
   margin-top: 0;
