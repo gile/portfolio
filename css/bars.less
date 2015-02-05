@@ -1,0 +1,90 @@
+#column-cv  {
+
+	.svg-container {
+		/*top: 60px;*/
+		/*position: absolute;*/
+	}	
+
+	#svg-container-history {
+		svg {
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: #000;
+				shape-rendering: crispEdges;
+			}
+
+			.x.axis path {
+				fill: none;
+				stroke: #000;
+				shape-rendering: crispEdges;
+			}
+
+			.line {
+				fill: none;
+				stroke-width: 7px;
+			}
+
+			.bar:hover rect {
+				fill: brown;
+			}
+
+			.label {
+				fill: white;
+				font-size: 18px;
+			}
+
+			.axis {
+				shape-rendering: crispEdges;
+			}
+
+			.x.axis line {
+				stroke: black;
+				stroke-opacity: .8;
+			}
+
+			.y.axis line {
+				stroke: none;
+			}
+
+			.tick text {
+				font-size: 14px;
+			}
+
+			.text-small {
+				font-size: 12px;
+			}		
+		}
+	}
+
+	#svg-container-skills {
+		.node {
+			stroke-width: 1.5px;
+		}
+
+		.label {
+			text-anchor: middle;
+			font-family: 'Duru Sans', sans-serif !important;
+			font-size: 12px;
+			fill: white;
+		}
+
+		.level {
+			text-anchor: middle;
+			font-family: 'Duru Sans', sans-serif !important;
+			font-size: 15px;
+			fill: #222;
+		}
+	}
+}
+
+/*target Internet Explorer 9 and Internet Explorer 10:*/
+/*@media screen and (min-width:0\0) { 
+	#column-cv  { 
+		select {
+			background:none;
+			padding: 5px;
+		}
+	}
+}
+*/
