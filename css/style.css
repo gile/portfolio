@@ -19,6 +19,9 @@ a {
 .small-caps {
   font-variant: small-caps;
 }
+.selected {
+  color: #63b6e5;
+}
 /*----------------------------------------------*/
 /*-------- HEADER
 /*----------------------------------------------*/
@@ -174,7 +177,7 @@ a .section-label:hover {
   font-family: 'PT Sans', sans-serif;
 }
 .toc-text:hover {
-  color: #63b6e5;
+  color: #48d1cc;
   cursor: pointer;
 }
 #toc-container {
@@ -275,7 +278,7 @@ svg#toc-svg text {
 }
 #column-cv .cv-sections-container {
   position: relative;
-  height: 265px;
+  height: 290px;
   margin-left: 0;
   /*margin-top: 50px;*/
 }
@@ -286,14 +289,14 @@ svg#toc-svg text {
 }
 #column-cv .section-title {
   /*margin-top: 40px;*/
-  margin-top: 24px;
-  margin-bottom: 10px;
+  margin-top: 28px;
+  margin-bottom: 6px;
   color: #4682b4;
-  font-size: 22px;
+  font-size: 28px;
 }
 #column-cv .section-title span {
-  /*padding-bottom: 10px;*/
-  /*border-bottom: 1px solid @cvColor;*/
+  /*padding-bottom: 10px;
+		border-bottom: 1px solid @cvColor;*/
 }
 #column-cv .section-text {
   margin-top: 10px;
@@ -315,34 +318,15 @@ svg#toc-svg text {
   margin-left: 105px;
   font-size: 16px;
 }
-#column-cv .menu {
-  position: absolute;
-  display: inline-block;
-  margin-top: 22px;
-  margin-left: 15px;
+#column-cv .cv-menu {
+  margin-left: 8px;
 }
-#column-cv .menu:hover,
-#column-cv .menu:active,
-#column-cv .menu:focus {
-  outline: none;
-  border: 0;
+#column-cv .btn-cv {
+  font-size: 16px;
+  cursor: pointer;
 }
-#column-cv select {
-  width: 128px;
-  border: 1px solid #ccc;
-  color: steelblue;
-  padding: 5px;
-  font-size: 14px;
-  background: url('../images/down.png');
-  background-size: 12px 6px;
-  background-position: 92% center;
-  background-repeat: no-repeat;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-#column-cv input[type="radio"] {
-  margin: 3px 3px 0px 5px;
+#column-cv .btn-cv:hover {
+  color: #48d1cc;
 }
 #column-cv .svg-container {
   margin-top: 24px;
@@ -389,7 +373,7 @@ svg#toc-svg text {
   color: #4682b4;
 }
 #column-contact .email-text:hover {
-  color: #63b6e5;
+  color: #48d1cc;
 }
 #column-contact #phone-icon {
   color: #73b43b;
@@ -399,7 +383,7 @@ svg#toc-svg text {
   color: #4682b4;
 }
 #column-contact .phone-text:hover {
-  color: #63b6e5;
+  color: #48d1cc;
   cursor: pointer;
 }
 #column-contact #linkedin-icon {
@@ -412,7 +396,7 @@ svg#toc-svg text {
   color: #4682b4;
 }
 #column-contact .linkedin-text:hover {
-  color: #63b6e5;
+  color: #48d1cc;
 }
 #column-contact #marker-icon {
   font-size: 27px;

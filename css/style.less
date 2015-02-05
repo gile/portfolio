@@ -2,7 +2,8 @@
 @green: 	#73b43b;
 @blue:	#7199F1;
 @purple:	#9370DB;
-@orange: 	#FF7F50;
+@orange: 	#ff7f0e;
+@lightOrange: #ffbb78;
 
 @blue2:	#4682b4;
 @turquoise: 	#48D1CC;
@@ -19,7 +20,7 @@
 @contactColor:	steelblue;
 
 @menuColor:		@grey;
-@menuHoverColor: 	@lightBlue;
+@menuHoverColor: 	@turquoise;
 @pageTextColor:	@grey;
 @linkColor:		@blue;
 @linkHoverColor: 	@lightBlue;
@@ -58,6 +59,10 @@ a {
 
 .small-caps {
 	font-variant: small-caps;
+}
+
+.selected {
+	color: @lightBlue;
 }
 
 /*----------------------------------------------*/
@@ -379,7 +384,7 @@ svg#toc-svg {
 
  	.cv-sections-container {
 		position: relative;
-		height: 265px;
+		height: 290px;
 		margin-left: 0;
 		/*margin-top: 50px;*/
 	}
@@ -392,15 +397,15 @@ svg#toc-svg {
 
 	.section-title {
 		/*margin-top: 40px;*/
-		margin-top: 24px;
-		margin-bottom: 10px;
+		margin-top: 28px;
+		margin-bottom: 6px;
 		color: @cvColor;
-		font-size: 22px;
+		font-size: 28px;
 	}
 
 	.section-title span {
-		/*padding-bottom: 10px;*/
-		/*border-bottom: 1px solid @cvColor;*/
+		/*padding-bottom: 10px;
+		border-bottom: 1px solid @cvColor;*/
 	}
 
 	 .section-text {
@@ -428,37 +433,18 @@ svg#toc-svg {
 		font-size: 16px;
 	}
 
-	.menu {
-		position: absolute;
-		display: inline-block;
-		margin-top: 22px;
-		margin-left: 15px;
+	.cv-menu {
+		margin-left: 8px;
+	}
 
-		&:hover, &:active, &:focus {
-			outline: none;
-			border: 0;
+	.btn-cv {
+		font-size: 16px;
+		cursor: pointer;
+
+		&:hover {
+			color: @menuHoverColor;
 		}
-	}
-
-	select {
-		width: 128px;
-		border: 1px solid #ccc;
-		color: steelblue;
-		padding: 5px;
-		font-size: 14px;
-		background: url('../images/down.png');
-		background-size: 12px 6px;
-		background-position: 92% center;
-		background-repeat: no-repeat;
-
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-	}
-
-	input[type="radio"] {
-		margin: 3px 3px 0px 5px;
-	}
+	}	
 
 	.svg-container {
 		margin-top: 24px;

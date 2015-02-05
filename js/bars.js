@@ -16,13 +16,15 @@ function createBars(selector) {
 
 	var cvFirstRun = false;
 
-	var 	menu = d3.select("#history-menu select")
-			.on("change", change);
+	// var 	menu = d3.select("#history-menu select")
+	// 		.on("change", change);
 
 	// set the stage for the visualization
-	var 	margin = {top: 0, right: 40, bottom: 30, left: 10},
+	var 	margin = {top: 10, right: 40, bottom: 30, left: 10},
 		width = $(selector).parent().width() * 0.9,
-		height = 100;
+		height = 85;
+
+	
 
 	var	x = d3.time.scale().range([0, width - margin.left - margin.right]),
 		y = d3.scale.ordinal().rangeRoundBands([0, height - margin.top - margin.bottom], .1);
@@ -40,7 +42,9 @@ function createBars(selector) {
 	 	cv_keys.push(key);
 	});
 
-	
+	var menu = d3.selectAll('#cv-menu-history');
+
+
 	// add svg box where viz will go    
 	var 	svg = d3.select(selector).append("svg")
 			.attr("width", width + margin.left + margin.right)
@@ -60,6 +64,8 @@ function createBars(selector) {
 			.orient("left")	
 			//.rangeRoundBands([0, height], .1);
 
+	menu.selectAll('.btn-cv').on('click', click);
+
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")");
@@ -70,22 +76,31 @@ function createBars(selector) {
 		.attr("class", "domain")
 		.attr("y2", height);
 
-	menu.selectAll("option")
-		.data(cv_keys)
-		.enter().append("option")
-		.text(function(d) { 
-			return d; 
-		});
+	// menu.selectAll("option")
+	// 	.data(cv_keys)
+	// 	.enter().append("option")
+	// 	.text(function(d) { 
+	// 		return d; 
+	// 	});
 
 
-	menu.property("value", cv_keys[0]);
-
+	click(menu.selectAll('.btn-cv').first(true))
 
 	redraw();
 
 	function capitalise(string)
 	{
 		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	function click(el) {
+		var	el = el ? $(el) : $(this),	
+			siblings = el.siblings('.btn-cv');
+
+		siblings.removeClass('selected')
+		el.addClass('selected');
+
+		change();
 	}
 
 	function change() {
@@ -96,7 +111,7 @@ function createBars(selector) {
 
 	function redraw() {
 
-		var	key = menu.property("value"),
+		var	key = menu.selectAll('.btn-cv.selected').first().attr('name'),
 			data = cv_data[ key ];
 
 		x.domain([

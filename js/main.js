@@ -1,19 +1,45 @@
 var 	id,
 	duration = 500;
 
-var 	GREY = 	'#222',
-	RED =		'#f86767',
-	GREEN = 	'#73b43b',
-	//BLUE =	'#63b6e5',
-	BLUE = 	'#7199F1',
-	ORANGE = 	'#FF7F50',
-	PURPLE =	'#9370DB';
+// var 	GREY = 	'#222',
+// 	RED =		'#f86767',
+// 	GREEN = 	'#73b43b',
+// 	//BLUE =	'#63b6e5',
+// 	BLUE = 	'#7199F1',
+// 	ORANGE = 	'#FF7F50',
+// 	PURPLE =	'#9370DB';
+
+var	color = d3.scale.category20();
+
+// for(var i=0; i<10; ++i) {color(i)}
+// var 	BLUE = 	color(0),
+// 	ORANGE = 	color(2),
+// 	GREEN = 	color(4),
+// 	RED =		color(6),
+// 	PURPLE =	color(8),
+// 	GREY = 	color(14);
+
+for(var i=0; i<20; ++i) {color(i)}
+var 	BLUE = 	color(0),
+	ORANGE = 	color(2),
+	GREEN = 	color(4),
+	RED =		color(6),
+	PURPLE =	color(8),
+	BROWN = 	color(10)
+	GREY = 	color(14);
+
+// var 	BLUE = 	color(0),
+// 	ORANGE = 	color(4),
+// 	GREEN = 	color(8),
+// 	RED =		color(12),
+// 	PURPLE =	color(16),
+// 	GREY = 	color(14);
 
 var 	pages = [
 		{id: 'home', name: "", color: GREY},
 		{id: 'ux', name: "ux examples", color: BLUE},
 		{id: 'maps', name: "maps", color: GREEN},
-		{id: 'cv', name: "curriculum vitæ", color: PURPLE},
+		{id: 'cv', name: "curriculum vitae", color: PURPLE},
 		{id: 'contact', name: "contact", color: ORANGE}
 	];
 
@@ -39,6 +65,24 @@ var 	headerColor = BLUE,//'#4682b4',
 /////////////////////////////////////////////////////////////
 // Init Code
 /////////////////////////////////////////////////////////////
+d3.selection.prototype.first = function(raw) {
+	if (raw) {
+		return this[0][0]
+	}
+
+ 	return d3.select(this[0][0]);
+};
+
+d3.selection.prototype.last = function(raw) {
+	var last = this.size() - 1;
+
+	if (raw) {
+		return this[0][last];
+	}
+
+	return d3.select(this[0][last]);
+};
+
 $(window).load(function(){
     setTimeout(function() {
         $('html, body').animate({scrollTop: 0}, 500);
@@ -106,6 +150,8 @@ $(document).ready(function() {
 
 	createForceLayout("#svg-container-skills");
 
+	//$('#column-maps').css('display', 'none')
+
 });
 
 
@@ -134,7 +180,7 @@ function runTocAnimation() {
 
 	var 	width = 960,
 		height = 500,
-		radius = 35;
+		radius = 32;
 
 	var 	gravity = 0.01,
 		charge = -300,
@@ -145,7 +191,7 @@ function runTocAnimation() {
 	var 	stroke = 1,
 		hoverStroke = 2;
 
-	var	hoverRadiusFactor = 1.15,
+	var	hoverRadiusFactor = 1.05,
 		enlargedFontFactor = 1,
 		totalRadius = (radius * hoverRadiusFactor) + hoverStroke;
 
@@ -182,7 +228,7 @@ function runTocAnimation() {
 			.on("click", click)
 			.call(force.drag);
 
-	var num = 2;
+	var num = 1;
 
 	for (var i=0; i<num; ++i) {
 		node.append("circle")
@@ -220,11 +266,13 @@ function runTocAnimation() {
 		return radius * hoverRadiusFactor;
 	}
 
-	function mouseover() {
+	function mouseover(e) {
 		var 	el = d3.select(this),
 			color = el.attr('color'),
 			time = 100,
 			num = el.selectAll('circle')[0].length;
+
+		
 
 		for (var i =0; i<num; ++ i) {
 			el.select("circle.c" +  (i + 1)).transition()
@@ -232,21 +280,22 @@ function runTocAnimation() {
 				.delay(time * i)
 				.attr("r", hoverRadius() * (1/num) * (num - i))
 				//.style("fill", function(d) { return (i===num-1) ? d3.rgb(d.color).brighter(1) : d.color })
+				.style("fill", function(d) { return d3.rgb(d.color).brighter(1) })
 				.style("stroke-width", hoverStroke);
 		}
 		
 
 		el.select("text").transition()
-			.duration(time * 2)
+			.duration(time)
 			//.ease('cubic')
-			.attr("x", totalRadius +textOffsetHover )
-			//.style("fill", d3.rgb( color ).brighter(1) )
+			//.attr("x", totalRadius +textOffsetHover )
+			.style("fill", d3.rgb( color ).brighter(1) )
 			//.style("opacity", 0.6)
 			//.style('font-weight', 700)
-			.style('font-size', (fontSize * enlargedFontFactor) + 'px');
+			//.style('font-size', (fontSize * enlargedFontFactor) + 'px');
 	}
 
-	function mouseout() {
+	function mouseout(e) {
 		var 	el = d3.select(this),
 			color = el.attr('color'),
 			time = 100,
@@ -257,18 +306,17 @@ function runTocAnimation() {
 				.duration(time)
 				.delay(time * i)
 				.attr("r", radius * (1/num) * (i + 1))
-				//.style("fill", function(d) {return d.color})
+				.style("fill", function(d) {return d.color})
 				.style("stroke-width", (i===num-1) ? stroke : 0);
-		}
-		
+		}		
 
 		el.select("text").transition()
-			.duration(time *2)
-			.attr("x", totalRadius + textOffset )
-			//.style("fill", color)
+			.duration(time)
+			//.attr("x", totalRadius + textOffset )
+			.style("fill", color)
 			//.style("opacity", 1)
 			//.style('font-weight', 400)
-			.style('font-size', fontSize + 'px');
+			//.style('font-size', fontSize + 'px');
 	}
 
 	function click() {
@@ -381,133 +429,3 @@ function headerLinkClick(columnName) {
 
 	console.log('CLICK', columnName, $('.main-container').height());
 }	
-
-
-/////////////////////////////////////////////////////////////
-// *** TRASH ***
-/////////////////////////////////////////////////////////////	
-
-/**
-function runTocAnimation() {
-	var 	str;
-
-	var 	initial_delay = 500,
-		delay_step = 40;
-
-	var 	titleText = d3.select('#home-title-text'),
-		uxText = d3.select('.toc-text');
-		uxTextLarge = d3.select('.toc-item .large');
-
-	var 	totaDelay = initial_delay;
-	var 	textElement,
-		textElementLarge;
-
-	for (var j=1; j<pages.length; ++j) { // skip 'home' (j=0)
-		textElement = d3.select('#toc-item-' + pages[j].id + ' .toc-text');
-		textElementLarge = d3.select('#toc-item-' + pages[j].id + ' .large');
-		str = pages[j].name;
-
-		for (var i =0; i <= str.length; ++i) {
-			textElement.transition()
-				.delay(totaDelay + i*delay_step)
-				.text(str.slice(0, i))
-			
-
-			if (i<str.length) {
-				textElementLarge
-				      .transition()
-					.delay(totaDelay + i*delay_step)
-					.duration(delay_step)
-					.text(str[i])
-			}
-			else {
-
-				textElementLarge.transition()
-					.delay(totaDelay + i*delay_step)
-					.text('');
-			}
-		}
-
-		totaDelay += (str.length-1) * delay_step;
-	}
-	// titleText.transition()
-	//   	.delay( initial_delay + ((str.length + 1) * delay_step) )	
-	//   	.each("end", function() {
-	//   		d3.select('#home-title-cursor').style('visibility', 'hidden');
-	// 		d3.select('#home-content').style('visibility', 'visible');
-	// 	});
-} 
-
-var getMarkerParams = function(id, width, height, stroke_width, stroke_color, fill) {
-	  var indent = Math.ceil(width / 10);
-
-	  var markerParams = {
-		id: id,
-		viewBox: "0 0 " + width + " " + height,
-		orient: "auto",
-		refX: 10,//width  / 2,
-		refY: height / 2,
-		markerUnits: 'userSpaceOnUse', //stroke_width,
-		markerWidth: width,
-		markerHeight: height,
-		d: "M0,0 L" + (width - 10) + "," + (height / 2) + " 0," + height + " " + indent + "," + (height / 2) + " Z",
-		strokeWidth: stroke_width,
-		strokeColor: stroke_color,
-		fill: fill
-	  }
-
-	return markerParams;
-}
-
-function setMarkers() {
-	var  markerInfo = {
-		//ux: 		getMarkerParams('ux', 30, 30, 0, 'steelblue', 'steelblue'),
-		//maps: 		getMarkerParams('maps', 30, 30, 0, 'steelblue', 'steelblue'),
-		cv: 		getMarkerParams('cv', 120, 120, 0, 'steelblue', 'steelblue'),
-		//contact: 	getMarkerParams('contact', 30, 30, 0, 'steelblue', 'steelblue')
-	};
-
-	
-
-	$.each(markerInfo, function(key, data){
-		var 	svg = d3.select('#svg-' + key),
-			svgdefs = svg.insert("defs",":first-child");
-
-		svgdefs
-	              .append("marker")
-	           	.attr("id", function(d) { return 'marker' + "-" + key })
-			.attr("viewBox", data.viewBox)
-			.attr("orient", data.orient)
-			.attr('markerUnits', data.markerUnits)
-			.attr("refX", data.refX)
-			.attr("refY", data.refY)
-			.attr("markerWidth", data.markerWidth)
-			.attr("markerHeight", data.markerHeight);
-
-	             svg.append("path")
-			.attr("d", data.d)
-			.attr("stroke-width", data.strokeWidth)
-			.attr("stroke-color", data.strokeColor)
-			.attr("fill", data.fill);
-
-}
-
-
-
-
-//---------------------------------------------
-
-$('#create-widget-list' ).magnificPopup({
-	delegate: 'a', // child items selector, by clicking on it popup will open
-		type: 'image',
-		gallery:{enabled:true},
-		image: {
-	    // options for image content type
-	    titleSrc: 'title'
-		}
-		// other options
-});
-
-//---------------------------------------------
-
-/**/
