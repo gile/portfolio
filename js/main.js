@@ -13,7 +13,7 @@ var 	pages = [
 		{id: 'home', name: "", color: GREY},
 		{id: 'ux', name: "ux examples", color: BLUE},
 		{id: 'maps', name: "maps", color: GREEN},
-		{id: 'cv', name: "curriculum vitae", color: PURPLE},
+		{id: 'cv', name: "curriculum vitæ", color: PURPLE},
 		{id: 'contact', name: "contact", color: ORANGE}
 	];
 
@@ -86,7 +86,7 @@ $(document).ready(function() {
 			32.0565,
 			34.7650
 		],
-		zoom: 14
+		zoom: 15
 	});	
 
 	$('.info-text').mouseover(function() {
@@ -132,27 +132,6 @@ function runTocAnimation() {
 		return {"source": index, "target": index+1, "value": 10};
 	});
 
-	
-	// var	links = function() {
-	// 	var	numLinks = 4;,
-	// 		array = [],
-	// 		domain = [0, 1],
-	// 		range = [0,  pages.length],
-	// 		scale = d3.scale.linear(),
-	// 		sourceScale =,
-	// 		dest; 
-
-	// 	for (var i=0; i<numLinks; ++i) {
-	// 		source = scale.domain(domain).range(range)(Math.random());
-	// 		dest = 
-	// 		array.push({
-
-	// 		})
-	// 	}
-	// }
-
-	//var	links = [];
-
 	var 	width = 960,
 		height = 500,
 		radius = 35;
@@ -164,14 +143,14 @@ function runTocAnimation() {
 	var 	fontSize = 27;
 
 	var 	stroke = 1,
-		hoverStroke = 4;
+		hoverStroke = 2;
 
-	var	hoverRadiusFactor = 1.05,
+	var	hoverRadiusFactor = 1.15,
 		enlargedFontFactor = 1,
 		totalRadius = (radius * hoverRadiusFactor) + hoverStroke;
 
-	var 	textOffset = 10,
-		textOffsetHover = 25;
+	var 	textOffset = 5,
+		textOffsetHover = 15;
 
 	var	force = d3.layout.force()
 			.gravity(gravity)
@@ -203,11 +182,16 @@ function runTocAnimation() {
 			.on("click", click)
 			.call(force.drag);
 
-	node.append("circle")
-		.attr("r", radius)
-		.style("fill", function(d) { return d.color })
-		.style('stroke-width', stroke)
-		.style("stroke", function(d) { return d3.rgb(d.color).brighter(); })
+	var num = 2;
+
+	for (var i=0; i<num; ++i) {
+		node.append("circle")
+			.attr('class', 'c' + (i + 1))
+			.attr("r", radius * (1/num) * (num - i))
+			.style("fill", function(d) { return d.color })
+			.style('stroke-width', (i===0)  ? stroke : 0)
+			.style("stroke", function(d) { return d3.rgb(d.color).brighter(); })
+	}
 
 	node.append("text")
 		    .attr("x", totalRadius + textOffset)
@@ -238,21 +222,25 @@ function runTocAnimation() {
 
 	function mouseover() {
 		var 	el = d3.select(this),
-			color = el.attr('color');
+			color = el.attr('color'),
+			time = 100,
+			num = el.selectAll('circle')[0].length;
 
-
-		el.select("circle").transition()
-			.duration(250)
-			.attr("r", hoverRadius())
-			//.style("fill", d3.rgb( color ).brighter() )
-			.style("stroke-width", hoverStroke)
-			
+		for (var i =0; i<num; ++ i) {
+			el.select("circle.c" +  (i + 1)).transition()
+				.duration(time)
+				.delay(time * i)
+				.attr("r", hoverRadius() * (1/num) * (num - i))
+				//.style("fill", function(d) { return (i===num-1) ? d3.rgb(d.color).brighter(1) : d.color })
+				.style("stroke-width", hoverStroke);
+		}
+		
 
 		el.select("text").transition()
-			.duration(200)
+			.duration(time * 2)
 			//.ease('cubic')
 			.attr("x", totalRadius +textOffsetHover )
-			//.style("fill", d3.rgb( color ).brighter() )
+			//.style("fill", d3.rgb( color ).brighter(1) )
 			//.style("opacity", 0.6)
 			//.style('font-weight', 700)
 			.style('font-size', (fontSize * enlargedFontFactor) + 'px');
@@ -260,21 +248,26 @@ function runTocAnimation() {
 
 	function mouseout() {
 		var 	el = d3.select(this),
-			color = el.attr('color');
+			color = el.attr('color'),
+			time = 100,
+			num = el.selectAll('circle')[0].length;
 
-		el.select("circle").transition()
-			.duration(250)
-			.attr("r", radius)
-			//.style("fill", color)
-			.style("stroke-width", stroke);
+		for (var i =0; i<num; ++ i) {
+			el.select("circle.c" + (num - i)).transition()
+				.duration(time)
+				.delay(time * i)
+				.attr("r", radius * (1/num) * (i + 1))
+				//.style("fill", function(d) {return d.color})
+				.style("stroke-width", (i===num-1) ? stroke : 0);
+		}
+		
 
 		el.select("text").transition()
-			.duration(200)
+			.duration(time *2)
 			.attr("x", totalRadius + textOffset )
 			//.style("fill", color)
 			//.style("opacity", 1)
 			//.style('font-weight', 400)
-
 			.style('font-size', fontSize + 'px');
 	}
 

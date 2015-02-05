@@ -487,25 +487,7 @@ svg#toc-svg {
 	  /*color: #3ca0d3;*/
 	  /*color: steelblue;*/
 	  /*margin: 0 10px;*/
-	}
-
-	#email-icon {
-		font-size: 22px;
-		color: @contactColor;
-		/*color: #f86767;*/
-	}
-
-	#phone-icon {
-		/*color: #73b43b;*/
-	}
-
-	#linkedin-icon {
-		/*color: #63b6e5;*/
-	}
-
-	#marker-icon {
-		/*color: #9370DB;*/
-	}
+	}	
 
 	.contact-text {
 		font-size: 20px;
@@ -518,31 +500,59 @@ svg#toc-svg {
 		text-decoration: none;
 	}
 
+	#email-icon {
+		font-size: 22px;
+		/*color: @contactColor;*/
+		/*color: #9370DB;		*/ 
+		color: #f86767;
+/*		color: rgb(255, 127, 80);;*/
+	}
+
 	.email-text {
 		/*color: #f86767;*/
 		color: @contactColor;
+
+		&:hover {
+			color: @menuHoverColor;
+		}
 	}
 
-	.email-text:hover {
-		padding-bottom: 5px;
-		border-bottom: 2px solid #f86767;
+	#phone-icon {
+		color: #73b43b;
 	}
 
 	.phone-text {
 		/*color: #73b43b;*/
 		color: @contactColor;
+
+		&:hover {
+			color: @menuHoverColor;
+			cursor: pointer;
+		}
+	}
+
+	#linkedin-icon {
+		/*color: #63b6e5;*/
+		/*color: #9370DB;*/
+		color: rgb(255, 127, 80)
 	}
 
 	.linkedin-text {
 		line-height: 26px;
 		color: @contactColor;
+
+		&:hover {
+			color: @menuHoverColor;
+		}
 	}
-	.linkedin-text:hover {
-		border-bottom: 2px solid #63b6e5;
+
+	#marker-icon {
+		font-size: 27px;
+		color: #9370DB;
 	}
 
 	.contact-map {
-		height: 180px;
+		height: 260px;
 		width: 70%;
 		display: inline-block;
 		/*margin-left: 120px;*/

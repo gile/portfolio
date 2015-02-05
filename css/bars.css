@@ -49,6 +49,12 @@
   font-size: 12px;
   fill: white;
 }
+#column-cv #svg-container-skills .level {
+  text-anchor: middle;
+  font-family: 'Duru Sans', sans-serif !important;
+  font-size: 15px;
+  fill: #444;
+}
 /*target Internet Explorer 9 and Internet Explorer 10:*/
 /*@media screen and (min-width:0\0) { 
 	#column-cv  { 

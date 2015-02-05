@@ -369,20 +369,6 @@ svg#toc-svg text {
   /*color: steelblue;*/
   /*margin: 0 10px;*/
 }
-#column-contact #email-icon {
-  font-size: 22px;
-  color: #4682b4;
-  /*color: #f86767;*/
-}
-#column-contact #phone-icon {
-  /*color: #73b43b;*/
-}
-#column-contact #linkedin-icon {
-  /*color: #63b6e5;*/
-}
-#column-contact #marker-icon {
-  /*color: #9370DB;*/
-}
 #column-contact .contact-text {
   font-size: 20px;
   color: #bbb;
@@ -391,27 +377,49 @@ svg#toc-svg text {
   font-size: 25px;
   text-decoration: none;
 }
+#column-contact #email-icon {
+  font-size: 22px;
+  /*color: @contactColor;*/
+  /*color: #9370DB;		*/
+  color: #f86767;
+  /*		color: rgb(255, 127, 80);;*/
+}
 #column-contact .email-text {
   /*color: #f86767;*/
   color: #4682b4;
 }
 #column-contact .email-text:hover {
-  padding-bottom: 5px;
-  border-bottom: 2px solid #f86767;
+  color: #63b6e5;
+}
+#column-contact #phone-icon {
+  color: #73b43b;
 }
 #column-contact .phone-text {
   /*color: #73b43b;*/
   color: #4682b4;
+}
+#column-contact .phone-text:hover {
+  color: #63b6e5;
+  cursor: pointer;
+}
+#column-contact #linkedin-icon {
+  /*color: #63b6e5;*/
+  /*color: #9370DB;*/
+  color: #ff7f50;
 }
 #column-contact .linkedin-text {
   line-height: 26px;
   color: #4682b4;
 }
 #column-contact .linkedin-text:hover {
-  border-bottom: 2px solid #63b6e5;
+  color: #63b6e5;
+}
+#column-contact #marker-icon {
+  font-size: 27px;
+  color: #9370DB;
 }
 #column-contact .contact-map {
-  height: 180px;
+  height: 260px;
   width: 70%;
   display: inline-block;
   /*margin-left: 120px;*/
