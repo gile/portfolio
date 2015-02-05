@@ -348,7 +348,8 @@ function doneResizing(){
 }
 
 function headerSetActive(name, duration) {	
-	var headerActiveColor = pages.filter(function(d) {return d.id === name})[0].color;
+	//var headerActiveColor = pages.filter(function(d) {return d.id === name})[0].color;
+	var headerActiveColor = GREEN;
 
 	if (!duration || duration === 0) {
 		
@@ -388,15 +389,13 @@ function headerSetActive(name, duration) {
 
 function headerLinkMouseover(element, name) {
 
-	var color = pages.filter(function(d) {return d.id === name})[0].color;
+	// var color = pages.filter(function(d) {return d.id === name})[0].color;
 
-	d3.select(element).style('color', color);
-
-	console.log( d3.select(element));
+	// d3.select(element).style('color', color);
 }
 
 function headerLinkMouseout(element) {
-	d3.select(element).style('color', '');
+	// d3.select(element).style('color', '');
 }
 
 function headerLinkClick(columnName) {
@@ -418,6 +417,46 @@ function headerLinkClick(columnName) {
 	}
 
 	$('.main-container').animate(mainContainerCss, duration);
+
+	//d3.select('#header-item-home').style('margin-left', '250px')
+
+	if (columnName === 'home') {
+		
+		// d3.select('.header-links').transition()
+		// 	.duration(250)
+		// 	.style('height', '100px');
+
+		// d3.select('#header-item-home').transition()
+		// 	.duration(250)
+		// 	.style('margin-left', '200px')
+
+		// d3.selectAll('.header-link').transition()
+		// 	.duration(250)
+		// 	.style('opacity', 0);
+
+		// d3.select('.title').transition()
+		// 	.duration(250)
+		// 	.style('opacity', 1);
+	}
+	else  {
+		
+
+		// d3.select('.header-links').transition()
+		// 	.duration(250)
+		// 	.style('height', '40px');
+
+		// d3.select('#header-item-home').transition()
+		// 	.duration(250)
+		// 	.style('margin-left', 0)
+
+		// d3.selectAll('.header-link').transition()
+		// 	.duration(250)
+		// 	.style('opacity', 1);
+
+		// d3.select('.title').transition()
+		// 	.duration(250)
+		// 	.style('opacity', 0);
+	}
 
 	setTimeout(function() {
 		window.scrollTo(0, 0);

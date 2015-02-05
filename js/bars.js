@@ -2,12 +2,12 @@ function createBars(selector) {
 	var 	cv_data = {
 			"academic": [
 				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1), content: "B.Sc Computer Science | avg 90.3"},
-				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1), content: "Visual Communication | avg 88"}
+				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1), content: "Graphic Design | avg 88"}
 			],
 
 			"professional": [
 				{name: "intel", start:  new Date(2002, 4, 1), end:new Date(2005, 6, 1), content: "sw dev (intern)"},
-				{name: "sisense" , start:  new Date(2012, 7, 1), end:new Date(2014, 6, 1), content: "UX + client-side dev"},				
+				{name: "sisense" , start:  new Date(2012, 7, 1), end:new Date(2014, 6, 1), content: "UX + sw dev"},				
 				{name: "kontera" , start:  new Date(2011, 3, 1), end:new Date(2012, 4, 1), content: "sw dev"},
 				{name: "avaya" , start:  new Date(2005, 9, 1), end:new Date(2009, 2, 1), content: "sw dev"},
 				{name: "zennet" , start:  new Date(2014, 9, 1), end:new Date(2015, 1, 1), content: "UX Lead"}

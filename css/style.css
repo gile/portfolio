@@ -57,6 +57,9 @@ a {
   font-size: 22px;
   /*  border: 1px solid green;*/
 }
+.header-link:hover {
+  color: #48d1cc;
+}
 .header-link span {
   font-size: 18px;
 }
@@ -145,7 +148,7 @@ a .section-label {
   color: steelblue;
 }
 a .section-label:hover {
-  color: #63b6e5;
+  color: #48d1cc;
 }
 .text-grey {
   color: grey;
@@ -412,4 +415,31 @@ svg#toc-svg text {
 }
 #column-contact .tab-text {
   padding-left: 60px;
+}
+@media screen and (max-width: 1400px) {
+  .content-container {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .content-container {
+    width: 80%;
+  }
+  .header-item {
+    margin: 0 15px;
+  }
+  #column-cv #svg-container-history svg .label {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .header-item {
+    margin: 0 5px;
+  }
+  .header-item .header-link {
+    font-size: 18px;
+  }
+  #column-cv #svg-container-history svg .label {
+    font-size: 14px !important;
+  }
 }
