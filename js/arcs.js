@@ -86,6 +86,8 @@ var ARC_MAP_EXTENSION = {
             centered,
             i;
 
+        console.log('CHORO', 'w', width, 'h', height);
+        
         String.prototype.replaceSpaces = function() {
             return this.replace(/ /g,'_');
         };

@@ -2,11 +2,11 @@ $( document ).ready(function() {
 
 
 	    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		var parentPie = $('.container.PIE').get(0);
+	var parentPie = $('.container.PIE').get(0);
 
-		var totalRevenueScale = d3.scale.linear().domain([0,1]).range([10, 100000]);
+	var totalRevenueScale = d3.scale.linear().domain([0,1]).range([10, 100000]);
 
-	    var worldCountries = //WORLD_COUNTRIES.features;
+	var worldCountries = //WORLD_COUNTRIES.features;
 	    [
 	    	// Europe
 	    	"United Kingdom",

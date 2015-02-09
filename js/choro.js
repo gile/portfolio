@@ -20,10 +20,15 @@ var CHORO_MAP_EXTENSION = {
         var MAP_TYPE = "CHORO";
         //defineUtilityFunctions();
 
+        var width = $(parent).width(),
+              height = $(parent).height(),
+              offset = $(parent).offset();
+
+        console.log('CHORO', 'w', width, 'h', height);
+
         var mapName = mapName.replaceSpaces(),
-            canvasWidth = $(parent).width(),
-            canvasHeight = $(parent).height(),
-            offset = $(parent).offset(),
+            canvasWidth = width,
+            canvasHeight = height,            
             canvasTop = offset.top,
             canvasLeft = offset.left,
             isWide = !!((canvasWidth > 800));

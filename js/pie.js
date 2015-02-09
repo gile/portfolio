@@ -17,6 +17,7 @@ var PIE_MAP_EXTENSION = {
     browserInfo: get_browser(),
 
     createPieMap: function(mapName, input_data, parent, indexMap, userOptions) {
+        
         //console.log('\ncreatePieMap!!(', mapName, input_data, parent, indexMap, userOptions, ')');
         var isChrome = PIE_MAP_EXTENSION.browserInfo.browser === "Chrome",
               isIE = PIE_MAP_EXTENSION.browserInfo.browser === "MSIE",
@@ -70,6 +71,8 @@ var PIE_MAP_EXTENSION = {
 
         var width = $(parent).width(),
             height = $(parent).height();
+
+        console.log('PIE', 'w', width, 'h', height);
 
         var offset = $(parent).offset(),
             top = offset.top,
