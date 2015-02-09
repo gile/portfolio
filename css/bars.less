@@ -1,5 +1,8 @@
 #column-cv  {
 
+	@axis-color: #aaa;
+	@axis-label-color: #888;
+
 	.svg-container {
 		/*top: 60px;*/
 		/*position: absolute;*/
@@ -8,15 +11,19 @@
 	#svg-container-history {
 		svg {
 			.axis path,
-			.axis line {
+
+			/* tick marks */
+			.x.axis line {
 				fill: none;
-				stroke: #000;
+				stroke-opacity: .8;
+				stroke: @axis-color;
 				shape-rendering: crispEdges;
 			}
 
+			/* the axis line */
 			.x.axis path {
 				fill: none;
-				stroke: #000;
+				stroke: @axis-color;;
 				shape-rendering: crispEdges;
 			}
 
@@ -38,17 +45,20 @@
 				shape-rendering: crispEdges;
 			}
 
-			.x.axis line {
-				stroke: black;
-				stroke-opacity: .8;
-			}
-
 			.y.axis line {
 				stroke: none;
 			}
 
-			.tick text {
-				font-size: 14px;
+			
+			.domain {
+				stroke: @axis-color;
+			}
+
+			.tick {
+				text {
+					fill: @axis-label-color;
+					font-size: 12px;
+				}				
 			}
 
 			.text-small {

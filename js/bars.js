@@ -1,16 +1,16 @@
 function createBars(selector) {
 	var 	cv_data = {
 			"academic": [
-				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1), content: "B.Sc Computer Science | avg 90.3"},
-				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1), content: "Graphic Design | avg 88"}
+				{name: "technion", start:  new Date(2000, 9, 1), end:new Date(2005, 5, 1), content: "B.Sc Computer Science | avg 90.3", color: BLUE},
+				{name: "shenkar", start:  new Date(2009, 9, 1), end:new Date(2011, 5, 1), content: "Graphic Design | avg 88", color: RED}
 			],
 
 			"professional": [
-				{name: "intel", start:  new Date(2002, 4, 1), end:new Date(2005, 6, 1), content: "sw dev (intern)"},
-				{name: "sisense" , start:  new Date(2012, 7, 1), end:new Date(2014, 6, 1), content: "UX + sw dev"},				
-				{name: "kontera" , start:  new Date(2011, 3, 1), end:new Date(2012, 4, 1), content: "sw dev"},
-				{name: "avaya" , start:  new Date(2005, 9, 1), end:new Date(2009, 2, 1), content: "sw dev"},
-				{name: "zennet" , start:  new Date(2014, 9, 1), end:new Date(2015, 1, 1), content: "UX Lead"}
+				{name: "intel", start:  new Date(2002, 4, 1), end:new Date(2005, 6, 1), content: "sw dev (intern)", color: BLUE},
+				{name: "sisense" , start:  new Date(2012, 7, 1), end:new Date(2014, 6, 1), content: "UX + sw dev", color: ORANGE},				
+				{name: "kontera" , start:  new Date(2011, 3, 1), end:new Date(2012, 4, 1), content: "sw dev", color: GREEN},
+				{name: "avaya" , start:  new Date(2005, 9, 1), end:new Date(2009, 2, 1), content: "sw dev", color: RED},
+				{name: "zennet" , start:  new Date(2014, 9, 1), end:new Date(2015, 1, 1), content: "UX Lead", color: PURPLE}
 			]
 		}
 
@@ -140,7 +140,7 @@ function createBars(selector) {
 			.attr('id', function(d) {return 'bar-' + d.name;})
 			.attr("width",0)
 			.attr("height",barHeight)
-			.style('fill', function(d, i) {return color(i)})			
+			.style('fill', function(d, i) {return d.color})			
 
 		var text = barEnter.append("text")
 			.attr("class", "label")
@@ -154,7 +154,7 @@ function createBars(selector) {
 		text.append('tspan')
 			.attr("x", 0)
 			.attr("y", 0)
-			.style('fill', function(d, i) {return color(i)})
+			.style('fill', function(d, i) {return d.color})
 			.text(function(d) { return d.name})
 
 		text.append('tspan')
@@ -162,7 +162,7 @@ function createBars(selector) {
 			.attr("x", 0)
 			.attr("y", 0)
 			.attr("dy", "-8px")
-			.style('fill', 'grey')
+			.style('fill', DARK_GREY)
 			.text(function(d) { return d.content})
 
 		// UPDATE //

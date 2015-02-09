@@ -9,7 +9,7 @@ var 	id,
 // 	ORANGE = 	'#FF7F50',
 // 	PURPLE =	'#9370DB';
 
-var	color = d3.scale.category20();
+//var	color = d3.scale.category20();
 
 // for(var i=0; i<10; ++i) {color(i)}
 // var 	BLUE = 	color(0),
@@ -19,14 +19,23 @@ var	color = d3.scale.category20();
 // 	PURPLE =	color(8),
 // 	GREY = 	color(14);
 
-for(var i=0; i<20; ++i) {color(i)}
-var 	BLUE = 	color(0),
-	ORANGE = 	color(2),
-	GREEN = 	color(4),
-	RED =		color(6),
-	PURPLE =	color(8),
-	BROWN = 	color(10)
-	GREY = 	color(14);
+//for(var i=0; i<20; ++i) {color(i)}
+// var 	BLUE = 	color(0),
+// 	ORANGE = 	color(2),
+// 	GREEN = 	color(4),
+// 	RED =		color(6),
+// 	PURPLE =	color(8),
+// 	BROWN = 	color(10)
+// 	GREY = 	color(14);
+
+var 	BLUE = 	'#6baed6',
+	ORANGE = 	'#fdae6b',
+	GREEN = 	'#8ca252',
+	RED =		'#d6616b',
+	PURPLE =	'#ce6dbd',
+	BROWN = 	'#c49c94',
+	GREY = 	'#bdbdbd';
+	DARK_GREY =  '#888';
 
 // var 	BLUE = 	color(0),
 // 	ORANGE = 	color(4),

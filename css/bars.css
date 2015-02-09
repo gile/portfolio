@@ -2,15 +2,19 @@
   /*top: 60px;*/
   /*position: absolute;*/
 }
+#column-cv #svg-container-history svg {
+  /* the axis line */
+}
 #column-cv #svg-container-history svg .axis path,
-#column-cv #svg-container-history svg .axis line {
+#column-cv #svg-container-history svg .x.axis line {
   fill: none;
-  stroke: #000;
+  stroke-opacity: .8;
+  stroke: #aaaaaa;
   shape-rendering: crispEdges;
 }
 #column-cv #svg-container-history svg .x.axis path {
   fill: none;
-  stroke: #000;
+  stroke: #aaaaaa;
   shape-rendering: crispEdges;
 }
 #column-cv #svg-container-history svg .line {
@@ -27,15 +31,15 @@
 #column-cv #svg-container-history svg .axis {
   shape-rendering: crispEdges;
 }
-#column-cv #svg-container-history svg .x.axis line {
-  stroke: black;
-  stroke-opacity: .8;
-}
 #column-cv #svg-container-history svg .y.axis line {
   stroke: none;
 }
+#column-cv #svg-container-history svg .domain {
+  stroke: #aaaaaa;
+}
 #column-cv #svg-container-history svg .tick text {
-  font-size: 14px;
+  fill: #888888;
+  font-size: 12px;
 }
 #column-cv #svg-container-history svg .text-small {
   font-size: 12px;
