@@ -454,6 +454,14 @@ svg#toc-svg text {
     width: 70%;
   }
 }
+@media screen and (max-width: 1300px) {
+  .header-item {
+    margin: 0 5px;
+  }
+  .header-item .header-link {
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 1200px) {
   .content-container {
     width: 80%;
@@ -461,16 +469,19 @@ svg#toc-svg text {
   .header-item {
     margin: 0 15px;
   }
+  #column-maps .map-text {
+    font-size: 12px;
+  }
+  #column-maps .map-menu {
+    margin: 15px 0;
+  }
   #column-cv #svg-container-history svg .label {
     font-size: 16px !important;
   }
 }
-@media screen and (max-width: 1000px) {
-  .header-item {
-    margin: 0 5px;
-  }
-  .header-item .header-link {
-    font-size: 18px;
+@media screen and (max-width: 1050px) {
+  .header-links {
+    width: 80%;
   }
   #column-cv #svg-container-history svg .label {
     font-size: 14px !important;

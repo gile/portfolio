@@ -2,7 +2,7 @@ var ARC_MAP_EXTENSION = {
     options: {
         defaultOptions: {
             scaleFactor:  0.15,
-            translateFactor: [0.48, 0.35],
+            translateFactor: [0.71, 0.35],
             //translateDelta: [-150, 20] ,winkel
             translateDelta: [-220, 90] ,// hill
             chartRelativeWidth: 0.3
@@ -160,12 +160,14 @@ var ARC_MAP_EXTENSION = {
         })
         //console.log(dataMap);
 
-
+    var chartRelativeWidth = options.chartRelativeWidth,
+            chartRelativeHeight = 1,
+            mapRelativeWidth = 1 - chartRelativeWidth;
 
         var initialScale = width * options.scaleFactor,
             translateDelta = {x: options.translateDelta[0], y:options.translateDelta[1]},
             initialTranslate = [
-                parseFloat(width * options.translateFactor[0] + translateDelta.x),
+                parseFloat(width * mapRelativeWidth * options.translateFactor[0] + translateDelta.x),
                 parseFloat(height * options.translateFactor[1] + translateDelta.y)
             ],
             initialTranslateWithoutDelta = [
@@ -175,10 +177,6 @@ var ARC_MAP_EXTENSION = {
             zoomScaleFactor = ZOOM_OUT_LEVEL,
             currentScale = initialScale,
             currentTranslate = [0, 0];
-
-        var chartRelativeWidth = options.chartRelativeWidth,
-            chartRelativeHeight = 1,
-            mapRelativeWidth = 1 - chartRelativeWidth;
 
         var arcWidth = d3.scale.linear()
             .domain([dataMap.min, dataMap.max])
