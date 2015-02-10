@@ -76,13 +76,6 @@ function createBars(selector) {
 		.attr("class", "domain")
 		.attr("y2", height);
 
-	// menu.selectAll("option")
-	// 	.data(cv_keys)
-	// 	.enter().append("option")
-	// 	.text(function(d) { 
-	// 		return d; 
-	// 	});
-
 
 	click(menu.selectAll('.btn-cv').first(true))
 

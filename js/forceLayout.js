@@ -53,7 +53,7 @@ function createForceLayout(selector) {
 	var 	duration = 350;
 	var 	fill = d3.scale.category10();
 
-	var focusHeight = height * 0.5;
+	var focusHeight = height * 0.45;
 
 	var 	positions = {
 			left:       {x: width * 0.25, y: focusHeight},

@@ -3,11 +3,12 @@ var CHORO_MAP_EXTENSION = {
 
     options: {
         defaultOptions: {
-            scaleFactor:  0.76,
+            scaleFactor:  0.7,
             translateXfactor: 0,
             translateYfactor: 0,
             translateXDelta: 30,
-            translateYDelta: -60,
+            translateYDelta: -30,
+            //translateYDelta: 0,
             chartTitle: "State Info"
         }
     },

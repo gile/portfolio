@@ -20,7 +20,7 @@ a {
   font-variant: small-caps;
 }
 .selected {
-  color: #63b6e5;
+  color: #6baed6;
 }
 /*----------------------------------------------*/
 /*-------- HEADER
@@ -118,10 +118,11 @@ a {
   /*color: #677da7;*/
   color: #556;
   font-family: 'PT Sans', sans-serif;
+  display: none;
 }
 .page-text {
   color: #aaaaaa;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 10px;
 }
 .section-title {
@@ -159,6 +160,36 @@ a .section-label:hover {
 }
 .text-container {
   margin-left: 50px;
+}
+/*----------------------------------------------*/
+/*-------- MENU
+/*----------------------------------------------*/
+.menu {
+  margin-left: 8px;
+}
+.btn {
+  margin-right: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid grey;
+  padding: 3px 5px 4px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 2px 2px 10px #bbb;
+  -mozbox-shadow: 2px 2px 10px #bbb;
+  -webkit-box-shadow: 2px 2px 5px #bbb;
+}
+.btn:hover {
+  color: white;
+  background-color: #aaa;
+}
+.btn.selected {
+  border-color: #6baed6;
+}
+.btn.selected:hover {
+  background-color: #6baed6;
+  border-color: #6baed6;
 }
 /*----------------------------------------------*/
 /*-------- HOME
@@ -262,13 +293,19 @@ svg#toc-svg text {
 /*----------------------------------------------*/
 /*-------- MAPS
 /*----------------------------------------------*/
+#column-maps {
+  margin-top: 40px;
+}
 #column-maps .section-title {
   color: #4682b4;
 }
 #column-maps .map-text {
   color: #aaaaaa;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 10px;
+}
+#column-maps .map-menu {
+  margin: 30px 0;
 }
 /*----------------------------------------------*/
 /*-------- CV
@@ -277,11 +314,12 @@ svg#toc-svg text {
   font-size: 18px;
 }
 #column-cv .cv-container {
+  margin-top: 40px;
   margin-left: 40px;
 }
 #column-cv .cv-sections-container {
   position: relative;
-  height: 290px;
+  height: 280px;
   margin-left: 0;
   /*margin-top: 50px;*/
 }
@@ -296,9 +334,11 @@ svg#toc-svg text {
   margin-bottom: 6px;
   color: #4682b4;
   font-size: 28px;
-}
-#column-cv .section-title span {
-  /*padding-bottom: 10px;
+  /*padding-bot
+	}
+
+	.section-title span {
+		tom: 10px;
 		border-bottom: 1px solid @cvColor;*/
 }
 #column-cv .section-text {
@@ -308,7 +348,7 @@ svg#toc-svg text {
   min-width: 140px;
 }
 #column-cv a .section-label {
-  color: #7199f1;
+  color: #6baed6;
   /*opacity: 0.8;*/
 }
 #column-cv a .section-label:hover {
@@ -321,18 +361,11 @@ svg#toc-svg text {
   margin-left: 105px;
   font-size: 16px;
 }
-#column-cv .cv-menu {
-  margin-left: 8px;
+#column-cv #svg-container-history {
+  margin-top: 50px;
 }
-#column-cv .btn-cv {
-  font-size: 16px;
-  cursor: pointer;
-}
-#column-cv .btn-cv:hover {
-  color: #48d1cc;
-}
-#column-cv .svg-container {
-  margin-top: 24px;
+#column-cv #svg-container-skills {
+  margin-top: 0px;
 }
 /*----------------------------------------------*/
 /*-------- CONTACT

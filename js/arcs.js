@@ -1,10 +1,11 @@
 var ARC_MAP_EXTENSION = {
     options: {
         defaultOptions: {
-            scaleFactor:  0.195,
-            translateFactor: [0.5, 0.5],
-            //translateDelta: [-150, 20] winkel
-            translateDelta: [-220, 90] // hill
+            scaleFactor:  0.15,
+            translateFactor: [0.48, 0.35],
+            //translateDelta: [-150, 20] ,winkel
+            translateDelta: [-220, 90] ,// hill
+            chartRelativeWidth: 0.3
         },
         units: "$"
     },
@@ -86,7 +87,7 @@ var ARC_MAP_EXTENSION = {
             centered,
             i;
 
-        console.log('CHORO', 'w', width, 'h', height);
+        console.log('ARCS', 'w', width, 'h', height);
         
         String.prototype.replaceSpaces = function() {
             return this.replace(/ /g,'_');
@@ -175,7 +176,7 @@ var ARC_MAP_EXTENSION = {
             currentScale = initialScale,
             currentTranslate = [0, 0];
 
-        var chartRelativeWidth = 0.2,
+        var chartRelativeWidth = options.chartRelativeWidth,
             chartRelativeHeight = 1,
             mapRelativeWidth = 1 - chartRelativeWidth;
 
@@ -692,6 +693,7 @@ var ARC_MAP_EXTENSION = {
         }
 
         function shapeMouseover(e) {
+
             var formatAmount = d3.format(",");
 
             var i,

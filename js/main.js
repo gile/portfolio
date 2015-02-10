@@ -159,6 +159,7 @@ $(document).ready(function() {
 
 	createForceLayout("#svg-container-skills");
 
+	maps();
 	//$('#column-maps').css('display', 'none')
 
 });
@@ -187,8 +188,13 @@ function runTocAnimation() {
 		return {"source": index, "target": index+1, "value": 10};
 	});
 
-	var 	width = 960,
-		height = 500,
+	var 	parent = d3.select("#toc-container"),
+		$parent = $("#toc-container");
+
+	var 	maxHeight = ( $(window).height() - $('header').height() ) * 0.6;
+	
+	var 	width = $parent.width(),
+		height = Math.min(width, maxHeight),
 		radius = 32;
 
 	var 	gravity = 0.01,
@@ -217,7 +223,8 @@ function runTocAnimation() {
 			.on("tick", tick)
 			.start();
 
-	var 	svg = d3.select("#toc-svg")
+	var 	svg = 	parent.append('svg')
+			.attr('id', 'toc-svg')
 			.attr("width", width)
 			.attr("height", height);
 

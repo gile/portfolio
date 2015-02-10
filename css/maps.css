@@ -62,20 +62,18 @@ body {
   font-size: 12pt;
   color: #666;
 }
-#column-maps .container {
-  width: 1000px;
-  height: 600px;
+#column-maps .map-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
   border: 0;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
-#column-maps .container.PIE {
-  height: 600px;
-}
-#column-maps .container.ARCS {
-  width: 1000px;
-  height: 600px;
-  /*border: 1px solid grey;*/
-}
-#column-maps .container.CHORO {
-  width: 1000px;
+#column-maps .map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

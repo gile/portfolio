@@ -1,8 +1,7 @@
-$( document ).ready(function() {
+function maps() {	
 
-
-	    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	var parentPie = $('.container.PIE').get(0);
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var parentPie = $('.map.PIE').get(0);
 
 	var totalRevenueScale = d3.scale.linear().domain([0,1]).range([10, 100000]);
 
@@ -79,46 +78,11 @@ $( document ).ready(function() {
 		    
 	    }	    
 
-	    var pieMap = PIE_MAP_EXTENSION.createPieMap("pie", inputDataPie, parentPie, null, {});	   
-
-	    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	    var parentChoro = $('.container.CHORO').get(0);
-
-	    var features = US_STATES.features;
-
-	    var growthScale = d3.scale.linear().domain([0,1]).range([-10, 10]);
-
-	    var inputDataChoro = {
-	    	metadata: {
-	    		"state": {index: 0},
-	    		"myGrowth": {index: 1},
-	    		"marketGrowth": {index: 2},
-	    		"gap": {index: 3},
-	    		"byIndex": {0: {title: "state"}, 1: {title: "myGrowth"}, 2: {title: "marketgrowth"}, 3: {title: "gap"}}
-	    	},
-	    	data: []
-	    };
-
-	    for (var i=0; i<features.length; ++i) {
-	    	var myGrowth = growthScale(Math.random()),
-	    		marketGrowth = growthScale(Math.random()) ,
-	    		gap = myGrowth - marketGrowth;
-
-	    	var entry = [
-	    		features[i].properties.name, // state name
-	    		{data: myGrowth, text: myGrowth.toFixed(2) + '%'},
-	    		{data: marketGrowth, text: marketGrowth.toFixed(2) + '%'},
-	    		{data: gap, text: gap.toFixed(2) + '%'}
-	    	];
-
-	    	inputDataChoro.data.push(entry);
-	    }
-
-	    CHORO_MAP_EXTENSION.createChoroMap("choro", inputDataChoro, parentChoro, null, {});
+	    var pieMap = PIE_MAP_EXTENSION.createPieMap("pie", inputDataPie, parentPie, null, {});	   	   
 
 	    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	    var parentArcs = $('.container.ARCS').get(0);
+	    var parentArcs = $('.map.ARCS').get(0);
 
 	    var measureScale = d3.scale.linear().domain([0,1]).range([10, 1000]);
 
@@ -156,4 +120,63 @@ $( document ).ready(function() {
 	    }
 
 	    ARC_MAP_EXTENSION.createArcMap("arcs", inputDataArcs, parentArcs, null, {});
-	});
+
+	     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    var parentChoro = $('.map.CHORO').get(0);
+
+	    var features = US_STATES.features;
+
+	    var growthScale = d3.scale.linear().domain([0,1]).range([-10, 10]);
+
+	    var inputDataChoro = {
+	    	metadata: {
+	    		"state": {index: 0},
+	    		"myGrowth": {index: 1},
+	    		"marketGrowth": {index: 2},
+	    		"gap": {index: 3},
+	    		"byIndex": {0: {title: "state"}, 1: {title: "myGrowth"}, 2: {title: "marketgrowth"}, 3: {title: "gap"}}
+	    	},
+	    	data: []
+	    };
+
+	    for (var i=0; i<features.length; ++i) {
+	    	var myGrowth = growthScale(Math.random()),
+	    		marketGrowth = growthScale(Math.random()) ,
+	    		gap = myGrowth - marketGrowth;
+
+	    	var entry = [
+	    		features[i].properties.name, // state name
+	    		{data: myGrowth, text: myGrowth.toFixed(2) + '%'},
+	    		{data: marketGrowth, text: marketGrowth.toFixed(2) + '%'},
+	    		{data: gap, text: gap.toFixed(2) + '%'}
+	    	];
+
+	    	inputDataChoro.data.push(entry);
+	    }
+
+	    CHORO_MAP_EXTENSION.createChoroMap("choro", inputDataChoro, parentChoro, null, {});
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var menu = d3.selectAll('#map-menu');
+
+	menu.selectAll('.btn-map').on('click', click);
+
+	click(menu.selectAll('.btn-map').first(true))
+
+	function click(el) {
+		var	$el = el ? $(el) : $(this),	
+			siblings = $el.siblings('.btn-map'),
+			name = $el.attr('name').toUpperCase(),
+			selector = '.map-container div.map.' + name,
+			selectorNot = '.map-container > div:not(' + selector + ')';
+
+		siblings.removeClass('selected')
+		$el.addClass('selected');
+
+		$(selectorNot).addClass('hidden');
+		$(selector).removeClass('hidden');
+
+		console.log('MAP', selectorNot, $(selectorNot))
+	}
+}
+

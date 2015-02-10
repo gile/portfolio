@@ -3,11 +3,12 @@
 var PIE_MAP_EXTENSION = {
     options: {
         defaultOptions: {
-            scaleFactor:  0.235,
-            translateFactor: [0.5, 0.5],
-            translateDelta: [-90, 70],
+            scaleFactor:  0.18,
+            translateFactor: [0.3, 0.53],
+            //translateDelta: [-90, 70],
+            translateDelta: [0, 0],
             bigPie: {
-                translateFactor: [0, 0.2],
+                translateFactor: [0, 0.1],
                 translateDelta: [0, 0]
             },
             units: "$"
@@ -34,9 +35,9 @@ var PIE_MAP_EXTENSION = {
         $(parent).empty();
         $(parent).parent().parent().addClass('widget_frame');
 
-        var BRAND_NAME = "My Brand",
-            MAP_TYPE = "PIE_MAP",
-            COLOR_PALETTE = {
+        var     BRAND_NAME = "My Brand",
+                MAP_TYPE = "PIE_MAP",
+                COLOR_PALETTE = {
                 mapColor:  '#aaa',//'getMyColor("dark_grey"),
                 smallPieColors: [
                 //'#a22',  // Red
@@ -69,10 +70,8 @@ var PIE_MAP_EXTENSION = {
             MAX_ZOOM_LEVEL = 10,
             MIN_ZOOM_LEVEL = 0;
 
-        var width = $(parent).width(),
-            height = $(parent).height();
-
-        console.log('PIE', 'w', width, 'h', height);
+        var   width = $(parent).width(),
+                height = $(parent).height();
 
         var offset = $(parent).offset(),
             top = offset.top,
@@ -161,12 +160,6 @@ var PIE_MAP_EXTENSION = {
         var path = d3.geo.path()
             .projection(projection);
 
-//        var zoom = d3.behavior.zoom()
-//            .translate(projection.translate())
-//            .scale(projection.scale())
-//            .scaleExtent([initialScale, initialScale * 8])
-//            .on("zoom", zoom);
-
         var drag = d3.behavior.drag()
             .on("drag", drag);
 
@@ -200,19 +193,23 @@ var PIE_MAP_EXTENSION = {
         var wrapper = svg.append("svg:g")
           .attr("id", "wrapper")
           .attr("class", "wrapper")
+          .attr("width", width + 'px')
+          .attr("height", height + 'px')
           .attr("transform", "translate(" + initialTranslate[0] + "," + initialTranslate[1] + ")")
           .call(drag);
 
 
         var states = wrapper.append("svg:g")
             .attr("id", "states")
+            .attr("width", width + 'px')
+            .attr("height", height + 'px')
             .style('fill', COLOR_PALETTE.mapColor);
 
         states.append("svg:rect")
             .attr("class", "background")
             .attr("id", "background")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", width + 'px')
+            .attr("height", height + 'px')
             .attr("transform", "translate(" + (-initialTranslateWithoutDelta[0]) + "," + (-initialTranslateWithoutDelta[1]) + ")")
             .on("click", click);
 

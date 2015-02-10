@@ -1,6 +1,8 @@
 
 /* global CSS settings for this map type */
 .PIE_MAP {
+    width: 100%;
+    height: 100%;
     font-family: Tahoma, Arial, sans-serif;
 }
 
@@ -11,9 +13,7 @@
     cursor: pointer;
 }
 
-.PIE_MAP .canvas {
-  width: 100%;
-  height: 100%;
+.PIE_MAP svg.canvas {
   pointer-events: all;
 }
 /************************  [GE]  ******************************/

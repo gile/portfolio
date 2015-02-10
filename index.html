@@ -92,7 +92,7 @@
  	<div class="content-container">    		
     		<div id="home-content">
 	    		<div id="toc-container" >
-	    			<svg id="toc-svg"></svg>	 
+	    			<!-- <svg id="toc-svg"></svg>	  -->
 	    		</div>
 	    		
     		</div>
@@ -254,7 +254,18 @@
 
 		</div>
 
-		<!--  ***********  PIE  ***********   -->
+		<div class="menu map-menu grey-text" id="map-menu">
+			<span class="btn-map btn" name="pie"> market share </span>
+			<span class="btn-map btn" name="arcs">import / export </span>
+			<span class="btn-map btn" name="choro">growth </span>
+		</div>	
+		<div class="map-container">
+			<div class="map PIE"></div>
+			<div class="map ARCS"></div>
+			<div class="map CHORO"></div>
+		</div>
+
+		<!--  ***********  PIE  ***********   --
 		<div class="section-title">Brand Market Share</div>
 		<div class="text map-text pie_text">
 			Hover over a pie chart to see a more detailed display, or click on any country to zoom in.
@@ -262,7 +273,7 @@
 		<div class="container PIE"></div>
 
 
-		<!--  ***********  ARCS  ***********   -->
+		<!--  ***********  ARCS  ***********   --
 		<div class="section-title">Import / Export Sites </div>
 		<div class="text map-text arcs_text">
 			Hover over a country to see its import/export balance, or click on any country to zoom in.
@@ -270,12 +281,13 @@
 		<div class="container ARCS"></div>
 
 
-		<!--  ***********  CHORO  ***********   -->
+		<!--  ***********  CHORO  ***********   --
 		<div class="section-title">Brand Growth</div>
 		<div class="text map-text choro_text">
 			Hover over a state to see more info, or click on the links at the top of the map (e.g. "<span class="button_name">marketgrowth</span>") <br>to change the diplayed measure.
 		</div>
 		<div class="container CHORO"></div>
+		<!-- ************************************* -->
 	</div>
   </div>
 
@@ -291,11 +303,10 @@
 		<div class="cv-container">			
 			<!-- **** HISTORY **** --> 
 			<div  class="cv-sections-container" id="cv-history">
-				<p class="section-title"><span>history </span></p>
-				<div class="cv-menu grey-text" id="cv-menu-history">
-					<span class="btn-cv" name="academic"> academic </span>
-					<span class="small-text"> | </span> 
-					<span class="btn-cv " name="professional">professional </span>
+				<!-- <p class="section-title"><span>history </span></p> -->
+				<div class="menu cv-menu grey-text" id="cv-menu-history">
+					<span class="btn-cv btn" name="academic"> academic </span>
+					<span class="btn-cv btn" name="professional">professional </span>
 				</div>				
 			
 				<div id="svg-container-history" class="svg-container"></div>		    		
@@ -303,11 +314,10 @@
 		    	
 		    	<!-- **** SKILLS **** --> 
 		    	<div class="cv-sections-container">
-			    	<p class="section-title" ><span>skills </span></p>
+			    	<!-- <p class="section-title" ><span>skills </span></p> -->
 			    	<div class="cv-menu grey-text" id="cv-menu-skills">
-					<span class="btn-cv" name="programming"> programming </span>
-					<span class="small-text"> | </span> 
-					<span class="btn-cv " name="languages">languages </span>
+					<span class="btn-cv btn" name="programming"> programming </span>
+					<span class="btn-cv btn" name="languages">languages </span>
 				</div>				  
 		    	
 		    		<div id="svg-container-skills" class="svg-container"></div>		    		

@@ -52,6 +52,7 @@
   font-family: 'Duru Sans', sans-serif !important;
   font-size: 12px;
   fill: white;
+  cursor: default;
 }
 #column-cv #svg-container-skills .level {
   text-anchor: middle;
