@@ -48,26 +48,26 @@
 	width: 30px;
 	height: 60px;
 	/*background: #47a3da;*/
-	background: steelblue;
-	color: #fff;
-	font-size: 30px;
+	/*background: steelblue;*/
+	color: steelblue;
+	font-size: 110px;
 	text-align: center;
 	margin-top: 0px;
-	line-height: 60px;
+	line-height: 30px;
 	cursor: pointer;
 	font-weight: normal;
 }
 
 .cbp-fwslider nav span:hover {
-	background: #378fc3;
+	color: #378fc3;
 }
 
 .cbp-fwslider nav span.cbp-fwnext {
-	right: 5%;
+	right: 4%;
 }
 
 .cbp-fwslider nav span.cbp-fwprev {
-	left: 5%;
+	left: 3%;
 }
 
 .cbp-fwdots {
@@ -101,7 +101,7 @@
 }
 
 .grey {
-	background: grey !important;
+	color: grey !important;
 }
 
 .caption-container {
