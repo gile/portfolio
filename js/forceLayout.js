@@ -27,7 +27,7 @@ function createForceLayout(selector) {
 			{name: "english", radius: radius(), focus: 1, cluster: 11, main: true, color: RED},
 			{name: "spanish", radius: radius(),  focus: 2,cluster: 12, main: true, color: ORANGE},
 			{name: "italian", radius: radius(),  focus: 2,cluster: 13, main: true, color: GREEN},			
-			{name: "russian", radius: radius(),  focus: 3,cluster: 14, main: true, color: BROWN}
+			{name: "russian", radius: radius(),  focus: 3,cluster: 14, main: true, color: PURPLE}
 		]
 	}
 	 

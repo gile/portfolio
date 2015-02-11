@@ -206,7 +206,7 @@ function runTocAnimation() {
 	var 	stroke = 1,
 		hoverStroke = 2;
 
-	var	hoverRadiusFactor = 1.05,
+	var	hoverRadiusFactor = 1.15,
 		enlargedFontFactor = 1,
 		totalRadius = (radius * hoverRadiusFactor) + hoverStroke;
 
@@ -296,7 +296,7 @@ function runTocAnimation() {
 				.delay(time * i)
 				.attr("r", hoverRadius() * (1/num) * (num - i))
 				//.style("fill", function(d) { return (i===num-1) ? d3.rgb(d.color).brighter(1) : d.color })
-				.style("fill", function(d) { return d3.rgb(d.color).brighter(1) })
+				//.style("fill", function(d) { return d3.rgb(d.color).darker(1) })
 				.style("stroke-width", hoverStroke);
 		}
 		
@@ -305,10 +305,12 @@ function runTocAnimation() {
 			.duration(time)
 			//.ease('cubic')
 			//.attr("x", totalRadius +textOffsetHover )
-			.style("fill", d3.rgb( color ).brighter(1) )
+
+			//.style("fill", d3.rgb( color ).darker(1) )
 			//.style("opacity", 0.6)
 			//.style('font-weight', 700)
-			//.style('font-size', (fontSize * enlargedFontFactor) + 'px');
+			//.style('font-size', (fontSize * enlargedFontFactor) + 'px')
+			
 	}
 
 	function mouseout(e) {
