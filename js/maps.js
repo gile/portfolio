@@ -164,6 +164,8 @@ function maps() {
 	click(menu.selectAll('.btn-map').first(true))
 
 	function click(el) {
+		var duration = 300;
+
 		var	$el = el ? $(el) : $(this),	
 			siblings = $el.siblings('.btn-map'),
 			name = $el.attr('name').toUpperCase(),
@@ -173,8 +175,18 @@ function maps() {
 		siblings.removeClass('selected')
 		$el.addClass('selected');
 
-		$(selectorNot).addClass('hidden');
+		$(selectorNot).animate({'opacity': 0}, duration);
+
 		$(selector).removeClass('hidden');
+		$(selector).animate({'opacity': 1}, duration);
+		
+		setTimeout(function() {
+			$(selectorNot).addClass('hidden');			
+		}, duration);
+
+
+		
+
 	}
 }
 

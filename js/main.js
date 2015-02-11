@@ -148,12 +148,16 @@ $(document).ready(function() {
 			selectorNot = 'div.ux-container > div:not(#slides-' + name + ')';
 
 		siblings.removeClass('selected')
-		$el.addClass('selected');
+		$el.addClass('selected');		
 
-		$(selectorNot).addClass('hidden');
+		$(selectorNot).animate({'opacity': 0}, duration);
+
 		$(selector).removeClass('hidden');
-
-		console.log(selectorNot, $(selectorNot))
+		$(selector).animate({'opacity': 1}, duration);
+		
+		setTimeout(function() {
+			$(selectorNot).addClass('hidden');			
+		}, duration);
 	}
 
 	// Provide your access token
