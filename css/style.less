@@ -181,7 +181,7 @@ a {
 .page-text {
 	color: @pageTextColor;
 	font-size: @pageTextFontSize;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 }
 
 .section-title {
@@ -233,7 +233,17 @@ a .section-label {
 /*-------- MENU
 /*----------------------------------------------*/
 .menu {
-	margin-left: 8px;
+	/*margin: 45px 88px;*/
+	margin: 40px 0;
+}
+
+.menu-label {
+	display: inline-block;
+	width: 70px;
+
+	&:not(:first-child) {
+		margin-left: 25px;
+	}
 }
 
 .btn {
@@ -364,14 +374,18 @@ svg#toc-svg {
 /*-------- UX EXAMPLES
 /*----------------------------------------------*/
 #column-ux {
+	.ux-container {
+		height: 0;
+		padding-bottom: 50%;
+		margin-top: 50px;
+	}
 	.slides-container {
-		/*position: absolute;*/
-		margin-top: 0;
+		position: absolute;
+		width: 60%;
 	}
 
 	.section-title {
-		margin-top: 20px;
-		font-style: italic;
+		margin-top: 18px;
 		color: @uxColor;
 	}
 
@@ -402,7 +416,7 @@ svg#toc-svg {
 		.cbp-fwslider {
 			padding: 0 0 50px;
 		}
-	}
+	}	
 
 	hr {
 		width: 90%;
@@ -423,11 +437,7 @@ svg#toc-svg {
 	 .map-text {
 		color: @pageTextColor;
 		font-size: @pageTextFontSize;
-		margin-left: 10px;
-	}
-
-	.map-menu {
-		margin: 30px 0;
+		/*margin-left: 10px;*/
 	}
 }
 
@@ -440,12 +450,12 @@ svg#toc-svg {
 
  	.cv-container {
  		margin-top: 40px;
- 		margin-left: 40px;
+ 		/*margin-left: 40px;*/
  	}
 
  	.cv-sections-container {
 		position: relative;
-		height: 280px;
+		height: 250px;
 		margin-left: 0;
 		/*margin-top: 50px;*/
 	}
@@ -604,9 +614,19 @@ svg#toc-svg {
 }
 
 @media screen and (max-width: 1400px){
+	.header-links {
+		width: 70%;
+	}
+
 	.content-container {
   		width: 70%;
   	}
+
+  	#column-ux {
+		.slides-container {
+			width: 70%;
+		}
+	}
 }
 
 @media screen and (max-width: 1300px) {
@@ -620,22 +640,17 @@ svg#toc-svg {
 }
 
 @media screen and (max-width: 1200px) {
-	.content-container {
-  		width: 80%;
-  	}
-
+	
 	.header-item {
 		margin: 0 15px;
 	}
 
+	
+
 	#column-maps {
 		.map-text {
 			font-size: @pageTextFontSizeSmall;
-		}
-
-		.map-menu {
-			margin: 15px 0;
-		}
+		}		
 	}
 	#column-cv #svg-container-history svg .label {
 		font-size: 16px !important;

@@ -175,8 +175,6 @@ function maps() {
 
 		$(selectorNot).addClass('hidden');
 		$(selector).removeClass('hidden');
-
-		console.log('MAP', selectorNot, $(selectorNot))
 	}
 }
 

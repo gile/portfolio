@@ -126,10 +126,35 @@ $(document).ready(function() {
 
 	doneResizing();		
 
+	//***********
+	// UX
+	//***********
 	$( '#fwslider-sisense-mockups' ).cbpFWSlider();	
 	$( '#fwslider-sisense-screenshots' ).cbpFWSlider();
 	$( '#fwslider-zennet-mockups' ).cbpFWSlider();		
 	$( '#fwslider-zennet-screenshots' ).cbpFWSlider();		
+
+	var menu = d3.selectAll('#ux-menu');
+
+	menu.selectAll('.btn-ux').on('click', uxClick);
+
+	uxClick(menu.selectAll('.btn-ux').first(true))
+
+	function uxClick(el) {
+		var	$el = el ? $(el) : $(this),	
+			siblings = $el.siblings('.btn-ux'),
+			name = $el.attr('name'),
+			selector = 'div.ux-container > div#slides-' + name,
+			selectorNot = 'div.ux-container > div:not(#slides-' + name + ')';
+
+		siblings.removeClass('selected')
+		$el.addClass('selected');
+
+		$(selectorNot).addClass('hidden');
+		$(selector).removeClass('hidden');
+
+		console.log(selectorNot, $(selectorNot))
+	}
 
 	// Provide your access token
 	L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';

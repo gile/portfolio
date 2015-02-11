@@ -123,7 +123,7 @@ a {
 .page-text {
   color: #aaaaaa;
   font-size: 14px;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 .section-title {
   font-size: 28px;
@@ -165,7 +165,15 @@ a .section-label:hover {
 /*-------- MENU
 /*----------------------------------------------*/
 .menu {
-  margin-left: 8px;
+  /*margin: 45px 88px;*/
+  margin: 30px 0;
+}
+.menu-label {
+  display: inline-block;
+  width: 70px;
+}
+.menu-label:not(:first-child) {
+  margin-left: 25px;
 }
 .btn {
   color: #888;
@@ -263,13 +271,17 @@ svg#toc-svg text {
 /*----------------------------------------------*/
 /*-------- UX EXAMPLES
 /*----------------------------------------------*/
+#column-ux .ux-container {
+  height: 0;
+  padding-bottom: 50%;
+  margin-top: 50px;
+}
 #column-ux .slides-container {
-  /*position: absolute;*/
-  margin-top: 0;
+  position: absolute;
+  width: 60%;
 }
 #column-ux .section-title {
-  margin-top: 20px;
-  font-style: italic;
+  margin-top: 18px;
   color: #4682b4;
 }
 #column-ux .section-text {
@@ -309,10 +321,7 @@ svg#toc-svg text {
 #column-maps .map-text {
   color: #aaaaaa;
   font-size: 14px;
-  margin-left: 10px;
-}
-#column-maps .map-menu {
-  margin: 30px 0;
+  /*margin-left: 10px;*/
 }
 /*----------------------------------------------*/
 /*-------- CV
@@ -322,11 +331,11 @@ svg#toc-svg text {
 }
 #column-cv .cv-container {
   margin-top: 40px;
-  margin-left: 40px;
+  /*margin-left: 40px;*/
 }
 #column-cv .cv-sections-container {
   position: relative;
-  height: 280px;
+  height: 250px;
   margin-left: 0;
   /*margin-top: 50px;*/
 }
@@ -457,7 +466,13 @@ svg#toc-svg text {
   padding-left: 60px;
 }
 @media screen and (max-width: 1400px) {
+  .header-links {
+    width: 70%;
+  }
   .content-container {
+    width: 70%;
+  }
+  #column-ux .slides-container {
     width: 70%;
   }
 }
@@ -470,17 +485,11 @@ svg#toc-svg text {
   }
 }
 @media screen and (max-width: 1200px) {
-  .content-container {
-    width: 80%;
-  }
   .header-item {
     margin: 0 15px;
   }
   #column-maps .map-text {
     font-size: 12px;
-  }
-  #column-maps .map-menu {
-    margin: 15px 0;
   }
   #column-cv #svg-container-history svg .label {
     font-size: 16px !important;

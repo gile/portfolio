@@ -32,7 +32,7 @@ var CHORO_MAP_EXTENSION = {
             canvasHeight = height,            
             canvasTop = offset.top,
             canvasLeft = offset.left,
-            isWide = !!((canvasWidth > 800));
+            isWide = true;//!!((canvasWidth > 800));
 
         var indexMap = indexMap || {state: 0, myGrowth: 1, marketGrowth: 2, gap: 3};
 
