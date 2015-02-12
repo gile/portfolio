@@ -25,8 +25,6 @@ var CHORO_MAP_EXTENSION = {
               height = $(parent).height(),
               offset = $(parent).offset();
 
-        console.log('CHORO', 'w', width, 'h', height);
-
         var mapName = mapName.replaceSpaces(),
             canvasWidth = width,
             canvasHeight = height,            

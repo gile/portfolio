@@ -114,10 +114,6 @@ function createBars(selector) {
 		
 		y.domain(data.map(function(d) { return d.name; }));
 
-		// // display info
-		// d3.selectAll('.cv-section').transition().duration(duration).style('opacity', 0);
-		// d3.select('#cv-' + key).transition().duration(duration).style('opacity', 1);
-
 		var bar = svg.selectAll(".bar")
 			.data(data, function(d) { return d.name; });
 
@@ -164,8 +160,6 @@ function createBars(selector) {
 			.duration(duration)
 			.attr("width", function(d) { return w(d); })
 			.each("end", function(d) {
-				console.log(d.name)
-				
 				cvFirstRun = false;
 			});		
 
@@ -189,10 +183,6 @@ function createBars(selector) {
 		// AXIS //
 		d3.transition(svg).select(".x.axis")
 			.call(xAxis);
-
-		// d3.transition(svg).select(".y.axis")
-		// 	.call(yAxis);
-		
 
 		function w(d) {
 			if (!d || !d.start || !d.end) return 0;

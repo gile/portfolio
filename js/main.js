@@ -198,7 +198,6 @@ $(document).ready(function() {
 		// other options
 	});
 
-sisense-mockups-list
 	//***************************************
 	// MAPS
 	//***************************************
@@ -495,7 +494,6 @@ function headerLinkClick(columnName) {
 
 	if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
 
-	//$('body').css('overflow-y', 'hidden');
 	headerSetActive(columnName, 200);
 
 	$currentColumn.animate({opacity: 0});
@@ -503,7 +501,6 @@ function headerLinkClick(columnName) {
 	$currentColumn = $thisColumn;
 
 	mainContainerCss = {
-		//height: $thisColumn.height(),
 		marginLeft: columnWidth * columnOffset[columnName]
 	}
 
@@ -556,6 +553,4 @@ function headerLinkClick(columnName) {
 	setTimeout(function() {
 		$('body').css('overflow-y', 'scroll');
 	}, duration);
-
-	console.log('CLICK', columnName, $('.main-container').height());
 }	

@@ -86,8 +86,6 @@ var ARC_MAP_EXTENSION = {
             height = $(parent).height(),
             centered,
             i;
-
-        console.log('ARCS', 'w', width, 'h', height);
         
         String.prototype.replaceSpaces = function() {
             return this.replace(/ /g,'_');
