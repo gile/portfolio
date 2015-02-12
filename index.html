@@ -44,7 +44,7 @@
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
 
 <!-- Lightbox -->	
-<!-- <script src="js/magnific.min.js"></script> -->
+<script src="js/magnific.min.js"></script>
 
 <script src="js/underscore-min.js"></script>
 <script src="js/utility.functions.js"></script>
@@ -104,69 +104,18 @@
 <!-- ++++++++++++++++++++++++++++ -->
 <div class="column" id="column-ux" name="ux">
    	<div class="content-container">
-   		<div class="menu ux-menu grey-text" id="ux-menu">
-   			<span class="menu-label grey-text">Sisense:</span>
-			<span class="btn-ux btn" name="sisense-mockups"> mockups </span>
-			<span class="btn-ux btn" name="sisense-screenshots"> screenshots </span>
-			
+   		<div class="menu ux-menu grey-text" id="ux-menu">   						
 			<span class="menu-label grey-text">Zennet:</span>
 			<span class="btn-ux btn" name="zennet-mockups"> mockups </span>
 			<span class="btn-ux btn" name="zennet-screenshots"> screenshots </span>
+
+			<span class="menu-label grey-text">Sisense:</span>
+			<span class="btn-ux btn" name="sisense-mockups"> mockups </span>
+			<span class="btn-ux btn" name="sisense-screenshots"> screenshots </span>
 		</div>
 
 		<div class="ux-container">
-			<!-- Sisense Mockups -->
-	    		<div class="slides-container ux" id="slides-sisense-mockups">
-	    			<div class="caption-container">    				
-	    				<p class="caption" id="caption-1">	    				
-	    					<span>Dashboard</span>
-	    				</p>
-	    				<p class="caption" id="caption-2">
-	    					<span>Edit Widget</span>	    					
-	    				</p>
-	    				<p class="caption" id="caption-3">
-	    					<span>Indicator (KPI) Widget</span>	    					
-	    				</p>
-	    				<p class="caption" id="caption-4">
-	    					<span>Move Widget</span>	    					
-	    				</p>
-	    			</div>
-	    			<div id="fwslider-sisense-mockups" class="cbp-fwslider">
-					<ul id="create-widget-list">
-						<li><a ><img src="images/sisense-mockups/2.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/3.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/4.jpg" /></a></li>
-						<li><a ><img src="images/sisense-mockups/5.jpg" /></a></li>						
-					</ul>
-				</div>
-	    		</div>
-
-	    		<!-- Sisense Screenshots -->
-			<div class="slides-container ux" id="slides-sisense-screenshots">
-	    			<div class="caption-container" id="caption-container-sisense-screenshots">
-	    				<p class="caption" id="caption-1">
-	    					Dashboard
-	    				</p>
-	    				<p class="caption" id="caption-2">
-	    					Create / Edit Widget
-	    				</p>
-	    				<p class="caption" id="caption-3">
-	    					Indicator (KPI) Widget
-	    				</p>
-	    				<p class="caption" id="caption-4">
-	    					Move Widget (new column)
-	    				</p>			    				
-	    			</div>
-		    		<div id="fwslider-sisense-screenshots" class="cbp-fwslider">
-					<ul>
-						<li><a ><img src="images/product-screenshots/1.png" /></a></li>
-						<li><a ><img src="images/product-screenshots/2.png" /></a></li>
-						<li><a ><img src="images/product-screenshots/3.png" /></a></li>
-						<li><a ><img src="images/product-screenshots/4.png" /></a></li>
-					</ul>
-				</div>
-			</div>			
-
+			<!-- Zennet Mockups -->
 	    		<div class="slides-container ux" id="slides-zennet-mockups">
 	    			<div class="caption-container">
 	    				<p class="caption" id="caption-1">
@@ -186,12 +135,12 @@
 	    				</p>			    				
 	    			</div>
 		    		<div id="fwslider-zennet-mockups" class="cbp-fwslider">
-					<ul>
-						<li><a ><img src="images/zennet-mockups/m_start.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/m_dashboard.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/m_list.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/m_filter.jpg" /></a></li>
-						<li><a ><img src="images/zennet-mockups/ztn-flow.jpg" /></a></li>
+					<ul id="zennet-mockups-list">
+						<li><a href="images/zennet-mockups/m_start.jpg" title="Start Screen"><img src="images/zennet-mockups/m_start.jpg" /></a></li>
+						<li><a href="images/zennet-mockups/m_dashboard.jpg" title="Dashboard"><img src="images/zennet-mockups/m_dashboard.jpg" /></a></li>
+						<li><a href="images/zennet-mockups/m_list.jpg" title="List Filters"><img src="images/zennet-mockups/m_list.jpg" /></a></li>
+						<li><a href="images/zennet-mockups/m_filter.jpg" title="Edit Filters"><img src="images/zennet-mockups/m_filter.jpg" /></a></li>
+						<li><a href="images/zennet-mockups/m_ztn-flow.jpg" title="Flow"><img src="images/zennet-mockups/ztn-flow.jpg" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -213,20 +162,74 @@
 	    				</p>	    						    			
 	    			</div>
 		    		<div id="fwslider-zennet-screenshots" class="cbp-fwslider">
-					<ul>
-						<li><a ><img src="images/zennet-screenshots/start.jpg" /></a></li>
-						<li><a ><img src="images/zennet-screenshots/dashboard.jpg" /></a></li>
-						<li><a ><img src="images/zennet-screenshots/list.jpg" /></a></li>
-						<li><a ><img src="images/zennet-screenshots/filter.jpg" /></a></li>
+					<ul id="zennet-screenshots-list">
+						<li><a "images/zennet-screenshots/start.jpg" title="Start Screen"><img src="images/zennet-screenshots/start.jpg" /></a></li>
+						<li><a "images/zennet-screenshots/dashboard.jpg" title="Dashboard"><img src="images/zennet-screenshots/dashboard.jpg" /></a></li>
+						<li><a "images/zennet-screenshots/list.jpg" title="List Filters"><img src="images/zennet-screenshots/list.jpg" /></a></li>
+						<li><a "images/zennet-screenshots/filter.jpg" title="Edit Filters"><img src="images/zennet-screenshots/filter.jpg" /></a></li>
 					</ul>
 				</div>
 			</div>
+
+			<!-- Sisense Mockups -->
+	    		<div class="slides-container ux" id="slides-sisense-mockups">
+	    			<div class="caption-container">    				
+	    				<p class="caption" id="caption-1">	    				
+	    					<span>Dashboard</span>
+	    				</p>
+	    				<p class="caption" id="caption-2">
+	    					<span>Edit Widget</span>	    					
+	    				</p>
+	    				<p class="caption" id="caption-3">
+	    					<span>Indicator (KPI) Widget</span>	    					
+	    				</p>
+	    				<p class="caption" id="caption-4">
+	    					<span>Move Widget (new column)</span>	    					
+	    				</p>
+	    			</div>
+	    			<div id="fwslider-sisense-mockups" class="cbp-fwslider">
+					<ul id="sisense-mockups-list">
+						<li><a href="images/sisense-mockups/2.jpg" title="Dashboard"><img src="images/sisense-mockups/2.jpg" /></a></li>
+						<li><a href="images/sisense-mockups/3.jpg" title="Edit Widget"><img src="images/sisense-mockups/3.jpg" /></a></li>
+						<li><a href="images/sisense-mockups/4.jpg" title="Indicator (KPI) Widget"><img src="images/sisense-mockups/4.jpg" /></a></li>
+						<li><a href="images/sisense-mockups/5.jpg" title="Move Widget  (new column)"><img src="images/sisense-mockups/5.jpg" /></a></li>		
+					</ul>
+				</div>
+	    		</div>
+
+	    		<!-- Sisense Screenshots -->
+			<div class="slides-container ux" id="slides-sisense-screenshots">
+	    			<div class="caption-container" id="caption-container-sisense-screenshots">
+	    				<p class="caption" id="caption-1">
+	    					Dashboard
+	    				</p>
+	    				<p class="caption" id="caption-2">
+	    					Edit Widget
+	    				</p>
+	    				<p class="caption" id="caption-3">
+	    					Indicator (KPI) Widget
+	    				</p>
+	    				<p class="caption" id="caption-4">
+	    					Move Widget (new column)
+	    				</p>			    				
+	    			</div>
+		    		<div id="fwslider-sisense-screenshots" class="cbp-fwslider">
+					<ul id="sisense-screenshots-list">
+						<li><a href="images/sisense-screenshots/1.jpg" title="Dashboard"><img src="images/sisense-screenshots/1.png" /></a></li>
+						<li><a href="images/sisense-screenshots/2.jpg" title="Edit Widget"><img src="images/sisense-screenshots/2.png" /></a></li>
+						<li><a href="images/sisense-screenshots/3.jpg" title="Indicator (KPI) Widget"><img src="images/sisense-screenshots/3.png" /></a></li>
+						<li><a href="images/sisense-screenshots/4.jpg" title="Move Widget (new column)"><img src="images/sisense-screenshots/4.png" /></a></li>
+					</ul>
+				</div>
+			</div>			
+
+
 	    	</div>
     	</div>
 </div>
 
 <!--  ++++++++++++++++++++++++++++ -->
-<!-- 			MAPS 					    	-->
+<!-- 			MAPS 		-->
 <!-- ++++++++++++++++++++++++++++ -->
  <div class="column" id="column-maps" name="maps">
   	<div class="content-container">

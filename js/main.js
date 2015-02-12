@@ -36,6 +36,7 @@ var 	BLUE = 	'#6baed6',
 	BROWN = 	'#c49c94',
 	GREY = 	'#bdbdbd';
 	DARK_GREY =  '#888';
+	TURQUOISE = '#63b6e5';
 
 // var 	BLUE = 	color(0),
 // 	ORANGE = 	color(4),
@@ -48,7 +49,7 @@ var 	pages = [
 		{id: 'home', name: "", color: GREY},
 		{id: 'ux', name: "ux examples", color: BLUE},
 		{id: 'maps', name: "maps", color: GREEN},
-		{id: 'cv', name: "curriculum vitae", color: PURPLE},
+		{id: 'cv', name: "curriculum vitae", color: RED},
 		{id: 'contact', name: "contact", color: ORANGE}
 	];
 
@@ -68,7 +69,7 @@ var 	numColumns = pages.length,
 		$currentColumn;
 
 var 	headerColor = BLUE,//'#4682b4',
-	headerColorHover = '#63b6e5';
+	headerColorHover = TURQUOISE;
 	// headerActiveColor = RED; // red
 
 /////////////////////////////////////////////////////////////
@@ -100,6 +101,9 @@ $(window).load(function(){
 
 $(document).ready(function() {
 
+	//***************************************
+	// HEADER
+	//***************************************
 	$('.header-link').click(function() {
 		var name = $(this).attr('name');
 		headerLinkClick(name);
@@ -115,20 +119,26 @@ $(document).ready(function() {
 		headerLinkMouseout(this);
 	});
 
+	$currentColumn = $('#column-home');
+	headerSetActive('home', 0)
+	doneResizing();		
+
+
+	//***************************************
+	// TOC
+	//***************************************
+	runTocAnimation();
+	
 	$('.toc-item a').click(function() {
 		console.log(this);
 		var name = $(this).attr('name');
 		headerLinkClick(name);
 	});
 
-	$currentColumn = $('#column-home');
-	//$('.main-container').css({height: $currentColumn.height()});
 
-	doneResizing();		
-
-	//***********
+	//***************************************
 	// UX
-	//***********
+	//***************************************
 	$( '#fwslider-sisense-mockups' ).cbpFWSlider();	
 	$( '#fwslider-sisense-screenshots' ).cbpFWSlider();
 	$( '#fwslider-zennet-mockups' ).cbpFWSlider();		
@@ -160,6 +170,52 @@ $(document).ready(function() {
 		}, duration);
 	}
 
+	$('#sisense-mockups-list').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image',
+		gallery:{enabled:true}
+		// other options
+	});
+
+	$('#sisense-screenshots-list').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image',
+		gallery:{enabled:true}
+		// other options
+	});
+
+	$('#zennet-mockups-list').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image',
+		gallery:{enabled:true}
+		// other options
+	});
+
+	$('#zennet-screenshots-list').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image',
+		gallery:{enabled:true}
+		// other options
+	});
+
+sisense-mockups-list
+	//***************************************
+	// MAPS
+	//***************************************
+	maps();
+
+
+	//***************************************
+	// CV
+	//***************************************
+	createBars("#svg-container-history");
+	createForceLayout("#svg-container-skills");
+
+
+	//***************************************
+	// CONTACT
+	//***************************************
+
 	// Provide your access token
 	L.mapbox.accessToken = 'pk.eyJ1IjoiZ2lsIiwiYSI6IkpEOGJQbmsifQ.osSn7vDwwoyfBKEc5wRsfA';
 	// Create a map in the div #map
@@ -171,26 +227,14 @@ $(document).ready(function() {
 		zoom: 15
 	});	
 
-	$('.info-text').mouseover(function() {
-		//console.log('FFFF');
-	});
+	// $('.info-text').mouseover(function() {
+	// 	console.log('FFFF');
+	// });
 
-	$('.info-text').mouseout(function() {
-		//console.log('FFFF');
-	});
-
-
-	headerSetActive('home', 0)
-
-	runTocAnimation();
-
-	createBars("#svg-container-history");
-
-	createForceLayout("#svg-container-skills");
-
-	maps();
-	//$('#column-maps').css('display', 'none')
-
+	// $('.info-text').mouseout(function() {
+	// 	//console.log('FFFF');
+	// });
+	
 });
 
 
@@ -396,7 +440,7 @@ function doneResizing(){
 
 function headerSetActive(name, duration) {	
 	//var headerActiveColor = pages.filter(function(d) {return d.id === name})[0].color;
-	var headerActiveColor = GREEN;
+	var headerActiveColor = BLUE;
 
 	if (!duration || duration === 0) {
 		

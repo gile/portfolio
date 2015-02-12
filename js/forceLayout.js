@@ -14,8 +14,8 @@ function createForceLayout(selector) {
 			{name: "C", radius: radius(0.45), focus: 0, cluster: 1, main: true, color: BLUE},
 			{name: "C++", radius: radius(0.6), focus: 0, cluster: 1, main: false, color: BLUE},
 
-			{name: "HTML", radius: radius(0.85), focus: 0, cluster: 2, main: true, color: ORANGE},
-			{name: "CSS", radius: radius(0.7), focus: 0, cluster: 2, main: false, color: ORANGE},
+			{name: "HTML 5", radius: radius(0.85), focus: 0, cluster: 2, main: true, color: ORANGE},
+			{name: "CSS 3", radius: radius(0.7), focus: 0, cluster: 2, main: false, color: ORANGE},
 
 			{name: "illustrator", radius: radius(1), focus: 0, cluster: 3, main: true, color: GREEN},
 			{name: "photoshop", radius: radius(1), focus: 0, cluster: 3, main: false, color: GREEN},

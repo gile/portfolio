@@ -31,7 +31,6 @@
 }
 
 .cbp-fwslider ul li > a img {
-	/*border: none;*/
 	border: 1px solid #aaa;
 	display: block;
 	margin: 0 auto;
@@ -43,8 +42,6 @@
 	top: 40%;
 	width: 30px;
 	height: 60px;
-	/*background: #47a3da;*/
-	/*background: steelblue;*/
 	color: steelblue;
 	font-size: 110px;
 	text-align: center;
@@ -55,7 +52,7 @@
 }
 
 .cbp-fwslider nav span:hover {
-	color: #378fc3;
+	color: #48D1CC;
 }
 
 .cbp-fwslider nav span.cbp-fwnext {
