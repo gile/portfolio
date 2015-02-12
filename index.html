@@ -38,8 +38,10 @@
 <script src="js/jquery.cbpFWSlider.js"></script>	
 
 <!-- D3 -->
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+<!-- <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script> -->
+<script src="js/d3.v3.min.js"></script>
+<script src="js/d3.projection.min.js" charset="utf-8"></script>
 
 <!-- Mapbox -->	
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
@@ -111,6 +113,11 @@
 <!-- ++++++++++++++++++++++++++++ -->
 <div class="column" id="column-ux" name="ux">
    	<div class="content-container">
+   		<div class="text page-text">	
+			<div class="emphasis">Product mockups and screenshots</div>
+			<div class="notice">The mockups were used to illustrate screen composition and flow to the R&D and Marketing teams, and to serve as references for the graphic designers</div>
+		</div>
+
    		<div class="menu ux-menu grey-text" id="ux-menu">   						
 			<span class="menu-label grey-text">Zennet:</span>
 			<span class="btn-ux btn" name="zennet-mockups"> mockups </span>
@@ -121,7 +128,7 @@
 			<span class="btn-ux btn" name="sisense-screenshots"> screenshots </span>
 		</div>
 
-		<div class="ux-container">
+		<div class="ux-container">			
 			<!-- Zennet Mockups -->
 	    		<div class="slides-container ux" id="slides-zennet-mockups">
 	    			<div class="caption-container">
@@ -142,7 +149,7 @@
 	    				</p>			    				
 	    			</div>
 		    		<div id="fwslider-zennet-mockups" class="cbp-fwslider">
-					<ul id="zennet-mockups-list">
+					<ul id="zennet-mockups-list" class="slides-list">
 						<li><a href="images/zennet-mockups/m_start.jpg" title="Start Screen"><img src="images/zennet-mockups/m_start.jpg" /></a></li>
 						<li><a href="images/zennet-mockups/m_dashboard.jpg" title="Dashboard"><img src="images/zennet-mockups/m_dashboard.jpg" /></a></li>
 						<li><a href="images/zennet-mockups/m_list.jpg" title="List Filters"><img src="images/zennet-mockups/m_list.jpg" /></a></li>
@@ -169,7 +176,7 @@
 	    				</p>	    						    			
 	    			</div>
 		    		<div id="fwslider-zennet-screenshots" class="cbp-fwslider">
-					<ul id="zennet-screenshots-list">
+					<ul id="zennet-screenshots-list" class="slides-list">
 						<li><a "images/zennet-screenshots/start.jpg" title="Start Screen"><img src="images/zennet-screenshots/start.jpg" /></a></li>
 						<li><a "images/zennet-screenshots/dashboard.jpg" title="Dashboard"><img src="images/zennet-screenshots/dashboard.jpg" /></a></li>
 						<li><a "images/zennet-screenshots/list.jpg" title="List Filters"><img src="images/zennet-screenshots/list.jpg" /></a></li>
@@ -195,7 +202,7 @@
 	    				</p>
 	    			</div>
 	    			<div id="fwslider-sisense-mockups" class="cbp-fwslider">
-					<ul id="sisense-mockups-list">
+					<ul id="sisense-mockups-list" class="slides-list">
 						<li><a href="images/sisense-mockups/2.jpg" title="Dashboard"><img src="images/sisense-mockups/2.jpg" /></a></li>
 						<li><a href="images/sisense-mockups/3.jpg" title="Edit Widget"><img src="images/sisense-mockups/3.jpg" /></a></li>
 						<li><a href="images/sisense-mockups/4.jpg" title="Indicator (KPI) Widget"><img src="images/sisense-mockups/4.jpg" /></a></li>
@@ -221,7 +228,7 @@
 	    				</p>			    				
 	    			</div>
 		    		<div id="fwslider-sisense-screenshots" class="cbp-fwslider">
-					<ul id="sisense-screenshots-list">
+					<ul id="sisense-screenshots-list" class="slides-list">
 						<li><a href="images/sisense-screenshots/1.jpg" title="Dashboard"><img src="images/sisense-screenshots/1.png" /></a></li>
 						<li><a href="images/sisense-screenshots/2.jpg" title="Edit Widget"><img src="images/sisense-screenshots/2.png" /></a></li>
 						<li><a href="images/sisense-screenshots/3.jpg" title="Indicator (KPI) Widget"><img src="images/sisense-screenshots/3.png" /></a></li>
@@ -241,9 +248,9 @@
  <div class="column" id="column-maps" name="maps">
   	<div class="content-container">
 	    	<h1 class="title page-title">Three maps</h1>
-		<div class="text page-text">
-			The maps displayed below were created in javascript, using Mike Bostock's <a href="http://d3js.org/">D3</a> data visualization library.
-			<span class="notice">All the data is randomly generated</span>
+		<div class="text page-text">			
+			<div class="emphasis">Hover over elements on the maps to display more data</div>			
+			<div class="notice">These maps  were created in javascript, using Mike Bostock's <a href="http://d3js.org/" style="color: steelblue">D3</a> library. All the data is randomly generated</div>
 
 		</div>
 
@@ -300,68 +307,52 @@
 <!-- 			CONTACT			    	-->
 <!-- ++++++++++++++++++++++++++++ -->
 <div class="column" id="column-contact" name="contact">
-	   	<div class="content-container">
+   	<div class="content-container">
 
-	    		<h1 class="title page-title">Contact</h1>
+    		<h1 class="title page-title">Contact</h1>
 
-    			<div class="text-container">
-    				  				
-
-    				<!-- ICONS -->
-    				<div class="contact-container">
-	    				
-	    				<div class="contact-text">
+		<div class="text-container">
+			  				
+			<!-- ICONS -->
+			<div class="contact-container">
+				
+				<div class="contact-text-container">
+					<div class="contact-text">
 						<div class="contact-section">
-	    						<i class="contact-icon fa fa-envelope" id="email-icon"></i><br>
-	    						<a class="email-text info-text" data-email="gil.erlich@gmail.com" target="_blank" href="mailto:gil.erlich@gmail.com">gil.erlich@gmail.com</a>
-		    				</div>
+							<a class="email-text info-text" data-email="gil.erlich@gmail.com" target="_blank" href="mailto:gil.erlich@gmail.com">
+								<i class="contact-icon fa fa-envelope" id="email-icon"></i><br>
+							</a>
+							<span class="info-text">gil.erlich@gmail.com</span>
+		    				</div>		    				 	
 		    				<div class="contact-section">
-	    						<i class="contact-icon fa fa-phone" id="phone-icon"></i><br>
-	    						<a class="phone-text info-text" target="_blank"  href="https://www.youtube.com/watch?v=yH5HTPjPvyE">+972-54-5572205</a>
-		    				</div>
+							<a class="linkedin-text info-text" target="_blank" href="http://il.linkedin.com/pub/gil-erlich/5/b41/7b6/en">
+								<i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i>
+							</a><br>
+							<span class="info-text">gil-erlich</span>
+		    				</div>		
 		    				<div class="contact-section">
-	    						<i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i><br>
-	    						<a class="linkedin-text info-text" target="_blank" href="http://il.linkedin.com/pub/gil-erlich/5/b41/7b6/en">gil-erlich@linkedin</a>
-		    				</div>	
+		    					<a class="linkedin-text " target="_blank" href="http://instagram.com/sangil77/">
+		    						<i class="contact-icon fa fa-instagram" id="instagram-icon"></i>
+		    					</a><br>
+		    					<span class="info-text">sangil77</span>
+		    				</div>	   
 		    				<div class="contact-section">
-	    						<i class="contact-icon fa fa-map-marker" id="marker-icon"></i><br>	    						
-	    						<div class="contact-map" id="contact-map"></div>
-		    				</div>		    
-		    				<!-- <div>
-		    					&lt;div><br>
-	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-envelope" id="email-icon"></i>&lt;/img&gt</span><br>
-	    						<span class="tab-text">&lt;span><a class="email-text info-text" target="_blank" href="mailto:gil.erlich@gmail.com">gil.erlich@gmail.com</a>&lt;/span&gt</span><br>
-		    				</div>
-		    				<br>
-		    				<div>
-	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-phone" id="phone-icon"></i>&lt;/img&gt</span><br>
-	    						<span class="tab-text">&lt;span><span class="phone-text info-text">+972-54-5572205</span>&lt;/span&gt</span><br>
-		    				</div>
-		    				<br>
-		    				<div>
-	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-linkedin" id="linkedin-icon"></i>&lt;/img&gt</span><br>
-	    						<span class="tab-text">&lt;span><a class="linkedin-text info-text" target="_blank" href="https://www.linkedin.com/profile/view?id=17752890">www.linkedin.com</a>&lt;/span&gt</span><br>
-		    				</div>	
-		    				<br>
-		    				<div>
-	    						<span class="tab-text">&lt;img><i class="contact-icon fa fa-map-marker" id="marker-icon"></i>&lt;/img&gt</span><br>
-	    						<span class="tab-text">&lt;div></span><br>
-	    						<div class="contact-map" id="contact-map"></div><br>
-	    						<span class="tab-text">&lt;/div&gt</span><br>
-		    					&lt;/div&gt
-		    				</div>		     -->				
-
-		    			</div>
-	    				
-	    				
+							<a class="phone-text info-text" target="_blank"  href="https://www.youtube.com/watch?v=yH5HTPjPvyE">
+								<i class="contact-icon fa fa-phone" id="phone-icon"></i>
+							</a><br>
+							<span class="info-text">+972-54-5572205</span>
+		    				</div>	   		    					    	
+	    				</div>
     				</div>
-
-    				<!-- MAP -->
-    						  
-    					
-    				
-    			</div>
-    		</div>
+    				<div class="contact-map-container">
+    					<div class="contact-section">
+						<i class="contact-icon fa fa-map-marker" id="marker-icon"></i><br>	    						
+						<div class="contact-map" id="contact-map"></div>
+	    				</div>	
+	    			</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 </div>

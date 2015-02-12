@@ -19,7 +19,7 @@
 @uxColor:		steelblue;
 @mapsColor:		steelblue;
 @cvColor:		steelblue;
-@contactColor:	steelblue;
+@contactColor:	#777;
 
 @menuColor:		@darkGrey;
 @menuHoverColor: 	@turquoise;
@@ -27,6 +27,12 @@
 @pageTextColor:	@grey;
 @linkColor:		@blue;
 @linkHoverColor: 	@turquoise;
+
+@emailColor:		@red;
+@phoneColor:		@green;
+@linkedinColor:	@blue;
+@instagramColor:	@orange;
+@markerColor:	@purple;
 
 @pagetitleFont:	@pt;
 @sectionTitleFont:	@duru;
@@ -54,6 +60,11 @@ a {
   text-decoration: none;
 }
 
+.emphasis {
+	color: @blue;
+	font-size: 16px;
+}
+
 .grey-text {
 	color: @grey;
 }
@@ -68,6 +79,11 @@ a {
 
 .selected {
 	color: @menuSelectedColor;
+}
+
+.notice {
+	margin-top: 6px;
+	font-size: 12px;
 }
 
 /*----------------------------------------------*/
@@ -148,12 +164,12 @@ a {
 .title-text {
 	font-size: 40px;
 	margin: 0 auto;
-	color: #888;
+	color: #777;
 }
 
 .title-caption {
-	font-size: 24px;
-	margin: 10px auto;
+	font-size: 18px;
+	margin: 6px auto;
 	color: #aaa;
 }
 
@@ -264,6 +280,7 @@ a .section-label {
 .menu-label {
 	display: inline-block;
 	width: 70px;
+	color: @darkGrey;
 
 	&:not(:first-child) {
 		margin-left: 25px;
@@ -398,6 +415,8 @@ svg#toc-svg {
 /*-------- UX EXAMPLES
 /*----------------------------------------------*/
 #column-ux {
+	margin-top: 40px;
+
 	.ux-container {
 		height: 0;
 		padding-bottom: 50%;
@@ -448,7 +467,7 @@ svg#toc-svg {
 	}
 
 	#ux-menu {
-
+		margin-top: 30px;
 	}
 }
 
@@ -557,88 +576,81 @@ svg#toc-svg {
 	color: @contactColor;
 
 	.contact-container {
-		margin: 0 auto;
+		margin: 40px auto;
 		/*text-align: center;*/
+	}
+
+	.contact-text-container {
+		width: 25%;
+		float: left;
+		margin-top: 6px;
+	}
+
+	.contact-map-container {
+		width: 75%;
+		float: right;
 	}
 
 	.contact-section {
 		/*display: inline-block;*/
-		margin: 40px  0 20px;
+		margin-top: 35px;
 		color: @contactColor;
 	}
 
 	.contact-icon {
-	  font-size: 25px;
-	  /*color: #3ca0d3;*/
-	  /*color: steelblue;*/
-	  /*margin: 0 10px;*/
+		  font-size: 25px;
+		
+		  &:hover {
+			color: @menuHoverColor !important;
+			cursor: pointer;
+		}
 	}	
 
 	.contact-text {
-		font-size: 20px;
+		font-size: 18px;
 		color: #bbb;
+
+		
 	}
 
 	/* the colored icontact text */
 	.info-text {
 		font-size: 19px;
 		text-decoration: none;
+		color: @contactColor;	
+
+		.email-text {}
+		.phone-text {}
+		.linkedin-text {
+			line-height: 26px;
+		}
 	}
 
 	#email-icon {
-		font-size: 22px;
-		/*color: @contactColor;*/
-		/*color: #9370DB;		*/ 
-		color: #f86767;
-/*		color: rgb(255, 127, 80);;*/
-	}
-
-	.email-text {
-		/*color: #f86767;*/
-		color: @contactColor;
-
-		&:hover {
-			color: @menuHoverColor;
-		}
+		font-size: 22px;	
+		color: @emailColor;
 	}
 
 	#phone-icon {
-		color: #73b43b;
-	}
-
-	.phone-text {
-		/*color: #73b43b;*/
-		color: @contactColor;
-
-		&:hover {
-			color: @menuHoverColor;
-			cursor: pointer;
-		}
+		color: @phoneColor;
 	}
 
 	#linkedin-icon {
-		/*color: #63b6e5;*/
-		/*color: #9370DB;*/
-		color: rgb(255, 127, 80)
+		color: @linkedinColor;
 	}
-
-	.linkedin-text {
-		line-height: 26px;
-		color: @contactColor;
-
-		&:hover {
-			color: @menuHoverColor;
-		}
+	
+	#instagram-icon {
+		color: @instagramColor;		
 	}
 
 	#marker-icon {
 		font-size: 27px;
-		color: #9370DB;
+		color: @markerColor;
 	}
 
 	.contact-map {
-		height: 260px;
-		width: 70%;
+		height: 270px;
+		width: 100%;
 		display: inline-block;
 		/*margin-left: 120px;*/
 		margin-top: 10px;
@@ -672,6 +684,12 @@ svg#toc-svg {
   	}
 
   	#column-ux {
+  		margin-top: 25px;
+
+  		.ux-container {
+  			margin-top: 25px;
+  		}
+
 		.slides-container {
 			width: 65%;
 		}
@@ -685,8 +703,12 @@ svg#toc-svg {
 	}
 
 	#column-contact {
+		.info-text {
+			font-size: 16px;
+		}
+
 		.contact-map {
-			height: 180px;
+			/*height: 180px;*/
 		}
 	}
 }
@@ -718,6 +740,20 @@ svg#toc-svg {
 	}
 	#column-cv #svg-container-history svg .label {
 		font-size: 16px !important;
+	}
+
+	#column-contact {
+		.info-text {
+			font-size: 14px;
+		}
+
+		.contact-text-container {
+			width: 35%;
+		}
+
+		.contact-map-container {
+			width: 65%;
+		}
 	}
 
 	

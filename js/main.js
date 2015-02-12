@@ -143,6 +143,14 @@ $(document).ready(function() {
 		}, duration);
 	}
 
+/**/
+	$('.slides-list').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image',
+		gallery:{enabled:true}
+		// other options
+	});
+/*/
 	$('#sisense-mockups-list').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open
 		type: 'image',
@@ -170,7 +178,7 @@ $(document).ready(function() {
 		gallery:{enabled:true}
 		// other options
 	});
-
+/**/
 	//***************************************
 	// MAPS
 	//***************************************
@@ -339,9 +347,7 @@ function runTocAnimation() {
 			el.select("circle.c" +  (i + 1)).transition()
 				.duration(time)
 				.delay(time * i)
-				.attr("r", hoverRadius() * (1/num) * (num - i))
-				//.style("fill", function(d) { return (i===num-1) ? d3.rgb(d.color).brighter(1) : d.color })
-				//.style("fill", function(d) { return d3.rgb(d.color).darker(1) })
+				.attr("r", hoverRadius() * (1/num) * (num - i))			
 				.style("fill", function(d) {return d.hover})
 				.style("stroke-width", 0);
 		}
@@ -351,11 +357,7 @@ function runTocAnimation() {
 			.duration(time)
 			//.ease('cubic')
 			//.attr("x", totalRadius +textOffsetHover )
-			.style("fill", function(d) {return d.hover})
-			//.style("fill", d3.rgb( color ).darker(1) )
-			//.style("opacity", 0.6)
-			//.style('font-weight', 700)
-			//.style('font-size', (fontSize * enlargedFontFactor) + 'px')
+			.style("fill", function(d) {return d.hover})		
 			
 	}
 
@@ -377,10 +379,7 @@ function runTocAnimation() {
 		el.select("text").transition()
 			.duration(time)
 			//.attr("x", totalRadius + textOffset )
-			.style("fill", function(d) {return d.color})
-			//.style("opacity", 1)
-			//.style('font-weight', 400)
-			//.style('font-size', fontSize + 'px');
+			.style("fill", function(d) {return d.color})			
 	}
 
 	function click() {

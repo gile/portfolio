@@ -10,6 +10,10 @@ body {
 a {
   text-decoration: none;
 }
+.emphasis {
+  color: #6baed6;
+  font-size: 16px;
+}
 .grey-text {
   color: #aaaaaa;
 }
@@ -21,6 +25,10 @@ a {
 }
 .selected {
   color: #6baed6;
+}
+.notice {
+  margin-top: 6px;
+  font-size: 12px;
 }
 /*----------------------------------------------*/
 /*-------- HEADER
@@ -88,11 +96,11 @@ a {
 .title-text {
   font-size: 40px;
   margin: 0 auto;
-  color: #888;
+  color: #777;
 }
 .title-caption {
-  font-size: 24px;
-  margin: 10px auto;
+  font-size: 18px;
+  margin: 6px auto;
   color: #aaa;
 }
 /*----------------------------------------------*/
@@ -189,6 +197,7 @@ a .section-label:hover {
 .menu-label {
   display: inline-block;
   width: 70px;
+  color: #666666;
 }
 .menu-label:not(:first-child) {
   margin-left: 25px;
@@ -289,6 +298,9 @@ svg#toc-svg text {
 /*----------------------------------------------*/
 /*-------- UX EXAMPLES
 /*----------------------------------------------*/
+#column-ux {
+  margin-top: 40px;
+}
 #column-ux .ux-container {
   height: 0;
   padding-bottom: 50%;
@@ -326,6 +338,9 @@ svg#toc-svg text {
 #column-ux hr {
   width: 90%;
   margin-bottom: 50px;
+}
+#column-ux #ux-menu {
+  margin-top: 30px;
 }
 /*----------------------------------------------*/
 /*-------- MAPS
@@ -412,80 +427,70 @@ svg#toc-svg text {
 /*-------- CONTACT
 /*----------------------------------------------*/
 #column-contact {
-  color: #4682b4;
+  color: #777777;
   /* the colored icontact text */
 }
 #column-contact .contact-container {
-  margin: 30px auto;
+  margin: 40px auto;
   /*text-align: center;*/
+}
+#column-contact .contact-text-container {
+  width: 25%;
+  float: left;
+  margin-top: 6px;
+}
+#column-contact .contact-map-container {
+  width: 75%;
+  float: right;
 }
 #column-contact .contact-section {
   /*display: inline-block;*/
-  margin: 40px  0 20px;
-  color: #4682b4;
+  margin-top: 35px;
+  color: #777777;
 }
 #column-contact .contact-icon {
   font-size: 25px;
-  /*color: #3ca0d3;*/
-  /*color: steelblue;*/
-  /*margin: 0 10px;*/
+}
+#column-contact .contact-icon:hover {
+  color: #48d1cc !important;
+  cursor: pointer;
 }
 #column-contact .contact-text {
-  font-size: 20px;
+  font-size: 18px;
   color: #bbb;
 }
 #column-contact .info-text {
   font-size: 19px;
   text-decoration: none;
+  color: #777777;
+}
+#column-contact .info-text .linkedin-text {
+  line-height: 26px;
 }
 #column-contact #email-icon {
   font-size: 22px;
-  /*color: @contactColor;*/
-  /*color: #9370DB;		*/
   color: #f86767;
-  /*		color: rgb(255, 127, 80);;*/
-}
-#column-contact .email-text {
-  /*color: #f86767;*/
-  color: #4682b4;
-}
-#column-contact .email-text:hover {
-  color: #48d1cc;
 }
 #column-contact #phone-icon {
   color: #73b43b;
 }
-#column-contact .phone-text {
-  /*color: #73b43b;*/
-  color: #4682b4;
-}
-#column-contact .phone-text:hover {
-  color: #48d1cc;
-  cursor: pointer;
-}
 #column-contact #linkedin-icon {
-  /*color: #63b6e5;*/
-  /*color: #9370DB;*/
-  color: #ff7f50;
+  color: #6baed6;
 }
-#column-contact .linkedin-text {
-  line-height: 26px;
-  color: #4682b4;
-}
-#column-contact .linkedin-text:hover {
-  color: #48d1cc;
+#column-contact #instagram-icon {
+  color: #ff7f0e;
 }
 #column-contact #marker-icon {
   font-size: 27px;
-  color: #9370DB;
+  color: #9370db;
 }
 #column-contact .contact-map {
-  height: 260px;
-  width: 70%;
+  height: 270px;
+  width: 100%;
   display: inline-block;
   /*margin-left: 120px;*/
   margin-top: 10px;
-  border: 2px solid #4682b4;
+  border: 2px solid #777777;
 }
 #column-contact .tab-text {
   padding-left: 60px;
@@ -506,14 +511,23 @@ svg#toc-svg text {
   .content-container {
     width: 70%;
   }
+  #column-ux {
+    margin-top: 25px;
+  }
+  #column-ux .ux-container {
+    margin-top: 25px;
+  }
   #column-ux .slides-container {
     width: 65%;
   }
   #column-cv .cv-sections-container {
     height: 240px;
   }
+  #column-contact .info-text {
+    font-size: 16px;
+  }
   #column-contact .contact-map {
-    height: 180px;
+    /*height: 180px;*/
   }
 }
 @media screen and (max-width: 1300px) {
@@ -533,6 +547,15 @@ svg#toc-svg text {
   }
   #column-cv #svg-container-history svg .label {
     font-size: 16px !important;
+  }
+  #column-contact .info-text {
+    font-size: 14px;
+  }
+  #column-contact .contact-text-container {
+    width: 35%;
+  }
+  #column-contact .contact-map-container {
+    width: 65%;
   }
 }
 @media screen and (max-width: 1050px) {
