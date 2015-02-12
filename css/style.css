@@ -77,6 +77,25 @@ a {
   width: 20px;
 }
 /*----------------------------------------------*/
+/*-------- TITLE
+/*----------------------------------------------*/
+.title {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+.title-text {
+  font-size: 40px;
+  margin: 0 auto;
+  color: #888;
+}
+.title-caption {
+  font-size: 24px;
+  margin: 10px auto;
+  color: #aaa;
+}
+/*----------------------------------------------*/
 /*-------- COLUMNS
 /*----------------------------------------------*/
 .main-container {
@@ -229,7 +248,7 @@ a .section-label:hover {
   cursor: pointer;
 }
 #toc-container {
-  margin-top: 30px;
+  margin-top: 120px;
   /*margin-left: 30px;*/
 }
 .toc-item {
@@ -322,6 +341,10 @@ svg#toc-svg text {
   font-size: 14px;
   /*margin-left: 10px;*/
 }
+#column-maps #map-menu {
+  margin: 20px 0;
+  z-index: 100;
+}
 /*----------------------------------------------*/
 /*-------- CV
 /*----------------------------------------------*/
@@ -382,6 +405,9 @@ svg#toc-svg text {
 #column-cv #svg-container-skills {
   margin-top: 0px;
 }
+#column-cv #cv-menu-skills {
+  position: absolute;
+}
 /*----------------------------------------------*/
 /*-------- CONTACT
 /*----------------------------------------------*/
@@ -409,7 +435,7 @@ svg#toc-svg text {
   color: #bbb;
 }
 #column-contact .info-text {
-  font-size: 25px;
+  font-size: 19px;
   text-decoration: none;
 }
 #column-contact #email-icon {
@@ -468,11 +494,26 @@ svg#toc-svg text {
   .header-links {
     width: 70%;
   }
+  .title-text {
+    font-size: 32px;
+  }
+  .title-caption {
+    font-size: 18px;
+  }
+  #toc-container {
+    margin-top: 120px;
+  }
   .content-container {
     width: 70%;
   }
   #column-ux .slides-container {
-    width: 70%;
+    width: 65%;
+  }
+  #column-cv .cv-sections-container {
+    height: 240px;
+  }
+  #column-contact .contact-map {
+    height: 180px;
   }
 }
 @media screen and (max-width: 1300px) {

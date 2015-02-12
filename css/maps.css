@@ -77,3 +77,8 @@ body {
   left: 0;
   right: 0;
 }
+@media screen and (max-width: 1400px) {
+  #column-maps .map-container {
+    padding-bottom: 55%;
+  }
+}

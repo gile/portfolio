@@ -170,7 +170,7 @@ function maps() {
 			siblings = $el.siblings('.btn-map'),
 			name = $el.attr('name').toUpperCase(),
 			selector = '.map-container div.map.' + name,
-			selectorNot = '.map-container > div:not(' + selector + ')';
+			selectorNot = '.map-container > div.map:not(' + selector + ')';
 
 		siblings.removeClass('selected')
 		$el.addClass('selected');

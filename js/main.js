@@ -1,56 +1,29 @@
 var 	id,
 	duration = 500;
 
-// var 	GREY = 	'#222',
-// 	RED =		'#f86767',
-// 	GREEN = 	'#73b43b',
-// 	//BLUE =	'#63b6e5',
-// 	BLUE = 	'#7199F1',
-// 	ORANGE = 	'#FF7F50',
-// 	PURPLE =	'#9370DB';
-
-//var	color = d3.scale.category20();
-
-// for(var i=0; i<10; ++i) {color(i)}
-// var 	BLUE = 	color(0),
-// 	ORANGE = 	color(2),
-// 	GREEN = 	color(4),
-// 	RED =		color(6),
-// 	PURPLE =	color(8),
-// 	GREY = 	color(14);
-
-//for(var i=0; i<20; ++i) {color(i)}
-// var 	BLUE = 	color(0),
-// 	ORANGE = 	color(2),
-// 	GREEN = 	color(4),
-// 	RED =		color(6),
-// 	PURPLE =	color(8),
-// 	BROWN = 	color(10)
-// 	GREY = 	color(14);
-
 var 	BLUE = 	'#6baed6',
+	BLUE_L = 	'#8bcef6',
 	ORANGE = 	'#fdae6b',
+	ORANGE_L = '#ffbb78',
 	GREEN = 	'#8ca252',
+	GREEN_L = 	'#98df8a',
 	RED =		'#d6616b',
+	RED_L = 	'#ff9896',
 	PURPLE =	'#ce6dbd',
+	PURPLE_L = 	'#c5b0d5',
 	BROWN = 	'#c49c94',
+	BROWN_L = 	'#c49c94',
 	GREY = 	'#bdbdbd';
+	GREY_L = 	'#c7c7c7',
 	DARK_GREY =  '#888';
 	TURQUOISE = '#63b6e5';
 
-// var 	BLUE = 	color(0),
-// 	ORANGE = 	color(4),
-// 	GREEN = 	color(8),
-// 	RED =		color(12),
-// 	PURPLE =	color(16),
-// 	GREY = 	color(14);
-
 var 	pages = [
-		{id: 'home', name: "", color: GREY},
-		{id: 'ux', name: "ux examples", color: BLUE},
-		{id: 'maps', name: "maps", color: GREEN},
-		{id: 'cv', name: "curriculum vitae", color: RED},
-		{id: 'contact', name: "contact", color: ORANGE}
+		{id: 'home', name: "", color: GREY, hover: GREY_L},
+		{id: 'ux', name: "ux examples", color: BLUE, hover: BLUE_L},
+		{id: 'maps', name: "maps", color: GREEN, hover: GREEN_L},
+		{id: 'cv', name: "curriculum vitae", color: RED, hover: RED_L},
+		{id: 'contact', name: "contact", color: ORANGE, hover: ORANGE_L}
 	];
 
 // $.each(pages, function( index, value ) {
@@ -201,7 +174,7 @@ $(document).ready(function() {
 	//***************************************
 	// MAPS
 	//***************************************
-	maps();
+	setTimeout(maps, 0);
 
 
 	//***************************************
@@ -278,7 +251,7 @@ function runTocAnimation() {
 	var 	stroke = 1,
 		hoverStroke = 2;
 
-	var	hoverRadiusFactor = 1.15,
+	var	hoverRadiusFactor = 1.05,
 		enlargedFontFactor = 1,
 		totalRadius = (radius * hoverRadiusFactor) + hoverStroke;
 
@@ -369,7 +342,8 @@ function runTocAnimation() {
 				.attr("r", hoverRadius() * (1/num) * (num - i))
 				//.style("fill", function(d) { return (i===num-1) ? d3.rgb(d.color).brighter(1) : d.color })
 				//.style("fill", function(d) { return d3.rgb(d.color).darker(1) })
-				.style("stroke-width", hoverStroke);
+				.style("fill", function(d) {return d.hover})
+				.style("stroke-width", 0);
 		}
 		
 
@@ -377,7 +351,7 @@ function runTocAnimation() {
 			.duration(time)
 			//.ease('cubic')
 			//.attr("x", totalRadius +textOffsetHover )
-
+			.style("fill", function(d) {return d.hover})
 			//.style("fill", d3.rgb( color ).darker(1) )
 			//.style("opacity", 0.6)
 			//.style('font-weight', 700)
@@ -403,7 +377,7 @@ function runTocAnimation() {
 		el.select("text").transition()
 			.duration(time)
 			//.attr("x", totalRadius + textOffset )
-			.style("fill", color)
+			.style("fill", function(d) {return d.color})
 			//.style("opacity", 1)
 			//.style('font-weight', 400)
 			//.style('font-size', fontSize + 'px');
@@ -509,7 +483,13 @@ function headerLinkClick(columnName) {
 	//d3.select('#header-item-home').style('margin-left', '250px')
 
 	if (columnName === 'home') {
-		
+		d3.select('.title')
+			.style('display', '')
+		        .transition()
+		        	.delay(400)
+			.duration(250)
+			.style('opacity', 1);
+
 		// d3.select('.header-links').transition()
 		// 	.duration(250)
 		// 	.style('height', '100px');
@@ -527,7 +507,14 @@ function headerLinkClick(columnName) {
 		// 	.style('opacity', 1);
 	}
 	else  {
-		
+		d3.select('.title')			
+		        .transition()
+			.duration(250)
+			.style('opacity', 0)
+		        .transition()
+			.delay(250)
+		        	.style('display', 'none')
+		        	
 
 		// d3.select('.header-links').transition()
 		// 	.duration(250)

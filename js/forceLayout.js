@@ -53,9 +53,11 @@ function createForceLayout(selector) {
 	var 	duration = 350;
 	var 	fill = d3.scale.category10();
 
-	var focusHeight = height * 0.45;
+	var 	focusHeight = height * 0.7,
+		focusHeightTop = height * 0.55;
 
 	var 	positions = {
+			centerHigh: {x: width * 0.5, y: focusHeightTop},
 			left:       {x: width * 0.25, y: focusHeight},
 			center: {x: width * 0.5, y: focusHeight},
 			right:    {x: width * 0.75, y: focusHeight},
@@ -65,7 +67,7 @@ function createForceLayout(selector) {
 	}
 
 	foci = {
-		"programming":  [positions.center, positions.rightExit, positions.rightExit, positions.rightExit],
+		"programming":  [positions.centerHigh, positions.rightExit, positions.rightExit, positions.rightExit],
 		"languages":       [positions.leftExit, positions.left, positions.center, positions.right]
 	}
 
@@ -132,7 +134,7 @@ function createForceLayout(selector) {
 	      .append('text')
 		.attr('class', 'level small-caps' )
 		.attr('x', function(d) {return d.position.x})
-		.attr('y', height / 6)
+		.attr('y', height * 0.4)
 		.text(function(d) {return d.name})
 
 	init();
