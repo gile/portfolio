@@ -87,6 +87,11 @@ var ARC_MAP_EXTENSION = {
             centered,
             i;
         
+        // PATCH
+        if(width < 720) {
+            options.translateFactor[0] = 0.8;
+        }
+
         String.prototype.replaceSpaces = function() {
             return this.replace(/ /g,'_');
         };
