@@ -45,7 +45,7 @@ function createForceLayout(selector) {
 
 	// SVG
 	var 	width = $(selector).parent().width() * 0.85,
-		height = 300;
+		height = $(selector).parent().height();
 
 	var  	padding = 0, // separation between same-color nodes
 		clusterPadding = 0; // separation between different-color nodes
@@ -54,7 +54,7 @@ function createForceLayout(selector) {
 	var 	fill = d3.scale.category10();
 
 	var 	focusHeight = height * 0.7,
-		focusHeightTop = height * 0.55;
+		focusHeightTop = height * 0.7;
 
 	var 	positions = {
 			centerHigh: {x: width * 0.5, y: focusHeightTop},
@@ -67,8 +67,8 @@ function createForceLayout(selector) {
 	}
 
 	foci = {
-		"programming":  [positions.centerHigh, positions.rightExit, positions.rightExit, positions.rightExit],
-		"languages":       [positions.leftExit, positions.left, positions.center, positions.right]
+		"programming":  [positions.centerHigh, positions.leftExit, positions.leftExit, positions.leftExit],
+		"languages":       [positions.rightExit, positions.left, positions.center, positions.right]
 	}
 
 	levels = [
@@ -156,7 +156,11 @@ function createForceLayout(selector) {
 
 		node
 			.each(collide(.5))
-			.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+			.attr("transform", function(d) { 
+				var tr = d.radius;
+				d.y = Math.max(tr, Math.min(height - tr, d.y)); 
+				return "translate(" + d.x + "," + d.y + ")"; 
+			});
 	}
 
 	function init() {		

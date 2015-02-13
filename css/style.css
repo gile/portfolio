@@ -382,6 +382,9 @@ svg#toc-svg text {
   margin-left: 0;
   /*margin-top: 50px;*/
 }
+#column-cv .cv-sections-container#skills-sections-container {
+  height: 300px;
+}
 #column-cv .cv-section {
   display: none;
   position: absolute;
@@ -528,6 +531,9 @@ svg#toc-svg text {
   }
   #column-cv .cv-sections-container {
     height: 240px;
+  }
+  #column-cv .cv-sections-container#skills-sections-container {
+    height: 270px;
   }
   #column-contact .info-text {
     font-size: 16px;
