@@ -17,14 +17,14 @@ var 	BLUE = 	'#6baed6',
 	GREY = 	'#bdbdbd';
 	GREY_L = 	'#c7c7c7',
 	DARK_GREY =  '#888';
-	TURQUOISE = '#63b6e5';
+	TURQUOISE = '#48D1CC';
 
 var 	pages = [
 		{id: 'home', name: "", color: GREY, hover: GREY_L},
-		{id: 'ux', name: "ux examples", color: BLUE, hover: BLUE_L},
-		{id: 'maps', name: "maps", color: GREEN, hover: GREEN_L},
-		{id: 'cv', name: "curriculum vitae", color: RED, hover: RED_L},
-		{id: 'contact', name: "contact", color: ORANGE, hover: ORANGE_L}
+		{id: 'ux', name: "ux examples", color: BLUE, hover: TURQUOISE},
+		{id: 'maps', name: "maps", color: GREEN, hover: TURQUOISE},
+		{id: 'cv', name: "curriculum vitae", color: RED, hover: TURQUOISE},
+		{id: 'contact', name: "contact", color: ORANGE, hover: TURQUOISE}
 	];
 
 var 	pagesIndex = {};
@@ -39,7 +39,7 @@ var 	numColumns = pages.length,
 	$currentColumn;
 
 var 	headerColor = BLUE,//'#4682b4',
-	headerColorHover = PURPLE;
+	headerColorHover = TURQUOISE;
 	// headerActiveColor = RED; // red
 
 /////////////////////////////////////////////////////////////
