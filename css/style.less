@@ -26,7 +26,7 @@
 @menuSelectedColor: @blue;
 @pageTextColor:	@grey;
 @linkColor:		@blue;
-@linkHoverColor: 	@turquoise;
+@linkHoverColor: 	@purple;
 
 @emailColor:		@red;
 @phoneColor:		@green;
@@ -122,7 +122,7 @@ a {
 	cursor: pointer;
 	color: @menuColor;
 	font-variant: small-caps;
-	font-size: 22px;
+	font-size: 18px;
 /*  border: 1px solid green;*/
 	
 	&:hover {
@@ -151,6 +151,25 @@ a {
 	}
 }
 
+.header-title {
+	position: absolute;
+	font-size: 22px;
+	font-family: @titleFont;
+	line-height: 21px;
+	color: #555;
+	cursor: pointer;
+
+	&:hover {
+		color: @menuHoverColor;
+	}
+}
+
+.header-logo {
+	position: absolute;
+	top: 15px;
+	cursor: pointer;
+	opacity: 0.7;
+}
 
 /*----------------------------------------------*/
 /*-------- TITLE
@@ -159,7 +178,7 @@ a {
 	position: fixed;
 	width: 100%;
 	text-align: center;
-	padding-top: 20px;
+	padding-top: 30px;
 
 	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 		padding-top: 80px;
@@ -367,7 +386,7 @@ a .section-label {
 
 
 #toc-container {
-  	margin-top: 140px;
+  	margin-top: 160px;
   	/*margin-left: 30px;*/
 }
 

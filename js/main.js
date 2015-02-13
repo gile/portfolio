@@ -39,7 +39,7 @@ var 	numColumns = pages.length,
 	$currentColumn;
 
 var 	headerColor = BLUE,//'#4682b4',
-	headerColorHover = TURQUOISE;
+	headerColorHover = PURPLE;
 	// headerActiveColor = RED; // red
 
 /////////////////////////////////////////////////////////////
@@ -119,6 +119,12 @@ $(document).ready(function() {
 
 		headerLinkClick(colName);
 	});
+
+	createLogo('.header-logo');
+	d3.select('.header-logo')
+		.on('mouseover', function() { d3.selectAll('.header-logo circle').style('fill', headerColorHover) })
+		.on('mouseout', function() { d3.selectAll('.header-logo circle').style('fill', function(d) {return d.color}) })
+		.on('click', function() {headerLinkClick('home')});
 
 	//***************************************
 	// TOC
@@ -403,7 +409,7 @@ function doneResizing(){
 function headerSetActive(name, duration) {	
 	
 
-	var headerActiveColor = BLUE;
+	var headerActiveColor = PURPLE;
 
 	if (!duration || duration === 0) {
 		
@@ -471,7 +477,7 @@ function headerLinkClick(columnName) {
 		        .transition()
 		        	.delay(400)
 			.duration(250)
-			.style('opacity', 1);	
+			.style('opacity', 1);		
 	}
 	else  {
 		d3.select('.title')			
@@ -480,7 +486,7 @@ function headerLinkClick(columnName) {
 			.style('opacity', 0)
 		        .transition()
 			.delay(250)
-		        	.style('display', 'none')		        	
+		        	.style('display', 'none')		       
 	}
 
 	setTimeout(function() {

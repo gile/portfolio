@@ -62,11 +62,11 @@ a {
   cursor: pointer;
   color: #666666;
   font-variant: small-caps;
-  font-size: 22px;
+  font-size: 18px;
   /*  border: 1px solid green;*/
 }
 .header-link:hover {
-  color: #48d1cc;
+  color: #9370db;
 }
 .header-link span {
   font-size: 18px;
@@ -84,6 +84,23 @@ a {
 .header-brackets div {
   width: 20px;
 }
+.header-title {
+  position: absolute;
+  font-size: 22px;
+  font-family: 'Sanchez', serif;
+  line-height: 21px;
+  color: #555;
+  cursor: pointer;
+}
+.header-title:hover {
+  color: #48d1cc;
+}
+.header-logo {
+  position: absolute;
+  top: 15px;
+  cursor: pointer;
+  opacity: 0.7;
+}
 /*----------------------------------------------*/
 /*-------- TITLE
 /*----------------------------------------------*/
@@ -91,7 +108,7 @@ a {
   position: fixed;
   width: 100%;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .title {
@@ -182,7 +199,7 @@ a .section-label {
   color: steelblue;
 }
 a .section-label:hover {
-  color: #48d1cc;
+  color: #9370db;
 }
 .text-grey {
   color: grey;
@@ -263,7 +280,7 @@ a .section-label:hover {
   cursor: pointer;
 }
 #toc-container {
-  margin-top: 140px;
+  margin-top: 160px;
   /*margin-left: 30px;*/
 }
 .toc-item {
