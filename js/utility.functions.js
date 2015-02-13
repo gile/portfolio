@@ -3,7 +3,7 @@
     
     MY_COLOR_PALETTE = {
         RED: "#e53338",
-        GREEN: '#87b716',
+        GREEN: '#77a706',
         DARK_GREEN: '#006400',
         YELLOW: '#E8BE56',
         DARK_BLUE: '#32597C',
@@ -31,17 +31,6 @@
     String.prototype.hasSubstring = String.prototype.hasSubstring || function(substring) {
         return this.indexOf(substring) !== -1;
     }
-
-    // $.fn.createDomElement = $.fn.createDomElement || function(elementName, identifier, elementType) {
-    //     var identifier = (identifier) ? '_' + identifier : "",
-    //         elementType = elementType || 'div',
-    //         elementId = elementName + identifier,//elementName.getScopedId(identifier),
-    //         elementClass = elementName,
-    //         element = '<' + elementType + ' id="' + elementId + '" class="' + elementClass + '"></' + elementType + '>';
-
-    //     this.append(element);
-    //     return $('#' + elementId);
-    // }   
 
 window.createDomElement = window.createDomElement || function($parent, elementName, identifier, elementType) {
         var identifier = (identifier) ? '_' + identifier : "",

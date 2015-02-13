@@ -14,10 +14,6 @@ var ARC_MAP_EXTENSION = {
 
     createArcMap: function(mapName, input_data, parent, indexMap, userOptions) {
 
-        //console.log('\ncreateArcMap(', mapName, input_data, parent, indexMap, userOptions, ')');
-
-        //defineUtilityFunctions();
-
         var MAP_TYPE = "ARC_MAP",
             MAX_INT = 9007199254740992,
             DURATION = 1000,
@@ -379,12 +375,6 @@ var ARC_MAP_EXTENSION = {
             .attr("height", exportContainerHeight)
             .attr("transform", "translate(" + exportTranslate[0] + "," + exportTranslate[1] + ")");
 
-//        exportContainer.append("text")
-//            .attr("id", mapName + '_chart_export_text')
-//            .attr("text-anchor", "left")
-//            .attr("transform", "translate(" + exportTextTranslate[0] + "," + exportTextTranslate[1] + ")")
-//            .text("");
-
         var importContainerHeight = chartContainerHeight * chartImportRelativeHeight,
             importContainerWidth = chartContainerWidth,
             importTranslate = [
@@ -399,11 +389,6 @@ var ARC_MAP_EXTENSION = {
             .attr("height", importContainerHeight)
             .attr("transform", "translate(" + importTranslate[0] + "," + importTranslate[1] + ")");
 
-//        importContainer.append("text")
-//            .attr("id", mapName + '_chart_import_text')
-//            .attr("text-anchor", "left")
-//            .attr("transform", "translate(" + importTextTranslate[0] + "," + importTextTranslate[1] + ")")
-//            .text("");
         var legendContainer = mapContainer.append("svg:g")
             .attr("class", "legend_container")
             .attr("width", 300)
@@ -929,19 +914,7 @@ var ARC_MAP_EXTENSION = {
                 destSelector = ids.getCountryId(destCountryName.toString().replaceSpaces()),
                 $src = $(srcSelector),
                 $dest = $(destSelector);
-            /*
-            $dest.mouseover(function () {
-
-
-                highlightArc($arc[0], dataIndex);
-                highlightCountry(this);
-            });
-            $dest.mouseout(function () {
-
-                dehighlightArc($arc[0]);
-                dehighlightCountry(this);
-            });*/
-
+        
             $arc.mouseover(function (e) {
 
                 var dataIndex = $(this).data('dataIndex'),
@@ -973,25 +946,6 @@ var ARC_MAP_EXTENSION = {
                     revenue = dataArray[dataIndex][measureIndex].data,
                     anchorSelector = ids.getAnchorId(dataIndex),
                     anchorPosition = $(anchorSelector).position();
-                    //anchorPosition = $(arc).data('tooltipAnchor');
-
-//                tooltipText = 'Country: <span id="dest_name">' + dest + '</span><br>Revenue: <span id="revenue">' + revenue + '</span>';
-//                $(getIdSelector('tooltip_text')).html(tooltipText);
-//
-//                $(ids.getAnchorId(dataIndex)).qtip('show');
-//
-//                // display tooltip
-//                $(ids.getTooltipPlateId(dataIndex)).removeClass('hide');
-//
-//                // position tooltip
-//                $(ids.getTooltipPlateId(dataIndex)).position(anchorPosition);
-
-//                d3.selectAll(getClassSelector('arc_' + dataIndex))
-//                        // remove transparency
-//                        .classed('transparent', false)
-//                        // highight arc
-//                        .classed('selectedArc', true);
-                //$('.arc_' + dataIndex).addClass('selectedArc');
             };
 
             var dehighlightArc = function (arc) {

@@ -16,9 +16,6 @@ function createBars(selector) {
 
 	var cvFirstRun = false;
 
-	// var 	menu = d3.select("#history-menu select")
-	// 		.on("change", change);
-
 	// set the stage for the visualization
 	var 	margin = {top: 10, right: 40, bottom: 30, left: 10},
 		width = $(selector).parent().width() * 0.9,

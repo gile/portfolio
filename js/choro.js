@@ -16,10 +16,8 @@ var CHORO_MAP_EXTENSION = {
     browserInfo: get_browser(),
 
     createChoroMap: function(mapName, input_data, parent, indexMap, userOptions) {
-        //console.log('\ncreateChoroMapQQ(', mapName, input_data, parent, indexMap, userOptions, ')');
 
         var MAP_TYPE = "CHORO";
-        //defineUtilityFunctions();
 
         var width = $(parent).width(),
               height = $(parent).height(),
@@ -54,18 +52,9 @@ var CHORO_MAP_EXTENSION = {
 
         var COLOR_PALETTE = {
                 // -- MAP COLORS --
-                stateColorScale: [
-                    //'#8B4513', //Reddish Brown
-                    //'#666'     // Grey
-                    //'#006400', // Dark Green
-                    //'#9ACD32', // Yellow Green
+                stateColorScale: [                
                     getMyColor("green"),
-
-                    //'#FFD700', // Gold Yellow
                     getMyColor('white'),
-
-                    //'#FF8C00', // Orange
-                    //'#A22'  // Red
                     getMyColor("red")
                 ],
                 noMeasureData: getMyColor("light grey"),
@@ -194,10 +183,6 @@ var CHORO_MAP_EXTENSION = {
         // create map buttons container
         var $mapButtonContainer = createDomElement($map, "map_button_container");
 
-        // var $mapButtonTitle = $mapButtonContainer.createDomElement("map_button_title", "", "span");
-        // $mapButtonTitle.text("");
-        // $mapButtonContainer.append('<br>');
-
         var mapButtonP = createDomElement($mapButtonContainer, "map_button_p", "", "p"),
             $mapButtonP = $(getIdSelector("map_button_p")),
             $mapButtons = [];
@@ -318,13 +303,6 @@ var CHORO_MAP_EXTENSION = {
             .attr("y1", "0%")
             .attr("x2", "0%")
             .attr("y2", "100%");
-
-//        for (var i=0; i<numColors; ++i) {
-//            legendGradient.append("svg:stop")
-//                .attr("offset", (i * colorJump) + "%")
-//                .style("stop-color", COLOR_PALETTE.stateColorScale[i])
-//                .style("stop-opacity", 1);
-//        }
 
         // create the legend bar
         var legendBarHeight = legendContainerHeight * 0.8;
@@ -585,14 +563,6 @@ var CHORO_MAP_EXTENSION = {
                 domain,
                 range;
 
-//                console.log(
-//                    currentMeasureIndex,
-//                    minMeasures[currentMeasureIndex].name,
-//                    minMeasures[currentMeasureIndex].value,
-//                    maxMeasures[currentMeasureIndex].name,
-//                    maxMeasures[currentMeasureIndex].value);
-//
-
             // input has no legal values for this measure
             if (maxMeasures[currentMeasureIndex].value === MIN_MEASURE_VALUE ||
                 (maxMeasures[currentMeasureIndex].value === 0 && minMeasures[currentMeasureIndex].value === 0))
@@ -603,14 +573,8 @@ var CHORO_MAP_EXTENSION = {
                 // check if we need both red and green in the scale
                 if (0 < maxMeasures[currentMeasureIndex].value && 0 > minMeasures[currentMeasureIndex].value) {
                     domain = [
-                        maxMeasures[currentMeasureIndex].value,
-                        //d3.max(dataArray, function (d) { return getNumericValue(d[currentMeasureIndex], true); }),
-                        //d3.max(dataArray, function (d) { return d[measureIndex].data; }) * 0.01,
-                        //100,//d3.max(dataArray, function (d) { return d[measureIndex].data; }) * 0.001,
-                        0,
-                        //-100//d3.min(dataArray, function (d) { return d[measureIndex].data; }) * 0.01,
-                        //d3.min(dataArray, function (d) { return d[measureIndex].data; }) * 10
-                        //d3.min(dataArray, function (d) { return getNumericValue(d[currentMeasureIndex], true); })
+                        maxMeasures[currentMeasureIndex].value,                  
+                        0,                       
                         minMeasures[currentMeasureIndex].value
                     ];
                     range = COLOR_PALETTE.stateColorScale;
@@ -701,10 +665,8 @@ var CHORO_MAP_EXTENSION = {
                 range = range || 0.1;
 
             if (Math.abs(number) < Math.abs(range * epsilon) ) {
-                //console.log(Math.abs(number), Math.abs(range * epsilon), 'true');
                 return true;
             }
-            //console.log(Math.abs(number), Math.abs(range * epsilon), 'false');
             return false;
         }
 
@@ -934,9 +896,7 @@ var CHORO_MAP_EXTENSION = {
             updateMarker(dataIndex);
 
             function updateBar(barIndex) {
-                //console.log('update', barIndex);
-                //console.log('dataIndex', dataIndex, dataArray[dataIndex][barIndex + 1], 'barIndex', barIndex, getBarColor(barIndex) === COLOR_PALETTE.barPositive ? 'GREEN' : 'RED');
-
+    
                 var h = Math.abs(barHeight[barIndex]),
                     barColors = [
                         getBarColor(0, dataIndex),
@@ -978,15 +938,7 @@ var CHORO_MAP_EXTENSION = {
                         .attr("transform", function() {
                             var tr = getBarTransform(barIndex, barHeight[barIndex]);
                             return tr;
-                        })
-                        
-
-                    // we need this transition if current height is zero (which has a positive sign, but is colored white)
-                    // setTimeout(function() {
-                    //     bars[barIndex].style("fill", getBarColor(barIndex));
-                    // },
-                    // delay);
-
+                        })                    
                 }
             }
 
@@ -1005,9 +957,7 @@ var CHORO_MAP_EXTENSION = {
                         .attr('d', marker(barHeight))
                         .attr('transform', translateMarker(barHeight))
                         .style('stroke', function() {
-                            //console.log(color(barHeight[0] - barHeight[1]));
                             if (getMarkerLength() > 0) {
-                                //return getStateColor(dataIndex, gapIndex);
                                 return getMarkerColor(dataIndex);
                             }
                             else {
@@ -1022,9 +972,7 @@ var CHORO_MAP_EXTENSION = {
                         .attr('d', marker(barHeight))
                         .attr('transform', translateMarker(barHeight))
                         .style('stroke', function() {
-                            //console.log(color(barHeight[0] - barHeight[1]));
                             if (getMarkerLength() > 0) {
-                                //return getStateColor(dataIndex, gapIndex);
                                 return getMarkerColor(dataIndex);
                             }
                             else {
@@ -1042,17 +990,6 @@ var CHORO_MAP_EXTENSION = {
                             "" :
                             dataArray[dataIndex][gapIndex].text;
                     });
-/*
-                var gapText = gapLabel.text();
-                if (gapText === "N/A" || gapText === "") {
-                    gapMarker.addClass("hide");
-                    gapLabel.addClass("hide");
-                }
-                else {
-                    gapMarker.removeClass("hide");
-                    gapLabel.removeClass("hide");
-                }
-*/
             }
 
             function updateLabel(labelIndex) {
@@ -1090,11 +1027,6 @@ var CHORO_MAP_EXTENSION = {
 
             function updateStateName() {
                 stateLabel.text(currentStateName);
-
-//                var stateLabelWidth = $(getIdSelector('state_label')).width();
-//                stateLabelUnderline
-//                    .attr('x1', (chartWidth / 2) - (stateLabelWidth / 2) - 5)
-//                    .attr('x2', (chartWidth / 2) + (stateLabelWidth / 2) + 5);
             }
 
             // update old values only after transition finishes so that the bar direction doesn't get confused
@@ -1184,8 +1116,6 @@ var CHORO_MAP_EXTENSION = {
             }
 
             totalMeasureValue /= totalStatesEconomySize;
-//            console.log('***', totalMeasureValue, totalStatesEconomySize);
-//            console.log('');
             
             //return {data: totalMeasureValue, value: (totalMeasureValue * 100).toFixed(1) + '%'};
             return ( isNaN(totalMeasureValue) )

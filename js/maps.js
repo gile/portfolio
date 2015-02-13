@@ -184,9 +184,6 @@ function maps() {
 			$(selectorNot).addClass('hidden');			
 		}, duration);
 
-
-		
-
 	}
 }
 

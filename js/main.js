@@ -10,7 +10,7 @@ var 	BLUE = 	'#6baed6',
 	GREEN_L = 	'#98df8a',
 	RED =		'#d6616b',
 	RED_L = 	'#ff9896',
-	PURPLE =	'#ce6dbd',
+	PURPLE =	'#9370db',
 	PURPLE_L = 	'#c5b0d5',
 	BROWN = 	'#c49c94',
 	BROWN_L = 	'#c49c94',
@@ -135,10 +135,6 @@ $(document).ready(function() {
 	//***************************************
 	// UX
 	//***************************************
-	// $( '#fwslider-sisense-mockups' ).cbpFWSlider();	
-	// $( '#fwslider-sisense-screenshots' ).cbpFWSlider();
-	// $( '#fwslider-zennet-mockups' ).cbpFWSlider();		
-	// $( '#fwslider-zennet-screenshots' ).cbpFWSlider();		
 	$( '.cbp-fwslider').cbpFWSlider();
 
 	var menu = d3.selectAll('#ux-menu');
@@ -210,15 +206,6 @@ $(document).ready(function() {
 		],
 		zoom: 4
 	});	
-
-	// $('.info-text').mouseover(function() {
-	// 	console.log('FFFF');
-	// });
-
-	// $('.info-text').mouseout(function() {
-	// 	//console.log('FFFF');
-	// });
-	
 });
 
 
@@ -407,7 +394,6 @@ function doneResizing(){
 
 	mainContainerCss = {
 		width: columnWidth * numColumns,
-		//height: $currentColumn.height(),
 		marginLeft: columnWidth * columnOffset[columnName]
 	};			
 	
@@ -455,16 +441,9 @@ function headerSetActive(name, duration) {
 	}
 }
 
-function headerLinkMouseover(element, name) {
+function headerLinkMouseover(element, name) {}
 
-	// var color = pages.filter(function(d) {return d.id === name})[0].color;
-
-	// d3.select(element).style('color', color);
-}
-
-function headerLinkMouseout(element) {
-	// d3.select(element).style('color', '');
-}
+function headerLinkMouseout(element) {}
 
 function headerLinkClick(columnName) {
 	var 	mainContainerCss,
