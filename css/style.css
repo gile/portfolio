@@ -363,7 +363,7 @@ svg#toc-svg text {
   /*margin-left: 10px;*/
 }
 #column-maps #map-menu {
-  margin: 20px 0;
+  margin: 35px 0 15px;
   z-index: 100;
 }
 /*----------------------------------------------*/

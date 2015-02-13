@@ -3,8 +3,8 @@
 var PIE_MAP_EXTENSION = {
     options: {
         defaultOptions: {
-            scaleFactor:  0.18,
-            translateFactor: [0.3, 0.53],
+            scaleFactor:  0.185,
+            translateFactor: [0.35, 0.53],
             //translateDelta: [-90, 70],
             translateDelta: [0, 0],
             bigPie: {

@@ -1,4 +1,5 @@
 var 	id,
+	index,
 	duration = 500;
 
 var 	BLUE = 	'#6baed6',
@@ -26,11 +27,7 @@ var 	pages = [
 		{id: 'contact', name: "contact", color: ORANGE, hover: ORANGE_L}
 	];
 
-// $.each(pages, function( index, value ) {
-// 	columnOffset[value.id] = -1 * (index);
-// });
-
-
+var 	pagesIndex = {};
 
 var 	columnOffset = pages.reduce(function(total, current, index) {
 	total[current.id] = index * -1;
@@ -38,8 +35,8 @@ var 	columnOffset = pages.reduce(function(total, current, index) {
 }, {})
 
 var 	numColumns = pages.length,
-		columnWidth,
-		$currentColumn;
+	columnWidth,
+	$currentColumn;
 
 var 	headerColor = BLUE,//'#4682b4',
 	headerColorHover = TURQUOISE;
@@ -77,6 +74,10 @@ $(document).ready(function() {
 	//***************************************
 	// HEADER
 	//***************************************
+	$.each(pages, function( index, value ) {
+		pagesIndex[value.id] = index;
+	});
+
 	$('.header-link').click(function() {
 		var name = $(this).attr('name');
 		headerLinkClick(name);
@@ -93,26 +94,30 @@ $(document).ready(function() {
 	});
 
 	$currentColumn = $('#column-home');
-	headerSetActive('home', 0)
+	headerLinkClick('home')
 	doneResizing();		
 
 	$(document).keydown(function(e){
-		e = e || window.event;
+		var 	colName,
+			newIndex;
 
-		if (e.keyCode== '38') {
-		        // up arrow
-		        console.log(e.keyCode)
-		    }
-		    else if (e.keyCode == '40') {
-		        // down arrow
-		    }
-		    else if (e.keyCode == '37') {
-		       // left arrow
-		    }
-		    else if (e.keyCode == '39') {
-		       // right arrow
-		    }
+		e = e || window.event;
 		
+		 if (e.keyCode == '37') {
+			// left arrow
+			newIndex = Math.max(index - 1, 0);
+		}
+		else if (e.keyCode == '39') {
+			// right arrow
+			 newIndex = Math.min(index + 1, pages.length - 1);
+		}
+		else {
+			return;
+		}
+
+		colName = pages[newIndex].id;
+
+		headerLinkClick(colName);
 	});
 
 	//***************************************
@@ -161,8 +166,6 @@ $(document).ready(function() {
 			$(selectorNot).addClass('hidden');			
 		}, duration);
 	}
-
-	console.log(window.get_browser().browser);
 
 	$('.slides-list').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open
@@ -412,7 +415,8 @@ function doneResizing(){
 }
 
 function headerSetActive(name, duration) {	
-	//var headerActiveColor = pages.filter(function(d) {return d.id === name})[0].color;
+	
+
 	var headerActiveColor = BLUE;
 
 	if (!duration || duration === 0) {
@@ -466,7 +470,9 @@ function headerLinkClick(columnName) {
 	var 	mainContainerCss,
 		$thisColumn = $('#column-' + columnName);
 
-	if ($currentColumn.attr('id') === $thisColumn.attr('id') ) return; 
+	if ( index !== undefined && ($currentColumn.attr('id') === $thisColumn.attr('id') )) return; 
+
+	index = pagesIndex[columnName];
 
 	headerSetActive(columnName, 200);
 
@@ -480,31 +486,13 @@ function headerLinkClick(columnName) {
 
 	$('.main-container').animate(mainContainerCss, duration);
 
-	//d3.select('#header-item-home').style('margin-left', '250px')
-
 	if (columnName === 'home') {
 		d3.select('.title')
 			.style('display', '')
 		        .transition()
 		        	.delay(400)
 			.duration(250)
-			.style('opacity', 1);
-
-		// d3.select('.header-links').transition()
-		// 	.duration(250)
-		// 	.style('height', '100px');
-
-		// d3.select('#header-item-home').transition()
-		// 	.duration(250)
-		// 	.style('margin-left', '200px')
-
-		// d3.selectAll('.header-link').transition()
-		// 	.duration(250)
-		// 	.style('opacity', 0);
-
-		// d3.select('.title').transition()
-		// 	.duration(250)
-		// 	.style('opacity', 1);
+			.style('opacity', 1);	
 	}
 	else  {
 		d3.select('.title')			
@@ -513,24 +501,7 @@ function headerLinkClick(columnName) {
 			.style('opacity', 0)
 		        .transition()
 			.delay(250)
-		        	.style('display', 'none')
-		        	
-
-		// d3.select('.header-links').transition()
-		// 	.duration(250)
-		// 	.style('height', '40px');
-
-		// d3.select('#header-item-home').transition()
-		// 	.duration(250)
-		// 	.style('margin-left', 0)
-
-		// d3.selectAll('.header-link').transition()
-		// 	.duration(250)
-		// 	.style('opacity', 1);
-
-		// d3.select('.title').transition()
-		// 	.duration(250)
-		// 	.style('opacity', 0);
+		        	.style('display', 'none')		        	
 	}
 
 	setTimeout(function() {
