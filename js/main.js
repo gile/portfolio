@@ -112,10 +112,11 @@ $(document).ready(function() {
 	//***************************************
 	// UX
 	//***************************************
-	$( '#fwslider-sisense-mockups' ).cbpFWSlider();	
-	$( '#fwslider-sisense-screenshots' ).cbpFWSlider();
-	$( '#fwslider-zennet-mockups' ).cbpFWSlider();		
-	$( '#fwslider-zennet-screenshots' ).cbpFWSlider();		
+	// $( '#fwslider-sisense-mockups' ).cbpFWSlider();	
+	// $( '#fwslider-sisense-screenshots' ).cbpFWSlider();
+	// $( '#fwslider-zennet-mockups' ).cbpFWSlider();		
+	// $( '#fwslider-zennet-screenshots' ).cbpFWSlider();		
+	$( '.cbp-fwslider').cbpFWSlider();
 
 	var menu = d3.selectAll('#ux-menu');
 
@@ -143,42 +144,13 @@ $(document).ready(function() {
 		}, duration);
 	}
 
-/**/
 	$('.slides-list').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open
 		type: 'image',
 		gallery:{enabled:true}
 		// other options
 	});
-/*/
-	$('#sisense-mockups-list').magnificPopup({
-		delegate: 'a', // child items selector, by clicking on it popup will open
-		type: 'image',
-		gallery:{enabled:true}
-		// other options
-	});
 
-	$('#sisense-screenshots-list').magnificPopup({
-		delegate: 'a', // child items selector, by clicking on it popup will open
-		type: 'image',
-		gallery:{enabled:true}
-		// other options
-	});
-
-	$('#zennet-mockups-list').magnificPopup({
-		delegate: 'a', // child items selector, by clicking on it popup will open
-		type: 'image',
-		gallery:{enabled:true}
-		// other options
-	});
-
-	$('#zennet-screenshots-list').magnificPopup({
-		delegate: 'a', // child items selector, by clicking on it popup will open
-		type: 'image',
-		gallery:{enabled:true}
-		// other options
-	});
-/**/
 	//***************************************
 	// MAPS
 	//***************************************
@@ -201,10 +173,19 @@ $(document).ready(function() {
 	// Create a map in the div #map
 	L.mapbox.map('contact-map', 'gil.io75e0n1', {
 		center: [
-			32.0565,
-			34.7650
+			//15
+			// 32.0565,
+			// 34.7650
+
+			// 12
+			// 32.0565,
+			// 34.8050
+
+			// 4
+			38.0565,
+			22.0000
 		],
-		zoom: 15
+		zoom: 4
 	});	
 
 	// $('.info-text').mouseover(function() {

@@ -91,7 +91,12 @@ a {
   position: fixed;
   width: 100%;
   text-align: center;
-  padding: 20px 0;
+  padding-top: 20px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .title {
+    padding-top: 80px;
+  }
 }
 .title-text {
   font-size: 40px;
@@ -230,8 +235,8 @@ a .section-label:hover {
   background-color: #6baed6;
 }
 .btn.selected:hover {
-  /*border-color: @menuHoverColor;
-			background-color: @menuHoverColor;*/
+  border-color: #48d1cc;
+  background-color: #48d1cc;
 }
 /*----------------------------------------------*/
 /*-------- HOME
