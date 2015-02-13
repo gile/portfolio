@@ -13,8 +13,8 @@
 @darkGrey: 	#666;
 
 @duru: 	'Duru Sans', sans-serif;
-@droid:	'Droid Sans Mono';	
 @pt:		'PT Sans', sans-serif;
+@sanchez: 	'Sanchez', serif;
 
 @uxColor:		steelblue;
 @mapsColor:		steelblue;
@@ -34,6 +34,7 @@
 @instagramColor:	@orange;
 @markerColor:	@purple;
 
+@titleFont:		@sanchez;
 @pagetitleFont:	@pt;
 @sectionTitleFont:	@duru;
 @TOCFont:		@duru;
@@ -53,7 +54,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: @textFont !important;
+  font-family: @textFont;
 }
 
 a {
@@ -166,14 +167,15 @@ a {
 }
 
 .title-text {
-	font-size: 40px;
+	font-size: 42px;
 	margin: 0 auto;
 	color: #777;
+	font-family: @titleFont;
 }
 
 .title-caption {
-	font-size: 18px;
-	margin: 6px auto;
+	font-size: 17px;
+	margin: 2px auto;
 	color: #aaa;
 }
 
@@ -365,7 +367,7 @@ a .section-label {
 
 
 #toc-container {
-  	margin-top: 120px;
+  	margin-top: 140px;
   	/*margin-left: 30px;*/
 }
 
@@ -676,7 +678,7 @@ svg#toc-svg {
 	}
 
 	.title-caption {
-		font-size: 18px;
+		font-size: 16px;
 	}
 
 	#toc-container {

@@ -96,6 +96,24 @@ $(document).ready(function() {
 	headerSetActive('home', 0)
 	doneResizing();		
 
+	$(document).keydown(function(e){
+		e = e || window.event;
+
+		if (e.keyCode== '38') {
+		        // up arrow
+		        console.log(e.keyCode)
+		    }
+		    else if (e.keyCode == '40') {
+		        // down arrow
+		    }
+		    else if (e.keyCode == '37') {
+		       // left arrow
+		    }
+		    else if (e.keyCode == '39') {
+		       // right arrow
+		    }
+		
+	});
 
 	//***************************************
 	// TOC
@@ -143,6 +161,8 @@ $(document).ready(function() {
 			$(selectorNot).addClass('hidden');			
 		}, duration);
 	}
+
+	console.log(window.get_browser().browser);
 
 	$('.slides-list').magnificPopup({
 		delegate: 'a', // child items selector, by clicking on it popup will open

@@ -5,7 +5,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: 'Duru Sans', sans-serif !important;
+  font-family: 'Duru Sans', sans-serif;
 }
 a {
   text-decoration: none;
@@ -99,13 +99,14 @@ a {
   }
 }
 .title-text {
-  font-size: 40px;
+  font-size: 42px;
   margin: 0 auto;
   color: #777;
+  font-family: 'Sanchez', serif;
 }
 .title-caption {
-  font-size: 18px;
-  margin: 6px auto;
+  font-size: 17px;
+  margin: 2px auto;
   color: #aaa;
 }
 /*----------------------------------------------*/
@@ -262,7 +263,7 @@ a .section-label:hover {
   cursor: pointer;
 }
 #toc-container {
-  margin-top: 120px;
+  margin-top: 140px;
   /*margin-left: 30px;*/
 }
 .toc-item {
@@ -508,7 +509,7 @@ svg#toc-svg text {
     font-size: 32px;
   }
   .title-caption {
-    font-size: 18px;
+    font-size: 16px;
   }
   #toc-container {
     margin-top: 120px;
