@@ -122,7 +122,7 @@ $(document).ready(function() {
 
 	createLogo('.header-logo');
 	d3.select('.header-logo')
-		.on('mouseover', function() { d3.selectAll('.header-logo circle').style('fill', headerColorHover) })
+		.on('mouseover', function() { d3.selectAll('.header-logo circle').style('fill', function(d) {return d.hover;}) })
 		.on('mouseout', function() { d3.selectAll('.header-logo circle').style('fill', function(d) {return d.color}) })
 		.on('click', function() {headerLinkClick('home')});
 
@@ -229,6 +229,55 @@ $(window).resize(function() {
 /////////////////////////////////////////////////////////////
 // Private Methods
 /////////////////////////////////////////////////////////////	
+function createLogo(selector)  {
+	var	radius = 7;
+
+	var 	width = radius * 4,
+		height = radius * 4;
+
+	var  	padding = 0, // separation between same-color nodes
+		clusterPadding = 0; // separation between different-color nodes
+
+	
+
+	var center = [width / 2, height / 2];
+
+	var 	nodes = [
+		{name: "red", color: GREY, hover: BLUE},
+		{name: "orange",  color: GREY, hover: ORANGE},
+		{name: "blue", color: GREY, hover: RED},
+		{name: "green", color: GREY, hover: GREEN},
+	];
+	
+	var 	svg = d3.select(selector).append("svg")
+			.attr("width", width)
+			.attr("height", height);
+
+	var	 g = svg.append("g")
+			//.attr('transform', function() {return 'translate(' + center[0] + ',' + center[1] + ')' });
+
+	g.selectAll("circle").data(nodes).enter()
+		.append("circle")
+		.attr("r", radius)
+		.attr('cx', function(d, i) { 
+			if (i<2) {
+				return center[0] -radius;
+			}
+			else {
+				return center[0] + radius;
+			}
+		})
+		.attr('cy', function(d, i) {
+			if (i%2 === 0) {
+				return center[1] - radius;
+			}
+			else {
+				return center[1] + radius;
+			}
+		})
+		.style("fill", function(d) { return d.color})
+
+}
 
 function runTocAnimation() {	
 

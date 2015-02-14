@@ -106,14 +106,10 @@ a {
 /*----------------------------------------------*/
 .title {
   position: fixed;
+  top: 60px;
   width: 100%;
   text-align: center;
   padding-top: 30px;
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .title {
-    padding-top: 80px;
-  }
 }
 .title-text {
   font-size: 42px;
@@ -462,7 +458,7 @@ svg#toc-svg text {
 #column-contact .contact-text-container {
   width: 25%;
   float: left;
-  margin-top: 6px;
+  margin-top: 0px;
 }
 #column-contact .contact-map-container {
   width: 75%;
@@ -470,7 +466,7 @@ svg#toc-svg text {
 }
 #column-contact .contact-section {
   /*display: inline-block;*/
-  margin-top: 35px;
+  margin-top: 40px;
   color: #777777;
 }
 #column-contact .contact-icon {
