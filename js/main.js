@@ -461,8 +461,8 @@ function headerLinkClick(columnName) {
 
 	headerSetActive(columnName, 200);
 
-	$currentColumn.animate({opacity: 0});
-	$thisColumn.animate({opacity: 1});
+	// $currentColumn.animate({opacity: 0});
+	// $thisColumn.animate({opacity: 1});
 	$currentColumn = $thisColumn;
 
 	mainContainerCss = {
