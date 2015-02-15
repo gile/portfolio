@@ -126,7 +126,7 @@ function createForceLayout(selector) {
 		.attr("x", 0)
 		.attr("y", 0)
 		.attr("dy", 3)
-		.text(function(d) { return capitalise(d.name)})
+		.text(function(d) { return d.name})
 
 	svg.append('g').attr('class', 'level-g')
 	      .selectAll('text')
